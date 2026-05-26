@@ -234,6 +234,9 @@ Vietnamese learning tone should be clear, student-friendly, and presentation-rea
 - Final Vercel deployment direction: keep `src/` as local source, but build production assets into `public/assets/`; `vercel.json` now uses `buildCommand: npm run build`, `outputDirectory: public`, and a simple SPA rewrite to `/index.html`.
 - Added GitHub Actions workflow `.github/workflows/deploy-vercel.yml` to deploy production to Vercel on pushes to `main` or manual `workflow_dispatch`.
 - The workflow expects GitHub repository secrets: `VERCEL_TOKEN`, `VERCEL_ORG_ID`, and `VERCEL_PROJECT_ID`.
+- User decided to stop deploying to Vercel and deploy through GitHub Actions/GitHub Pages instead.
+- Removed Vercel workflow and `vercel.json`.
+- Added `.github/workflows/deploy-pages.yml`, which builds with `npm run build`, uploads the `public/` output as a GitHub Pages artifact, and deploys it through `actions/deploy-pages`.
 - Verified server fallback while ports 4173 and 4174 were busy; it successfully started on `http://127.0.0.1:4175/`.
 - Fixed a white-screen runtime issue caused by `src/data.js` being corrupted to a single `r`, which threw `ReferenceError: r is not defined` and prevented `window.APP_DATA` from loading.
 - Added a runtime guard in `src/app.js` so missing/invalid `APP_DATA` shows a clear error message instead of a blank page.
