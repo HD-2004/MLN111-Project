@@ -2,7 +2,7 @@ import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import { extname, join, normalize, resolve } from "node:path";
 
-const root = resolve(".");
+const root = resolve(process.env.STATIC_ROOT || ".");
 const preferredPort = Number.parseInt(process.env.PORT || "4173", 10);
 const maxPort = preferredPort + 20;
 
@@ -58,6 +58,7 @@ function listenOnAvailablePort(port) {
 
   server.listen(port, "127.0.0.1", () => {
     console.log(`Preview server running at http://127.0.0.1:${port}/`);
+    console.log(`Serving static files from ${root}`);
   });
 }
 

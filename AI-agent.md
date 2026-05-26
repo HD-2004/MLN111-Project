@@ -223,6 +223,11 @@ Vietnamese learning tone should be clear, student-friendly, and presentation-rea
 - Fixed the left progress navigation logic: active chapter is now calculated from scroll position and updates immediately on chapter clicks.
 - Reduced expensive always-running background animations in `src/styles.css` to improve scroll smoothness while preserving the dark museum/cyber visual direction.
 - Added an inline favicon in `index.html` so local preview no longer reports a missing `favicon.ico`.
+- Fixed Vercel static deployment setup:
+  - Added `npm run build` via `scripts/build.mjs`.
+  - Build output is now `dist/`, containing `index.html` and `src/` assets.
+  - Added `vercel.json` with `buildCommand`, `outputDirectory`, and SPA rewrite fallback.
+  - Updated `server.mjs` to support `STATIC_ROOT=dist` for production-like local preview.
 - Verified server fallback while ports 4173 and 4174 were busy; it successfully started on `http://127.0.0.1:4175/`.
 - Fixed a white-screen runtime issue caused by `src/data.js` being corrupted to a single `r`, which threw `ReferenceError: r is not defined` and prevented `window.APP_DATA` from loading.
 - Added a runtime guard in `src/app.js` so missing/invalid `APP_DATA` shows a clear error message instead of a blank page.
