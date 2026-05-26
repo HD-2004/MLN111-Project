@@ -230,6 +230,8 @@ Vietnamese learning tone should be clear, student-friendly, and presentation-rea
   - Updated `server.mjs` to support `STATIC_ROOT=dist` for production-like local preview.
 - After Vercel still tried to run the app as a serverless function, moved the local preview server from root `server.mjs` to `scripts/dev-server.mjs`.
 - Updated `vercel.json` to an explicit static build/routes config using `@vercel/static` for `index.html` and `src/**`, so Vercel should not invoke any Node server runtime.
+- Vercel logs later showed `ReferenceError: window is not defined at /var/task/src/app.js`, meaning browser code from `src/app.js` was still being invoked as server runtime code.
+- Final Vercel deployment direction: keep `src/` as local source, but build production assets into `public/assets/`; `vercel.json` now uses `buildCommand: npm run build`, `outputDirectory: public`, and a simple SPA rewrite to `/index.html`.
 - Verified server fallback while ports 4173 and 4174 were busy; it successfully started on `http://127.0.0.1:4175/`.
 - Fixed a white-screen runtime issue caused by `src/data.js` being corrupted to a single `r`, which threw `ReferenceError: r is not defined` and prevented `window.APP_DATA` from loading.
 - Added a runtime guard in `src/app.js` so missing/invalid `APP_DATA` shows a clear error message instead of a blank page.
