@@ -228,6 +228,8 @@ Vietnamese learning tone should be clear, student-friendly, and presentation-rea
   - Build output is now `dist/`, containing `index.html` and `src/` assets.
   - Added `vercel.json` with `buildCommand`, `outputDirectory`, and SPA rewrite fallback.
   - Updated `server.mjs` to support `STATIC_ROOT=dist` for production-like local preview.
+- After Vercel still tried to run the app as a serverless function, moved the local preview server from root `server.mjs` to `scripts/dev-server.mjs`.
+- Updated `vercel.json` to an explicit static build/routes config using `@vercel/static` for `index.html` and `src/**`, so Vercel should not invoke any Node server runtime.
 - Verified server fallback while ports 4173 and 4174 were busy; it successfully started on `http://127.0.0.1:4175/`.
 - Fixed a white-screen runtime issue caused by `src/data.js` being corrupted to a single `r`, which threw `ReferenceError: r is not defined` and prevented `window.APP_DATA` from loading.
 - Added a runtime guard in `src/app.js` so missing/invalid `APP_DATA` shows a clear error message instead of a blank page.

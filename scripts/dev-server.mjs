@@ -18,27 +18,27 @@ const mimeTypes = {
 
 function createStaticServer() {
   return createServer(async (request, response) => {
-  try {
-    const url = new URL(request.url || "/", `http://${request.headers.host}`);
-    const pathname = url.pathname === "/" ? "/index.html" : decodeURIComponent(url.pathname);
-    const filePath = normalize(join(root, pathname));
+    try {
+      const url = new URL(request.url || "/", `http://${request.headers.host}`);
+      const pathname = url.pathname === "/" ? "/index.html" : decodeURIComponent(url.pathname);
+      const filePath = normalize(join(root, pathname));
 
-    if (!filePath.startsWith(root)) {
-      response.writeHead(403);
-      response.end("Forbidden");
-      return;
+      if (!filePath.startsWith(root)) {
+        response.writeHead(403);
+        response.end("Forbidden");
+        return;
+      }
+
+      const file = await readFile(filePath);
+      response.writeHead(200, {
+        "Content-Type": mimeTypes[extname(filePath)] || "application/octet-stream",
+        "Cache-Control": "no-store",
+      });
+      response.end(file);
+    } catch {
+      response.writeHead(404);
+      response.end("Not found");
     }
-
-    const file = await readFile(filePath);
-    response.writeHead(200, {
-      "Content-Type": mimeTypes[extname(filePath)] || "application/octet-stream",
-      "Cache-Control": "no-store",
-    });
-    response.end(file);
-  } catch {
-    response.writeHead(404);
-    response.end("Not found");
-  }
   });
 }
 
