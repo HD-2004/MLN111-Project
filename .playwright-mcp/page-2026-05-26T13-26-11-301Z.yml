@@ -1,0 +1,240 @@
+- generic [ref=e2]:
+  - complementary "Điều hướng chương" [ref=e3]:
+    - link "01 The Portal" [ref=e5] [cursor=pointer]:
+      - /url: "#portal"
+      - generic [ref=e6]: "01"
+      - strong [ref=e7]: The Portal
+    - link "02 Lý thuyết" [ref=e8] [cursor=pointer]:
+      - /url: "#theory"
+      - generic [ref=e9]: "02"
+      - strong [ref=e10]: Lý thuyết
+    - link "03 Bản chất AI" [ref=e11] [cursor=pointer]:
+      - /url: "#ai"
+      - generic [ref=e12]: "03"
+      - strong [ref=e13]: Bản chất AI
+    - link "04 Dialogue" [ref=e14] [cursor=pointer]:
+      - /url: "#dialogue"
+      - generic [ref=e15]: "04"
+      - strong [ref=e16]: Dialogue
+    - link "05 Manifesto" [ref=e17] [cursor=pointer]:
+      - /url: "#manifesto"
+      - generic [ref=e18]: "05"
+      - strong [ref=e19]: Manifesto
+  - main [ref=e20]:
+    - generic [ref=e21]:
+      - generic:
+        - generic: matter.objectiveReality(); consciousness.reflect();
+        - generic: matter.objectiveReality(); consciousness.reflect();
+        - generic: matter.objectiveReality(); consciousness.reflect();
+        - generic: matter.objectiveReality(); consciousness.reflect();
+        - generic: matter.objectiveReality(); consciousness.reflect();
+        - generic: matter.objectiveReality(); consciousness.reflect();
+        - generic: matter.objectiveReality(); consciousness.reflect();
+        - generic: matter.objectiveReality(); consciousness.reflect();
+        - generic: matter.objectiveReality(); consciousness.reflect();
+        - generic: matter.objectiveReality(); consciousness.reflect();
+        - generic: matter.objectiveReality(); consciousness.reflect();
+        - generic: matter.objectiveReality(); consciousness.reflect();
+        - generic: matter.objectiveReality(); consciousness.reflect();
+        - generic: matter.objectiveReality(); consciousness.reflect();
+        - generic: matter.objectiveReality(); consciousness.reflect();
+        - generic: matter.objectiveReality(); consciousness.reflect();
+        - generic: matter.objectiveReality(); consciousness.reflect();
+        - generic: matter.objectiveReality(); consciousness.reflect();
+      - generic [ref=e22]:
+        - generic [ref=e23]:
+          - paragraph [ref=e24]: Chương 1 / The Portal
+          - heading "Lời Gọi Mời Từ Tương Lai" [level=1] [ref=e25]
+          - generic [ref=e26]:
+            - generic [ref=e27]: ">"
+            - paragraph [ref=e28]: LI
+          - generic [ref=e29]:
+            - paragraph [ref=e30]: Chúng ta đang đứng ở tâm bão của Cuộc cách mạng công nghiệp lần thứ tư, nơi Trí tuệ nhân tạo không còn là viễn tưởng mà đã thẩm thấu vào cấu trúc vận hành của xã hội.
+            - paragraph [ref=e31]: "AI làm thơ, vẽ tranh, chẩn đoán bệnh tật, lập trình mã nguồn và thậm chí đưa ra các quyết định thay thế con người. Sự trỗi dậy này làm bùng nổ câu hỏi triết học: máy móc đang tiến tới ý thức, hay chỉ là biểu hiện tối tân của vật chất?"
+            - paragraph [ref=e32]: Để không rơi vào sợ hãi hoang đường hoặc ngây thơ thần thánh hóa máy móc, chúng ta dùng lăng kính duy vật biện chứng của Triết học Mác - Lênin để phẫu thuật bản chất của AI.
+          - link "Bước vào bản đồ lý thuyết" [ref=e33] [cursor=pointer]:
+            - /url: "#theory"
+        - generic "Tượng triết gia dạng hiện vật số" [ref=e34]:
+          - paragraph [ref=e35]: Future Philosophy Archive
+          - img "Tượng triết gia phát sáng" [ref=e37]
+    - generic [ref=e44]:
+      - generic [ref=e45]:
+        - paragraph [ref=e46]: Chương 2 / Bản đồ lý thuyết
+        - heading "Tọa Độ Vật Chất Và Ý Thức" [level=2] [ref=e47]
+        - paragraph [ref=e48]: "Lịch sử triết học là lịch sử cuộc đấu tranh giữa chủ nghĩa duy vật và chủ nghĩa duy tâm nhằm trả lời vấn đề cơ bản: vật chất và ý thức, cái nào có trước, cái nào quyết định cái nào?"
+      - generic [ref=e49]:
+        - article [ref=e50]:
+          - generic [ref=e51]: "01"
+          - generic [ref=e52]:
+            - generic [ref=e53]: Duy vật chất phác
+            - heading "Cổ đại" [level=3] [ref=e54]
+            - paragraph [ref=e55]: Đồng nhất vật chất với nước, lửa, không khí, nguyên tử, ngũ hành hoặc tứ đại. Đây là các phỏng đoán thiên tài nhưng còn trực quan và cảm tính.
+        - article [ref=e56]:
+          - generic [ref=e57]: "02"
+          - generic [ref=e58]:
+            - generic [ref=e59]: Duy vật siêu hình, cơ giới
+            - heading "Cận đại" [level=3] [ref=e60]
+            - paragraph [ref=e61]: Dưới ảnh hưởng cơ học Newton, vật chất bị đồng nhất với nguyên tử, khối lượng, quán tính và vận động cơ học.
+        - article [ref=e62]:
+          - generic [ref=e63]: "03"
+          - generic [ref=e64]:
+            - generic [ref=e65]: Cuối XIX - đầu XX
+            - heading "Khủng hoảng vật lý" [level=3] [ref=e66]
+            - paragraph [ref=e67]: Tia X, phóng xạ và electron làm sụp đổ quan niệm nguyên tử là giới hạn cuối cùng. Chủ nghĩa duy tâm lợi dụng để tuyên bố vật chất đã tiêu tan.
+        - article [ref=e68]:
+          - generic [ref=e69]: "04"
+          - generic [ref=e70]:
+            - generic [ref=e71]: Bước ngoặt triết học
+            - heading "Lênin 1909" [level=3] [ref=e72]
+            - paragraph [ref=e73]: Lênin khái quát vật chất là thực tại khách quan, tồn tại độc lập với cảm giác, mở đường cho chủ nghĩa duy vật hiện đại.
+        - article [ref=e74]:
+          - generic [ref=e75]: "05"
+          - generic [ref=e76]:
+            - generic [ref=e77]: Phản ánh xã hội - lịch sử
+            - heading "Ý thức" [level=3] [ref=e78]
+            - paragraph [ref=e79]: Ý thức xuất hiện từ bộ óc người, lao động, ngôn ngữ và đời sống xã hội, không phải một thực thể siêu nhiên tự có.
+      - generic [ref=e80]:
+        - group [ref=e81]:
+          - generic "01 1. Phạm trù Vật chất và lịch sử phát triển" [ref=e82] [cursor=pointer]:
+            - generic [ref=e83]: "01"
+            - strong [ref=e84]: 1. Phạm trù Vật chất và lịch sử phát triển
+          - generic [ref=e85]:
+            - article [ref=e86]:
+              - 'heading "a. Giai đoạn cổ đại: chủ nghĩa duy vật chất phác" [level=4] [ref=e87]'
+              - paragraph [ref=e88]: Ở Hy Lạp, Ấn Độ, Trung Hoa cổ đại, khoa học tự nhiên chưa phân ngành nên nhận thức triết học chủ yếu dựa trên quan sát trực quan sinh động và phỏng đoán thiên tài.
+              - paragraph [ref=e89]: "Các nhà tư tưởng đồng nhất vật chất với một hoặc một vài vật thể cụ thể: Thales coi bản nguyên là nước, Anaximenes coi là không khí, Heraclitus coi là lửa, Democritus phát triển thuyết nguyên tử."
+              - paragraph [ref=e90]: Ở phương Đông, thuyết Ngũ Hành và Tứ đại giải thích sự vận động của vũ trụ qua các trạng thái chuyển hóa.
+              - paragraph [ref=e91]: Hạn chế lịch sử của giai đoạn này là lấy cái riêng, hữu hạn để đồng nhất với toàn bộ thế giới vật chất vô hạn.
+            - article [ref=e92]:
+              - 'heading "b. Giai đoạn cận đại: chủ nghĩa duy vật siêu hình, cơ giới" [level=4] [ref=e93]'
+              - paragraph [ref=e94]: Thế kỷ XVII - XVIII chứng kiến sự thống trị của cơ học cổ điển Newton. Nhiều nhà triết học tiếp tục thừa kế thuyết nguyên tử nhưng chịu ảnh hưởng nặng bởi tư duy cơ học.
+              - paragraph [ref=e95]: Họ đồng nhất vật chất với nguyên tử hoặc các thuộc tính cơ học như khối lượng, quán tính, vị trí không gian, từ đó nhìn thế giới như một cỗ máy khổng lồ.
+              - paragraph [ref=e96]: Cuối thế kỷ XIX - đầu thế kỷ XX, tia X, phóng xạ và electron chứng minh nguyên tử có thể phân chia, tạo ra cuộc khủng hoảng trong quan niệm cũ về vật chất.
+            - article [ref=e97]:
+              - 'heading "c. Bước ngoặt vĩ đại: định nghĩa vật chất của V.I. Lênin" [level=4] [ref=e98]'
+              - blockquote [ref=e99]: Vật chất là một phạm trù triết học dùng để chỉ thực tại khách quan được đem lại cho con người trong cảm giác, được cảm giác của chúng ta chép lại, chụp lại, phản ánh, và tồn tại không lệ thuộc vào cảm giác.
+              - list [ref=e100]:
+                - listitem [ref=e101]: "Vật chất là thực tại khách quan: tồn tại độc lập với ý thức, nằm ngoài ý thức."
+                - listitem [ref=e102]: "Vật chất đem lại cho con người trong cảm giác: vật chất là nguồn gốc khách quan sinh ra cảm giác và ý thức."
+                - listitem [ref=e103]: "Ý thức chép lại, chụp lại, phản ánh: thế giới là khả tri, con người có thể nhận thức và giải mã thế giới khách quan."
+        - group [ref=e104]:
+          - 'generic "02 2. Phạm trù Ý thức: nguồn gốc và bản chất" [ref=e105] [cursor=pointer]':
+            - generic [ref=e106]: "02"
+            - strong [ref=e107]: "2. Phạm trù Ý thức: nguồn gốc và bản chất"
+        - group [ref=e108]:
+          - generic "03 3. Mối quan hệ biện chứng giữa Vật chất và Ý thức" [ref=e109] [cursor=pointer]:
+            - generic [ref=e110]: "03"
+            - strong [ref=e111]: 3. Mối quan hệ biện chứng giữa Vật chất và Ý thức
+    - generic [ref=e112]:
+      - generic [ref=e114]:
+        - paragraph [ref=e115]: Chương 3 / Bản chất của AI
+        - heading "Đỉnh Cao Vật Chất Hay Khởi Đầu Ý Thức?" [level=2] [ref=e116]
+        - paragraph [ref=e117]: "Triết học Mác - Lênin không phủ nhận cũng không thần thánh hóa máy móc. Ta cần đặt AI vào đúng tọa độ biện chứng: bản thể của AI thuộc về đâu, và phản ánh của AI có đồng nhất với ý thức con người không?"
+      - generic [ref=e118]:
+        - article [ref=e119]:
+          - generic [ref=e120]: "01"
+          - heading "Hạ tầng vật lý và kỹ thuật" [level=3] [ref=e121]
+          - paragraph [ref=e122]: AI không tồn tại như tinh thần thuần túy. Bản thể của nó là chip silicon, bóng bán dẫn, xung điện nhị phân, kiến trúc máy tính và trung tâm dữ liệu tiêu thụ năng lượng.
+        - article [ref=e123]:
+          - generic [ref=e124]: "02"
+          - heading "Vận động toán học - cơ học cao cấp" [level=3] [ref=e125]
+          - paragraph [ref=e126]: Mạng neural và Transformer vận hành bằng phép toán ma trận, tối ưu hóa và xác suất thống kê. Câu trả lời của AI là kết quả tính toán token, chưa phải tự ý thức nội tại.
+        - article [ref=e127]:
+          - generic [ref=e128]: "03"
+          - heading "Phụ thuộc vào giới hạn vật chất" [level=3] [ref=e129]
+          - paragraph [ref=e130]: AI phụ thuộc vào điện năng và dữ liệu đầu vào. Thiếu dòng điện, AI biến mất; thiếu dữ liệu, AI chỉ còn là thuật toán rỗng.
+      - generic [ref=e131]:
+        - generic [ref=e132]: Kết luận biện chứng 1
+        - strong [ref=e133]: Xét về bản thể luận, AI là đỉnh cao của sự vận động vật chất do con người định hướng. Nó kéo dài một phần năng lực tư duy của con người, tương tự máy hơi nước từng kéo dài sức mạnh cơ bắp.
+      - generic [ref=e134]:
+        - article [ref=e135]:
+          - generic [ref=e136]: "01"
+          - heading "Phản ánh mô phỏng thống kê vs. phản ánh năng động sáng tạo" [level=3] [ref=e137]
+          - generic [ref=e138]:
+            - generic [ref=e139]:
+              - generic [ref=e140]: AI
+              - paragraph [ref=e141]: AI tìm tương quan thống kê trong dữ liệu quá khứ và tái tổ hợp chúng để tạo câu trả lời. Khi viết về cô đơn, nó không trải nghiệm cô đơn.
+            - generic [ref=e142]:
+              - generic [ref=e143]: Con người
+              - paragraph [ref=e144]: Con người phản ánh thế giới qua cảm xúc, thế giới quan và lý tưởng sống, có thể khái quát bản chất và sáng tạo tri thức mới từ dữ liệu rất ít.
+        - article [ref=e145]:
+          - generic [ref=e146]: "02"
+          - heading "Thiếu hụt nguồn gốc xã hội" [level=3] [ref=e147]
+          - generic [ref=e148]:
+            - generic [ref=e149]:
+              - generic [ref=e150]: AI
+              - paragraph [ref=e151]: AI tồn tại trong môi trường số và phòng máy chủ, không lao động để sinh tồn, không có gia đình, giai cấp, đạo đức hay xung đột xã hội thật.
+            - generic [ref=e152]:
+              - generic [ref=e153]: Con người
+              - paragraph [ref=e154]: Ý thức người hình thành trong lao động, quan hệ sản xuất, gia đình, lịch sử và toàn bộ đời sống xã hội.
+        - article [ref=e155]:
+          - generic [ref=e156]: "03"
+          - 'heading "Ngôn ngữ: cái vỏ tách khỏi cái ruột" [level=3] [ref=e157]'
+          - generic [ref=e158]:
+            - generic [ref=e159]:
+              - generic [ref=e160]: AI
+              - paragraph [ref=e161]: AI sở hữu cái vỏ vật chất của ngôn ngữ rất tinh vi nhưng trống rỗng về phần ruột tư duy chủ quan. Chữ tự do với AI chỉ là chuỗi token.
+            - generic [ref=e162]:
+              - generic [ref=e163]: Con người
+              - paragraph [ref=e164]: "Ở con người, ngôn ngữ và tư duy thống nhất biện chứng: nhận thức sự vật, thấu hiểu nghĩa chủ quan rồi biểu đạt bằng ngôn ngữ."
+      - generic [ref=e165]:
+        - paragraph [ref=e166]: Góc nhìn khách quan, đa chiều về tương lai
+        - generic [ref=e167]:
+          - generic [ref=e168]: "Máy tính silicon hiện tại: vật chất cơ học -> phản ánh mô phỏng thống kê"
+          - generic [ref=e169]: Nếu bản thể vật chất thay đổi
+          - generic [ref=e170]: "AI sinh học hoặc lượng tử: vật chất sống/tổ chức cao -> có thể tiệm cận phản ánh ý thức"
+        - generic [ref=e171]:
+          - article [ref=e172]:
+            - heading "Hoài nghi khoa học" [level=3] [ref=e173]
+            - paragraph [ref=e174]: Chừng nào AI còn vận hành trên silicon và logic nhị phân, nó vẫn là hệ thống mô phỏng thông tin. Bộ não người gắn với sinh học, hormone, hệ thần kinh và cơ thể sống.
+          - article [ref=e175]:
+            - heading "Biện chứng mở rộng" [level=3] [ref=e176]
+            - paragraph [ref=e177]: Triết học Mác không giới hạn hình thức vật chất. Nếu tương lai xuất hiện AI sinh học có tế bào thần kinh sống, hoạt động thực tiễn, tương tác xã hội và tự tiến hóa, một dạng ý thức mới có thể được đặt lại như vấn đề triết học mở.
+      - generic [ref=e178]:
+        - paragraph [ref=e179]: Kết luận chương 3
+        - paragraph [ref=e180]: AI là sản phẩm vĩ đại của ý thức con người tác động trở lại thế giới vật chất.
+        - paragraph [ref=e181]: Khẳng định AI hiện nay đã có ý thức độc lập là biểu hiện của chủ nghĩa duy tâm thần bí. Ngược lại, coi tư duy con người chỉ là thuật toán xử lý dữ liệu là sự thụt lùi về chủ nghĩa duy vật tầm thường.
+        - paragraph [ref=e182]: Bản lĩnh của con người kỷ nguyên số không phải là sợ AI thay thế, mà là dùng ý thức năng động, đúng đắn để định hướng, quản trị và làm chủ AI phục vụ tiến bộ nhân loại.
+    - generic [ref=e183]:
+      - generic [ref=e184]:
+        - paragraph [ref=e185]: Chương 4 / The Dialogue
+        - heading "Tranh Biện Với Triết Gia Máy" [level=2] [ref=e186]
+        - paragraph [ref=e187]: Khung chatbot giúp người xem kiểm chứng trực quan bản chất phản ánh của AI. Các phản hồi được kịch bản hóa theo lý luận Mác - Lênin để giữ tính học thuật.
+      - generic [ref=e188]:
+        - generic [ref=e189]:
+          - generic [ref=e190]:
+            - generic [ref=e191]: Σ
+            - generic [ref=e192]:
+              - strong [ref=e193]: Triết gia máy
+              - generic [ref=e194]: Dialectical script mode
+          - generic [ref=e196]: Tôi là Triết gia máy. Hãy hỏi tôi về ý thức, vật chất, cảm xúc hoặc tương lai của AI.
+          - generic [ref=e197]:
+            - textbox "Nhập câu hỏi..." [ref=e198]
+            - button "Gửi" [ref=e199] [cursor=pointer]
+        - generic [ref=e200]:
+          - paragraph [ref=e201]: Tình huống gợi ý
+          - button "Bạn có thực sự biết suy nghĩ không?" [ref=e202] [cursor=pointer]
+          - button "Bản chất của bạn là gì?" [ref=e203] [cursor=pointer]
+          - button "Bạn có biết yêu không?" [ref=e204] [cursor=pointer]
+          - button "AI có thể thống trị con người không?" [ref=e205] [cursor=pointer]
+    - generic [ref=e206]:
+      - generic [ref=e207]:
+        - paragraph [ref=e208]: Chương 5 / The Manifesto
+        - heading "Bản Lĩnh Ý Thức Và Khái Quát Chung" [level=2] [ref=e209]
+      - generic [ref=e210]:
+        - article [ref=e211]:
+          - generic [ref=e212]: "01"
+          - heading "AI là đỉnh cao của sự vận động vật chất" [level=3] [ref=e213]
+          - paragraph [ref=e214]: Mạng neural, mô hình ngôn ngữ lớn và hệ thống AI đều là các dạng vật chất được tổ chức ở trình độ cao, chịu giới hạn bởi phần cứng, năng lượng và dữ liệu.
+        - article [ref=e215]:
+          - generic [ref=e216]: "02"
+          - heading "AI là sản phẩm kết tinh từ ý thức con người" [level=3] [ref=e217]
+          - paragraph [ref=e218]: AI không phủ nhận chủ nghĩa duy vật. Nó chứng minh ý thức con người có tính độc lập tương đối và có thể tác động trở lại vật chất thông qua khoa học, kỹ thuật và thực tiễn.
+        - article [ref=e219]:
+          - generic [ref=e220]: "03"
+          - heading "Sự phản ánh của AI không thay thế bản chất người" [level=3] [ref=e221]
+          - paragraph [ref=e222]: Máy móc xử lý ký hiệu nhưng không thấu hiểu ý nghĩa; học dữ liệu nhưng không lao động, không có quan hệ xã hội và không có đời sống tinh thần chủ quan.
+      - generic [ref=e223]:
+        - paragraph [ref=e224]: "Hiểu đúng Triết học Mác - Lênin giúp chúng ta thoát khỏi hai cái bẫy: chủ nghĩa duy tâm thần bí khi sợ hãi và thần thánh hóa máy móc, và chủ nghĩa duy vật tầm thường khi coi con người chỉ là một cỗ máy thuật toán."
+        - paragraph [ref=e225]: Bản lĩnh của con người trong kỷ nguyên số là bản lĩnh của một chủ thể có ý thức. Máy móc có thể xử lý hàng tỷ phép tính mỗi giây, nhưng con người có trái tim biết rung động, ý chí hướng tới giá trị nhân văn và năng lực cải tạo xã hội thông qua thực tiễn.
+        - strong [ref=e226]: AI không thay thế con người. Chỉ có những con người biết làm chủ AI sẽ thay thế những con người tụt hậu. Hãy dùng ý thức đúng đắn để làm chủ thế giới vật chất số hóa, định hình một tương lai công nghệ nhân văn và tiến bộ!
