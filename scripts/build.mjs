@@ -7,13 +7,14 @@ const output = resolve(root, "public");
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 
-const html = await readFile(resolve(root, "index.html"), "utf8");
-const productionHtml = html
-  .replaceAll("src/styles.css", "assets/styles.css")
-  .replaceAll("src/data.js", "assets/data.js")
-  .replaceAll("src/app.js", "assets/app.js");
+async function writeProductionHtml(fileName) {
+  const html = await readFile(resolve(root, fileName), "utf8");
+  const productionHtml = html.replaceAll("src/", "assets/");
+  await writeFile(resolve(output, fileName), productionHtml);
+}
 
-await writeFile(resolve(output, "index.html"), productionHtml);
+await writeProductionHtml("index.html");
+await writeProductionHtml("game.html");
 await cp(resolve(root, "src"), resolve(output, "assets"), { recursive: true });
 
 console.log("Static site built to public/");

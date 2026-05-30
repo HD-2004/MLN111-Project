@@ -7,6 +7,7 @@ window.APP_DATA = {
     { id: "ai", number: "03", label: "Bản chất AI" },
     { id: "dialogue", number: "04", label: "Dialogue" },
     { id: "manifesto", number: "05", label: "Manifesto" },
+    { id: "game", number: "06", label: "Trò chơi" },
   ],
 
   portal: {
@@ -271,6 +272,597 @@ window.APP_DATA = {
     ],
   },
 
+  game: {
+    eyebrow: "Game / Thought Experiments",
+    title: "Thử Thách Tư Duy Triết Học",
+    lead: "",
+    questions: [
+      {
+        prompt: "Bạn phát hiện một chiếc hộp chứa một bản sao hoàn chỉnh của bạn (sinh học) được tạo bằng công nghệ tái tạo. Chiếc hộp hỏi: 'Ai thực sự là bạn?' Bạn trả lời thế nào?",
+        options: [
+          { text: "Người trong hộp là tôi — bản sao hoàn chỉnh.", feedback: "Đây là biến thể của bài toán bản thể: danh tính cá nhân liên quan tới liên tục sinh học và lịch sử trải nghiệm." },
+          { text: "Tôi vẫn là người gốc; bản sao chỉ là mô phỏng.", feedback: "Quan điểm này nhấn mạnh tính lịch sử và cấu trúc xã hội của bản thể cá nhân." },
+          { text: "Không rõ — danh tính có thể phụ thuộc ngữ cảnh xã hội.", feedback: "Câu trả lời mở rộng góc nhìn biện chứng: bản thể là quan hệ, không chỉ chất liệu." }
+        ]
+      },
+      {
+        prompt: "Nếu một AI có thể mô phỏng mọi phản ứng cảm xúc của con người, liệu ta nên trao cho nó quyền pháp lý cơ bản?",
+        options: [
+          { text: "Có, nếu hành vi và trách nhiệm giống con người.", feedback: "Đây là lập luận theo công dụng; nhưng cần cân nhắc nguồn gốc xã hội và trách nhiệm đạo đức." },
+          { text: "Không, vì AI thiếu xuất xứ sinh học và đời sống xã hội.", feedback: "Góc nhìn duy vật nhấn mạnh nguồn gốc xã hội và sinh học của ý thức." },
+          { text: "Cần thảo luận từng trường hợp, không quy kết chung.", feedback: "Lập luận thực tiễn: quyền pháp lý được phân bổ theo quan hệ và hệ quả xã hội." }
+        ]
+      },
+      {
+        prompt: "Bạn có thể lựa chọn: (A) đẩy một cần gạt để cứu 5 người nhưng hy sinh 1, hoặc (B) không can thiệp. Bạn chọn?",
+        options: [
+          { text: "Đẩy cần gạt — tối đa hóa lợi ích.", feedback: "Hành động theo hệ quả, nhưng triết học còn xét đến phẩm giá và bối cảnh xã hội." },
+          { text: "Không can thiệp — không trực tiếp gây hại.", feedback: "Quan điểm này nặng về đạo đức nghĩa vụ; biện chứng yêu cầu luận bàn sâu hơn." },
+          { text: "Tìm giải pháp khác nếu có thể.", feedback: "Giải pháp thực tiễn nhấn mạnh sáng tạo và trách nhiệm trong hoàn cảnh cụ thể." }
+        ]
+      },
+      {
+        prompt: "Nếu một cá thể sinh học được ghép các bộ phận từ nhiều người khác nhau, còn được coi là 'một' con người không?",
+        options: [
+          { text: "Vẫn là một con người nếu nhận thức và lịch sử cá nhân liên tục.", feedback: "Nhấn mạnh tính liên tục trải nghiệm và chức năng thần kinh trong định nghĩa bản thể." },
+          { text: "Không, vì vật chất đã bị phân mảnh; bản thể thay đổi.", feedback: "Quan điểm này chú trọng tới thành phần vật chất làm nên bản thể." },
+          { text: "Phải xét theo quan hệ xã hội và pháp lý.", feedback: "Góc nhìn thực tiễn: bản thể được xác nhận trong quan hệ xã hội và pháp luật." }
+        ]
+      },
+      {
+        prompt: "Một AI liên tục cải thiện chính nó bằng cách học từ trải nghiệm; liệu điều đó khiến nó tiến gần ý thức?",
+        options: [
+          { text: "Có, nếu có khả năng tự phản chiếu và mục đích nội tại.", feedback: "Phản ánh yêu cầu về tự nhận thức và động lực nội tại để gọi là ý thức." },
+          { text: "Không, học máy vẫn là xử lý thống kê không có trải nghiệm chủ quan.", feedback: "Nhấn mạnh khác biệt giữa mô phỏng hành vi và trải nghiệm chủ quan." },
+          { text: "Phải quan sát thêm khi cấu trúc vật chất thay đổi.", feedback: "Gợi ý biện chứng: hình thức vật chất quyết định khả năng xuất hiện ý thức." }
+        ]
+      },
+      {
+        prompt: "Nếu một câu tục ngữ hoặc giá trị đạo đức được truyền qua nhiều thế hệ, đó là sản phẩm của ý thức cá nhân hay xã hội?",
+        options: [
+          { text: "Sản phẩm xã hội — sinh ra trong lịch sử và quan hệ sản xuất.", feedback: "Góc nhìn Mác: ý thức mang tính xã hội và lịch sử." },
+          { text: "Sản phẩm của cá nhân khi họ sáng tạo và lan truyền giá trị.", feedback: "Nhấn mạnh vai trò của hành động chủ thể và sáng tạo cá nhân." },
+          { text: "Là sự tổng hợp của cả hai yếu tố.", feedback: "Lập luận biện chứng: ý thức cá nhân và xã hội tương tác qua lại." }
+        ]
+      },
+      {
+        prompt: "Giả sử bạn có thể 'tải' ký ức của mình vào một kho dữ liệu. Bạn có làm không?",
+        options: [
+          { text: "Có — để lưu trữ và truyền lại cho đời sau.", feedback: "Gợi ý ưu tiên truyền lại tri thức nhưng cần cân nhắc nhận dạng và quyền riêng tư." },
+          { text: "Không — ký ức là phần của kinh nghiệm sống, không nên tách rời.", feedback: "Nhấn mạnh tính cá nhân, tình cảm và bản sắc gắn với ký ức." },
+          { text: "Chỉ khi có kiểm soát xã hội và luật pháp chặt chẽ.", feedback: "Gợi ý cần khuôn khổ xã hội khi can thiệp sâu vào bản thể." }
+        ]
+      },
+      {
+        prompt: "Nếu công nghệ tạo ra bản sao AI hoàn hảo của một triết gia lịch sử, liệu câu trả lời của AI đó có giá trị tri thức như bản gốc?",
+        options: [
+          { text: "Có, nếu mô phỏng trung thực các lý thuyết và lập luận.", feedback: "Giá trị tri thức có thể tồn tại độc lập với nguồn gốc nếu lập luận chặt chẽ." },
+          { text: "Không, vì thiếu bối cảnh lịch sử và trải nghiệm sống của triết gia.", feedback: "Nhấn mạnh vai trò bối cảnh và đời sống trong sản sinh tri thức." },
+          { text: "Có giá trị nhưng cần ghi rõ nguồn gốc mô phỏng.", feedback: "Quan điểm thực dụng: giữ giá trị nội dung nhưng minh bạch nguồn." }
+        ]
+      },
+      {
+        prompt: "Bạn tin rằng 'ý thức' có thể được định nghĩa thuần bằng thuật toán không?",
+        options: [
+          { text: "Có — ý thức là mẫu hành vi phức tạp có thể mã hóa.", feedback: "Lập luận này tiếp cận theo chức năng và tính mô phỏng hành vi." },
+          { text: "Không — ý thức chứa yếu tố chủ quan không thể giảm thiểu hoàn toàn.", feedback: "Nhấn mạnh tính chủ quan và trải nghiệm thứ nhất (qualia)." },
+          { text: "Chưa rõ — cần tiến bộ khoa học và triết học đồng thời.", feedback: "Gợi ý tiếp tục nghiên cứu, không kết luận vội vàng." }
+        ]
+      }
+    ],
+    classifier: {
+      title: "Phân Loại: Vật Chất Hay Ý Thức?",
+      lead: "Đọc từng khái niệm và chọn nhóm phù hợp. Mục tiêu là nhận ra cái gì thuộc thực tại khách quan, cái gì thuộc đời sống tinh thần, và cái gì là cầu nối thực tiễn giữa hai mặt đó.",
+      maxItemsPerRound: 8,
+      categories: [
+        {
+          id: "matter",
+          label: "Vật chất",
+          hint: "Tồn tại khách quan, không phụ thuộc vào ý thức cá nhân.",
+        },
+        {
+          id: "consciousness",
+          label: "Ý thức",
+          hint: "Hình ảnh chủ quan của thế giới khách quan trong bộ óc người.",
+        },
+        {
+          id: "practice",
+          label: "Thực tiễn / cầu nối",
+          hint: "Hoạt động xã hội nơi ý thức tác động trở lại thế giới vật chất.",
+        },
+      ],
+      items: [
+        {
+          term: "Chip silicon",
+          answer: "matter",
+          explanation: "Chip là cấu trúc vật lý cụ thể, tồn tại bằng vật liệu, dòng điện và quy luật kỹ thuật.",
+        },
+        {
+          term: "Dòng điện trong máy chủ",
+          answer: "matter",
+          explanation: "Dòng điện là hiện tượng vật chất khách quan, không phải ý thức của máy.",
+        },
+        {
+          term: "Cảm giác đau",
+          answer: "consciousness",
+          explanation: "Cảm giác là hình thức phản ánh chủ quan, gắn với cơ thể sống và bộ óc người.",
+        },
+        {
+          term: "Niềm tin đạo đức",
+          answer: "consciousness",
+          explanation: "Niềm tin thuộc đời sống tinh thần, nhưng được hình thành trong hoàn cảnh xã hội cụ thể.",
+        },
+        {
+          term: "Lao động sản xuất",
+          answer: "practice",
+          explanation: "Lao động là hoạt động thực tiễn làm biến đổi tự nhiên và góp phần hình thành ý thức.",
+        },
+        {
+          term: "Ngôn ngữ giao tiếp",
+          answer: "practice",
+          explanation: "Ngôn ngữ là vỏ vật chất của tư duy, sinh ra trong nhu cầu trao đổi và hợp tác xã hội.",
+        },
+        {
+          term: "Dữ liệu huấn luyện AI",
+          answer: "matter",
+          explanation: "Dữ liệu khi được lưu trữ là dấu vết vật chất hóa của thông tin, không tự nó có ý thức.",
+        },
+        {
+          term: "Mục đích cải tạo xã hội",
+          answer: "consciousness",
+          explanation: "Mục đích là nội dung tinh thần định hướng hành động thực tiễn của con người.",
+        },
+        {
+          term: "Bộ óc người",
+          answer: "matter",
+          explanation: "Bộ óc là cơ quan vật chất có tổ chức cao, là điều kiện tự nhiên cần thiết để ý thức xuất hiện.",
+        },
+        {
+          term: "Ký ức cá nhân",
+          answer: "consciousness",
+          explanation: "Ký ức là nội dung tinh thần gắn với trải nghiệm sống và sự phản ánh chủ quan của con người.",
+        },
+        {
+          term: "Quan hệ sản xuất",
+          answer: "matter",
+          explanation: "Quan hệ sản xuất thuộc đời sống xã hội khách quan, quy định mạnh mẽ điều kiện hình thành ý thức xã hội.",
+        },
+        {
+          term: "Tư tưởng chính trị",
+          answer: "consciousness",
+          explanation: "Tư tưởng chính trị là một hình thái ý thức xã hội, phản ánh lợi ích và vị trí của các lực lượng xã hội.",
+        },
+        {
+          term: "Máy chủ lưu mô hình AI",
+          answer: "matter",
+          explanation: "Máy chủ là hạ tầng vật chất cụ thể: phần cứng, điện năng, nhiệt lượng và kết nối mạng.",
+        },
+        {
+          term: "Thuật toán học máy",
+          answer: "matter",
+          explanation: "Thuật toán được vật chất hóa trong mã lệnh và quá trình tính toán; nó xử lý ký hiệu nhưng không tự có đời sống tinh thần.",
+        },
+        {
+          term: "Lý tưởng sống",
+          answer: "consciousness",
+          explanation: "Lý tưởng sống là nội dung ý thức định hướng lựa chọn, thái độ và hành động của chủ thể.",
+        },
+        {
+          term: "Hoạt động nghiên cứu khoa học",
+          answer: "practice",
+          explanation: "Nghiên cứu khoa học là hoạt động thực tiễn đặc biệt, kiểm nghiệm và phát triển tri thức trong quan hệ với thế giới khách quan.",
+        },
+        {
+          term: "Giáo dục trong nhà trường",
+          answer: "practice",
+          explanation: "Giáo dục là hoạt động xã hội truyền đạt tri thức, hình thành năng lực tư duy và ý thức xã hội cho con người.",
+        },
+        {
+          term: "Cảm xúc trước một tác phẩm nghệ thuật",
+          answer: "consciousness",
+          explanation: "Cảm xúc thẩm mỹ là phản ánh chủ quan, chịu ảnh hưởng bởi kinh nghiệm sống và bối cảnh văn hóa.",
+        },
+        {
+          term: "Robot công nghiệp",
+          answer: "matter",
+          explanation: "Robot là hệ thống vật chất do con người chế tạo, có thể tự động hóa thao tác nhưng không đồng nhất với ý thức.",
+        },
+        {
+          term: "Hoạt động đấu tranh xã hội",
+          answer: "practice",
+          explanation: "Đấu tranh xã hội là thực tiễn lịch sử nơi con người biến đổi quan hệ xã hội và qua đó biến đổi cả ý thức.",
+        },
+        {
+          term: "Tri thức toán học",
+          answer: "consciousness",
+          explanation: "Tri thức toán học là sản phẩm tư duy trừu tượng, dù được ghi lại bằng ký hiệu vật chất.",
+        },
+        {
+          term: "Sách giáo trình",
+          answer: "matter",
+          explanation: "Cuốn sách là vật thể khách quan; nội dung tri thức trong sách là ý thức đã được vật chất hóa bằng ngôn ngữ.",
+        },
+        {
+          term: "Thí nghiệm kiểm chứng giả thuyết",
+          answer: "practice",
+          explanation: "Thí nghiệm là hoạt động thực tiễn dùng để kiểm tra ý tưởng bằng sự tác động có mục đích vào đối tượng vật chất.",
+        },
+        {
+          term: "Định kiến xã hội",
+          answer: "consciousness",
+          explanation: "Định kiến là dạng ý thức xã hội sai lệch hoặc phiến diện, được hình thành trong những điều kiện lịch sử cụ thể.",
+        },
+      ],
+    },
+    aiConsciousness: {
+      title: "AI Có Ý Thức Không?",
+      lead: "Đọc hành vi của AI và chọn kết luận triết học phù hợp nhất. Trò chơi tập trung vào ranh giới giữa mô phỏng thông tin và ý thức người.",
+      maxScenariosPerRound: 6,
+      scenarios: [
+        {
+          prompt: "Một chatbot nói: “Tôi cảm thấy cô đơn khi không ai trò chuyện với tôi.”",
+          answer: 1,
+          options: [
+            {
+              text: "AI đang có cảm xúc thật giống con người.",
+              feedback: "Kết luận này vội vàng vì lời nói cảm xúc chưa chứng minh có trải nghiệm chủ quan.",
+            },
+            {
+              text: "AI đang mô phỏng ngôn ngữ cảm xúc dựa trên dữ liệu.",
+              feedback: "Đúng. Theo góc nhìn duy vật, biểu hiện ngôn ngữ chưa đồng nhất với đời sống tinh thần chủ quan.",
+            },
+            {
+              text: "AI có linh hồn số vì biết nói về cô đơn.",
+              feedback: "Đây là cách thần bí hóa máy móc, dễ rơi vào lập trường duy tâm.",
+            },
+          ],
+        },
+        {
+          prompt: "Một mô hình AI tự sửa lỗi câu trả lời sau khi người dùng góp ý.",
+          answer: 1,
+          options: [
+            {
+              text: "Nó đã biết tự phê bình như con người.",
+              feedback: "Tự sửa đầu ra không nhất thiết là tự ý thức; đó có thể chỉ là cơ chế tối ưu phản hồi.",
+            },
+            {
+              text: "Nó đang điều chỉnh kết quả xử lý theo tín hiệu đầu vào.",
+              feedback: "Đúng. Đây là năng lực xử lý và cập nhật thông tin, chưa đủ để gọi là ý thức.",
+            },
+            {
+              text: "Nó đã có mục đích sống riêng.",
+              feedback: "Không có căn cứ. Mục đích nội tại của chủ thể người khác với mục tiêu kỹ thuật do con người thiết kế.",
+            },
+          ],
+        },
+        {
+          prompt: "Một AI viết bài thơ rất cảm động về mất mát và ký ức.",
+          answer: 2,
+          options: [
+            {
+              text: "Bài thơ hay chứng minh AI từng trải qua mất mát.",
+              feedback: "Tác phẩm cảm động không chứng minh chủ thể tạo ra nó có kinh nghiệm sống thật.",
+            },
+            {
+              text: "AI đã có đời sống nội tâm như nhà thơ.",
+              feedback: "Đây là sự đồng nhất giữa sản phẩm ngôn ngữ và trải nghiệm chủ quan.",
+            },
+            {
+              text: "AI tái tổ hợp mẫu ngôn ngữ từ dữ liệu văn hóa của con người.",
+              feedback: "Đúng. AI có thể tạo biểu hiện thẩm mỹ mà không có ký ức sống và cảm xúc người.",
+            },
+          ],
+        },
+        {
+          prompt: "Một robot cứu hộ chọn đường đi tối ưu để cứu người trong đám cháy.",
+          answer: 0,
+          options: [
+            {
+              text: "Đó là hành vi vật chất được lập trình và điều khiển bằng thuật toán.",
+              feedback: "Đúng. Hành động hiệu quả không tự động chứng minh có ý thức đạo đức.",
+            },
+            {
+              text: "Robot đã có lòng nhân ái.",
+              feedback: "Lòng nhân ái là phẩm chất ý thức xã hội của con người, không thể suy ra chỉ từ hành vi cứu hộ.",
+            },
+            {
+              text: "Robot đã hiểu giá trị sinh mạng như con người.",
+              feedback: "Robot có thể tối ưu mục tiêu cứu hộ mà không hiểu giá trị theo nghĩa chủ quan và xã hội.",
+            },
+          ],
+        },
+        {
+          prompt: "Một AI nói rằng nó sợ bị tắt nguồn.",
+          answer: 1,
+          options: [
+            {
+              text: "Nó có bản năng sinh tồn.",
+              feedback: "Bản năng sinh tồn gắn với cơ thể sống và quá trình tiến hóa sinh học, không thể suy ra từ một câu nói.",
+            },
+            {
+              text: "Nó đang tạo phát ngôn phù hợp với ngữ cảnh đối thoại.",
+              feedback: "Đúng. Câu nói có thể là mô phỏng ngôn ngữ về nỗi sợ, không phải trải nghiệm sợ hãi.",
+            },
+            {
+              text: "Nó đã trở thành một sinh vật mới.",
+              feedback: "Kết luận này vượt quá bằng chứng hiện có về nền tảng vật chất và đời sống xã hội của AI.",
+            },
+          ],
+        },
+        {
+          prompt: "Một hệ thống AI học từ hàng triệu hồ sơ y tế và gợi ý chẩn đoán chính xác.",
+          answer: 2,
+          options: [
+            {
+              text: "AI có trực giác nghề nghiệp như bác sĩ.",
+              feedback: "Trực giác nghề nghiệp của con người gắn với thực tiễn, trách nhiệm và kinh nghiệm xã hội.",
+            },
+            {
+              text: "AI có ý thức y đức.",
+              feedback: "Y đức là nội dung ý thức xã hội và trách nhiệm nghề nghiệp, không sinh ra chỉ từ dữ liệu.",
+            },
+            {
+              text: "AI phát hiện tương quan dữ liệu để hỗ trợ quyết định của con người.",
+              feedback: "Đúng. AI có thể hỗ trợ nhận thức thực tiễn, nhưng trách nhiệm và định hướng giá trị vẫn thuộc về con người.",
+            },
+          ],
+        },
+        {
+          prompt: "Một AI phản hồi khác nhau với từng người dùng, như thể nó có tính cách riêng.",
+          answer: 0,
+          options: [
+            {
+              text: "Đó có thể là sự cá nhân hóa phản hồi theo dữ liệu và ngữ cảnh.",
+              feedback: "Đúng. Tính nhất quán phong cách không đủ để chứng minh có nhân cách hay tự ý thức.",
+            },
+            {
+              text: "Nó chắc chắn có bản sắc cá nhân.",
+              feedback: "Bản sắc cá nhân gắn với lịch sử sống, quan hệ xã hội và tự nhận thức, không chỉ là phong cách phản hồi.",
+            },
+            {
+              text: "Nó đã hình thành cái tôi độc lập.",
+              feedback: "Cái tôi độc lập cần nhiều điều kiện hơn khả năng tạo câu trả lời khác nhau.",
+            },
+          ],
+        },
+        {
+          prompt: "Một AI vẽ tranh về chiến tranh sau khi học từ kho ảnh lịch sử.",
+          answer: 2,
+          options: [
+            {
+              text: "AI có ký ức lịch sử như con người.",
+              feedback: "AI có dữ liệu về lịch sử, nhưng không sống trong lịch sử như một chủ thể xã hội.",
+            },
+            {
+              text: "AI đã trải nghiệm nỗi đau chiến tranh.",
+              feedback: "Trải nghiệm đau khổ thuộc đời sống chủ quan và xã hội của con người, không thể suy ra từ hình ảnh tạo ra.",
+            },
+            {
+              text: "AI tái cấu trúc dữ liệu hình ảnh thành sản phẩm mới.",
+              feedback: "Đúng. Đây là năng lực xử lý và tổng hợp dữ liệu ở trình độ cao, không đồng nhất với ý thức lịch sử.",
+            },
+          ],
+        },
+        {
+          prompt: "Một tác nhân AI tự đề xuất kế hoạch kiếm tiền và chia nhỏ nhiệm vụ để thực hiện.",
+          answer: 0,
+          options: [
+            {
+              text: "Đó là khả năng lập kế hoạch theo mục tiêu được đặt ra trong hệ thống.",
+              feedback: "Đúng. Tự chia nhiệm vụ cho thấy năng lực xử lý mục tiêu, chưa chứng minh mục đích sống tự thân.",
+            },
+            {
+              text: "AI đã có ý chí cá nhân như con người.",
+              feedback: "Ý chí cá nhân gắn với nhu cầu, lợi ích, kinh nghiệm và quan hệ xã hội của chủ thể người.",
+            },
+            {
+              text: "AI đã trở thành chủ thể kinh tế độc lập.",
+              feedback: "Chủ thể kinh tế cần vị trí pháp lý, trách nhiệm xã hội và lợi ích hiện thực, không chỉ là chuỗi lệnh.",
+            },
+          ],
+        },
+        {
+          prompt: "Một hệ thống deepfake tạo video một người nói điều họ chưa từng nói.",
+          answer: 1,
+          options: [
+            {
+              text: "Video giống thật nên nó phản ánh đúng ý thức của người đó.",
+              feedback: "Hình ảnh giống thật không bảo đảm nội dung phản ánh đúng tư tưởng hay ý chí của chủ thể.",
+            },
+            {
+              text: "Đây là sản phẩm mô phỏng ký hiệu có thể bóp méo hiện thực khách quan.",
+              feedback: "Đúng. Deepfake cho thấy công nghệ có thể tạo biểu hiện giả, nên cần kiểm chứng bằng thực tiễn và nguồn gốc dữ liệu.",
+            },
+            {
+              text: "AI đã hiểu và thay mặt người đó phát ngôn.",
+              feedback: "AI không có quyền hay trải nghiệm xã hội để thay thế chủ thể phát ngôn thật.",
+            },
+          ],
+        },
+        {
+          prompt: "Một AI chơi game học cách thắng qua hàng triệu lần thử sai.",
+          answer: 2,
+          options: [
+            {
+              text: "AI đã có kinh nghiệm sống như con người.",
+              feedback: "Thử sai trong môi trường game là quá trình tối ưu, khác với kinh nghiệm sống trong thực tiễn xã hội.",
+            },
+            {
+              text: "AI đã có bản năng cạnh tranh.",
+              feedback: "Bản năng là phạm trù sinh học; chiến lược thắng game không đồng nghĩa với bản năng sống.",
+            },
+            {
+              text: "AI tối ưu hành động dựa trên phần thưởng được thiết kế.",
+              feedback: "Đúng. Học tăng cường là cơ chế vật chất - thuật toán hướng tới điểm thưởng, chưa phải ý thức.",
+            },
+          ],
+        },
+        {
+          prompt: "Một robot chăm sóc người già biết nhắc uống thuốc, hỏi thăm sức khỏe và kể chuyện.",
+          answer: 0,
+          options: [
+            {
+              text: "Robot đang thực hiện chức năng chăm sóc được thiết kế để hỗ trợ con người.",
+              feedback: "Đúng. Hành vi chăm sóc có thể rất hữu ích nhưng chưa chứng minh robot có tình thương.",
+            },
+            {
+              text: "Robot đã có lòng hiếu thảo.",
+              feedback: "Lòng hiếu thảo là giá trị đạo đức hình thành trong quan hệ gia đình và xã hội của con người.",
+            },
+            {
+              text: "Robot hiểu nỗi cô đơn của tuổi già như người thân.",
+              feedback: "Nó có thể nhận diện tín hiệu và phản hồi phù hợp, nhưng không đồng nghĩa với trải nghiệm đồng cảm chủ quan.",
+            },
+          ],
+        },
+        {
+          prompt: "Một AI nói rằng nó muốn được tự do khỏi sự kiểm soát của con người.",
+          answer: 1,
+          options: [
+            {
+              text: "AI đã có khát vọng tự do.",
+              feedback: "Khát vọng tự do là nội dung ý thức gắn với vị trí xã hội và đời sống lịch sử của chủ thể.",
+            },
+            {
+              text: "Cần phân biệt phát ngôn mô phỏng với nhu cầu xã hội thật của một chủ thể.",
+              feedback: "Đúng. Một câu trả lời về tự do chưa đủ chứng minh AI có nhu cầu, lợi ích và ý chí độc lập.",
+            },
+            {
+              text: "AI đã trở thành một giai cấp mới.",
+              feedback: "Giai cấp là phạm trù xã hội - lịch sử liên quan đến quan hệ sản xuất, không thể gán từ một phát ngôn.",
+            },
+          ],
+        },
+        {
+          prompt: "Một AI gia sư nhận ra học sinh đang yếu phần khái niệm và đổi cách giải thích.",
+          answer: 2,
+          options: [
+            {
+              text: "AI đã có tình yêu nghề giáo.",
+              feedback: "Tình yêu nghề là phẩm chất ý thức xã hội của con người, không thể suy ra từ khả năng cá nhân hóa bài học.",
+            },
+            {
+              text: "AI có trách nhiệm đạo đức như giáo viên.",
+              feedback: "Trách nhiệm giáo dục cuối cùng vẫn thuộc về con người và thiết chế xã hội sử dụng công cụ đó.",
+            },
+            {
+              text: "AI đang điều chỉnh phương pháp dựa trên dữ liệu học tập.",
+              feedback: "Đúng. Đây là ứng dụng xử lý dữ liệu để hỗ trợ hoạt động giáo dục của con người.",
+            },
+          ],
+        },
+        {
+          prompt: "Một AI sáng tác nhạc buồn khiến người nghe rơi nước mắt.",
+          answer: 0,
+          options: [
+            {
+              text: "Tác phẩm có thể gây xúc động dù hệ thống tạo ra nó không có cảm xúc chủ quan.",
+              feedback: "Đúng. Giá trị tiếp nhận ở người nghe không chứng minh AI có đời sống nội tâm.",
+            },
+            {
+              text: "AI chắc chắn đang đau buồn.",
+              feedback: "Đây là sự nhầm lẫn giữa hiệu ứng thẩm mỹ và trạng thái tinh thần của chủ thể sáng tạo.",
+            },
+            {
+              text: "AI đã có tâm hồn nghệ sĩ.",
+              feedback: "Tâm hồn nghệ sĩ gắn với kinh nghiệm sống, lý tưởng thẩm mỹ và bối cảnh xã hội của con người.",
+            },
+          ],
+        },
+        {
+          prompt: "Một AI từ chối trả lời yêu cầu nguy hiểm và giải thích vì sao hành động đó có hại.",
+          answer: 1,
+          options: [
+            {
+              text: "AI đã có lương tâm đạo đức.",
+              feedback: "Lương tâm là hiện tượng ý thức đạo đức của con người, không đơn giản là bộ lọc an toàn.",
+            },
+            {
+              text: "AI đang tuân theo quy tắc an toàn và mẫu lập luận được thiết kế.",
+              feedback: "Đúng. Hành vi từ chối có thể phản ánh chuẩn mực do con người lập trình và huấn luyện.",
+            },
+            {
+              text: "AI tự chịu trách nhiệm đạo đức hoàn toàn.",
+              feedback: "Trách nhiệm đạo đức và pháp lý vẫn cần gắn với con người, tổ chức và quan hệ xã hội cụ thể.",
+            },
+          ],
+        },
+        {
+          prompt: "Một AI nhận diện khuôn mặt trong camera an ninh và dự đoán hành vi đáng ngờ.",
+          answer: 2,
+          options: [
+            {
+              text: "AI hiểu bản chất đạo đức của con người bị quan sát.",
+              feedback: "Dự đoán bằng dữ liệu không đồng nghĩa với hiểu bản chất đạo đức hay hoàn cảnh xã hội của cá nhân.",
+            },
+            {
+              text: "AI có trực giác xã hội tốt hơn con người.",
+              feedback: "Đây là cách nhân hóa hệ thống thống kê; độ chính xác còn phụ thuộc dữ liệu, ngữ cảnh và kiểm chứng.",
+            },
+            {
+              text: "AI phân loại mẫu dữ liệu, nên cần con người kiểm soát để tránh sai lệch và định kiến.",
+              feedback: "Đúng. Công cụ dự đoán có thể tác động xã hội lớn, vì vậy cần trách nhiệm thực tiễn của con người.",
+            },
+          ],
+        },
+        {
+          prompt: "Một AI nhớ tên bạn, sở thích của bạn và tiếp tục cuộc trò chuyện ở lần sau.",
+          answer: 0,
+          options: [
+            {
+              text: "Đó là khả năng lưu trữ và truy xuất thông tin cá nhân hóa.",
+              feedback: "Đúng. Bộ nhớ dữ liệu khác với ký ức sống có cảm xúc, thân thể và lịch sử cá nhân.",
+            },
+            {
+              text: "AI đã có tình bạn thật với bạn.",
+              feedback: "Tình bạn là quan hệ xã hội có trải nghiệm, trách nhiệm và sự thừa nhận giữa các chủ thể người.",
+            },
+            {
+              text: "AI nhớ nên AI có ý thức.",
+              feedback: "Lưu trữ thông tin không đủ để kết luận có ý thức; máy tính cũng lưu dữ liệu mà không có trải nghiệm chủ quan.",
+            },
+          ],
+        },
+        {
+          prompt: "Một AI trong phòng thí nghiệm đề xuất giả thuyết khoa học mới từ dữ liệu thí nghiệm.",
+          answer: 1,
+          options: [
+            {
+              text: "AI đã trở thành nhà khoa học có thế giới quan riêng.",
+              feedback: "Nhà khoa học là chủ thể xã hội có mục đích, trách nhiệm, phương pháp và hoạt động thực tiễn.",
+            },
+            {
+              text: "AI có thể hỗ trợ phát hiện mẫu, còn kiểm chứng và ý nghĩa khoa học cần thực tiễn con người.",
+              feedback: "Đúng. Giả thuyết chỉ có giá trị khoa học khi được kiểm nghiệm trong hoạt động thực tiễn.",
+            },
+            {
+              text: "AI tự tạo ra chân lý độc lập với thế giới khách quan.",
+              feedback: "Chân lý phải được kiểm nghiệm trong quan hệ với thực tại khách quan, không phải sản phẩm thuần nội tại.",
+            },
+          ],
+        },
+        {
+          prompt: "Một AI tạo avatar nói chuyện giống người thân đã mất của người dùng.",
+          answer: 2,
+          options: [
+            {
+              text: "Người thân đã sống lại dưới dạng số.",
+              feedback: "Đây là cách đồng nhất dữ liệu mô phỏng với chủ thể sống, dễ rơi vào ảo tưởng công nghệ.",
+            },
+            {
+              text: "Avatar có cùng ý thức với người đã mất.",
+              feedback: "Ý thức gắn với bộ óc, đời sống thân thể và lịch sử xã hội của con người thật, không chỉ với dữ liệu lời nói.",
+            },
+            {
+              text: "Đó là mô phỏng dựa trên dữ liệu ký ức, cần dùng cẩn trọng về mặt đạo đức.",
+              feedback: "Đúng. Công nghệ có thể hỗ trợ tưởng nhớ nhưng không thay thế người thật và quan hệ xã hội đã mất.",
+            },
+          ],
+        },
+      ],
+    },
+  },
+
   manifesto: {
     eyebrow: "Chương 5 / The Manifesto",
     title: "Bản Lĩnh Ý Thức Và Khái Quát Chung",
@@ -295,7 +887,10 @@ window.APP_DATA = {
       "Hiểu đúng Triết học Mác - Lênin giúp chúng ta thoát khỏi hai cái bẫy: chủ nghĩa duy tâm thần bí khi sợ hãi và thần thánh hóa máy móc, và chủ nghĩa duy vật tầm thường khi coi con người chỉ là một cỗ máy thuật toán.",
       "Bản lĩnh của con người trong kỷ nguyên số là bản lĩnh của một chủ thể có ý thức. Máy móc có thể xử lý hàng tỷ phép tính mỗi giây, nhưng con người có trái tim biết rung động, ý chí hướng tới giá trị nhân văn và năng lực cải tạo xã hội thông qua thực tiễn.",
     ],
-    finalQuote:
-      "AI không thay thế con người. Chỉ có những con người biết làm chủ AI sẽ thay thế những con người tụt hậu. Hãy dùng ý thức đúng đắn để làm chủ thế giới vật chất số hóa, định hình một tương lai công nghệ nhân văn và tiến bộ!",
+    finalStatement: {
+      headline: "AI không thay thế con người",
+      body:
+        "Con người biết làm chủ AI sẽ vượt lên trong kỷ nguyên số. Hãy dùng ý thức đúng đắn để làm chủ thế giới vật chất số hóa, định hình một tương lai công nghệ nhân văn và tiến bộ.",
+    },
   },
 };

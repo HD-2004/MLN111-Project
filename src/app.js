@@ -18,10 +18,12 @@
   }
 
   function renderNav() {
+    const sidebarChapters = data.chapters.filter((chapter) => chapter.id !== "game");
+
     return `
       <aside class="progress-nav" aria-label="Điều hướng chương">
         <div class="nav-line"></div>
-        ${data.chapters
+        ${sidebarChapters
           .map(
             (chapter) => `
               <a href="#${chapter.id}" class="progress-link" data-target="${chapter.id}">
@@ -37,6 +39,15 @@
 
   function renderParagraphs(paragraphs = []) {
     return paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("");
+  }
+
+  function renderGameShortcut() {
+    return `
+      <a class="game-shortcut" href="game.html" aria-label="Mở trang trò chơi">
+        <span>Game</span>
+        <strong>Trò chơi</strong>
+      </a>
+    `;
   }
 
   function renderBullets(bullets = []) {
@@ -257,6 +268,8 @@
     `;
   }
 
+  // Game UI is provided by src/game.js as window.GAME
+
   function renderManifesto() {
     return `
       <section class="section" id="manifesto" data-chapter="manifesto">
@@ -279,7 +292,10 @@
         </div>
         <div class="final-statement reveal">
           ${renderParagraphs(data.manifesto.manifestoText)}
-          <strong>${data.manifesto.finalQuote}</strong>
+          <div class="final-callout">
+            <strong>${data.manifesto.finalStatement?.headline || ""}</strong>
+            <p>${data.manifesto.finalStatement?.body || ""}</p>
+          </div>
         </div>
       </section>
     `;
@@ -288,6 +304,7 @@
   function renderApp() {
     app.innerHTML = `
       ${renderNav()}
+      ${renderGameShortcut()}
       <main>
         ${renderHero()}
         ${renderTheory()}
