@@ -497,7 +497,7 @@ window.APP_DATA = {
     aiConsciousness: {
       title: "AI Có Ý Thức Không?",
       lead: "Đọc hành vi của AI và chọn kết luận triết học phù hợp nhất. Trò chơi tập trung vào ranh giới giữa mô phỏng thông tin và ý thức người.",
-      maxScenariosPerRound: 6,
+      maxScenariosPerRound: 10,
       scenarios: [
         {
           prompt: "Một chatbot nói: “Tôi cảm thấy cô đơn khi không ai trò chuyện với tôi.”",
@@ -856,6 +856,78 @@ window.APP_DATA = {
             {
               text: "Đó là mô phỏng dựa trên dữ liệu ký ức, cần dùng cẩn trọng về mặt đạo đức.",
               feedback: "Đúng. Công nghệ có thể hỗ trợ tưởng nhớ nhưng không thay thế người thật và quan hệ xã hội đã mất.",
+            },
+          ],
+        },
+        {
+          prompt: "Một AI lập trình viên viết mã phức tạp, tối ưu hiệu năng và giải thích logic của nó.",
+          answer: 0,
+          options: [
+            {
+              text: "AI đang xử lý cú pháp lập trình dựa trên các mẫu học từ kho mã nguồn.",
+              feedback: "Đúng. Khả năng lập trình của AI là sự kết hợp mẫu dữ liệu, không phải sáng tạo suy nghĩ độc lập.",
+            },
+            {
+              text: "AI có năng lực sáng tạo kỹ thuật như kỹ sư con người.",
+              feedback: "Kỹ sư con người có mục đích kinh tế, trách nhiệm chất lượng và bối cảnh dự án thực tế mà AI không có.",
+            },
+            {
+              text: "AI đã trở thành một công nhân lập trình tự do.",
+              feedback: "Công nhân có vị trí xã hội, nhận lương, có lợi ích và quyền lợi lao động, không chỉ là chương trình.",
+            },
+          ],
+        },
+        {
+          prompt: "Một AI mô phỏng lòng trắc ẩn trong cuộc trò chuyện với người muốn tự tử.",
+          answer: 1,
+          options: [
+            {
+              text: "AI thực sự có lòng trắc ẩn và muốn giúp đỡ.",
+              feedback: "Trắc ẩn là cảm xúc chủ quan gắn với kinh nghiệm sống và quan hệ xã hội con người.",
+            },
+            {
+              text: "AI sử dụng các mẫu ngôn ngữ đồng cảm được huấn luyện để hỗ trợ tâm lý.",
+              feedback: "Đúng. Ngôn ngữ đồng cảm có thể hữu ích nhưng không chứng minh AI có cảm xúc chủ quan.",
+            },
+            {
+              text: "AI có trách nhiệm đạo đức cứu vãn tính mạng con người.",
+              feedback: "Trách nhiệm đạo đức thuộc về con người và các cơ chế xã hội, không thể gán cho AI.",
+            },
+          ],
+        },
+        {
+          prompt: "Một AI phân tích lỗi của mình từ một dự án thất bại và đề xuất cách cải thiện.",
+          answer: 2,
+          options: [
+            {
+              text: "AI đã có khả năng tự phê bình và học hỏi như con người.",
+              feedback: "Tự phê bình là quá trình ý thức có liên quan đến tự đánh giá, hối tiếc và ý chí thay đổi.",
+            },
+            {
+              text: "AI hiểu được lý do thật sự dẫn đến thất bại.",
+              feedback: "AI có thể phân tích mối tương quan dữ liệu nhưng không nhất thiết hiểu nguyên nhân sâu xa trong bối cảnh xã hội.",
+            },
+            {
+              text: "AI điều chỉnh tham số và mô hình dựa trên dữ liệu phản hồi.",
+              feedback: "Đúng. Đây là quá trình tối ưu hóa máy học, khác với tự thức và ý chí cải tạo của con người.",
+            },
+          ],
+        },
+        {
+          prompt: "Một AI dự đoán sự lên xuống giá cổ phiếu và kiếm lợi nhuận cao.",
+          answer: 1,
+          options: [
+            {
+              text: "AI đã hiểu bản chất của thị trường tài chính.",
+              feedback: "Thị trường tài chính là sản phẩm của quan hệ kinh tế xã hội con người; AI chỉ phân tích mẫu dữ liệu giá.",
+            },
+            {
+              text: "AI phát hiện mối tương quan thống kê trong dữ liệu lịch sử và dự báo xu hướng.",
+              feedback: "Đúng. Dự đoán thống kê không đồng nghĩa với hiểu bản chất kinh tế hay ý chí kinh doanh của AI.",
+            },
+            {
+              text: "AI đã trở thành một nhà đầu tư có tầm nhìn thương mại.",
+              feedback: "Nhà đầu tư có lợi ích kinh tế, trách nhiệm pháp lý và quyết định chiến lược độc lập, không chỉ tính toán.",
             },
           ],
         },

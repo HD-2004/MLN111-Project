@@ -116,18 +116,10 @@
       const qIndex = order[pos];
       const q = data.game.questions[qIndex];
       if (!q) return;
-      promptEl.className = 'quiz-card-shell';
+      promptEl.className = 'quiz-scenario-card';
       promptEl.innerHTML = `
-        <button class="quiz-card" type="button" aria-expanded="false">
-          <span class="quiz-card-face quiz-card-front">
-            <small>Thẻ ${pos + 1}/${order.length}</small>
-            <strong>Lật thẻ để mở câu hỏi</strong>
-          </span>
-          <span class="quiz-card-face quiz-card-back">
-            <small>Câu hỏi</small>
-            <strong>${q.prompt}</strong>
-          </span>
-        </button>
+        <span>Câu hỏi ${pos + 1}/${order.length}</span>
+        <p>${q.prompt}</p>
       `;
       feedbackEl.textContent = '';
       feedbackEl.classList.remove('show');
@@ -136,18 +128,10 @@
       const opts = q.options.map((opt, i) => ({ ...opt, __orig: i }));
       shuffle(opts);
 
-      optionsEl.classList.add('hidden');
+      optionsEl.classList.remove('hidden');
       optionsEl.innerHTML = opts
         .map((opt, j) => `<button class="game-choice" type="button" data-orig="${opt.__orig}" data-shuf="${j}">${opt.text}</button>`)
         .join('');
-
-      const card = promptEl.querySelector('.quiz-card');
-      card.addEventListener('click', () => {
-        card.classList.add('flipped');
-        card.setAttribute('aria-expanded', 'true');
-        card.disabled = true;
-        optionsEl.classList.remove('hidden');
-      });
 
       optionsEl.querySelectorAll('.game-choice').forEach((btn) => {
         btn.addEventListener('click', () => {
@@ -158,24 +142,20 @@
           });
           feedbackEl.textContent = f;
           feedbackEl.classList.add('show');
-          controlsEl.innerHTML = `<button id="nextBtn" type="button">${pos < order.length - 1 ? 'Thẻ tiếp theo' : 'Xong'}</button>`;
+          controlsEl.innerHTML = `<button id="nextBtn" type="button">${pos < order.length - 1 ? 'Câu tiếp theo' : 'Xong'}</button>`;
           const next = document.querySelector('#nextBtn');
           next.addEventListener('click', () => {
             if (pos < order.length - 1) {
               idx = pos + 1;
               renderQuestionByOrder(idx);
             } else {
-              promptEl.className = 'quiz-card-shell';
+              promptEl.className = 'quiz-scenario-card';
               promptEl.innerHTML = `
-                <div class="quiz-card quiz-card-complete">
-                  <span class="quiz-card-face">
-                    <small>Hoàn thành</small>
-                    <strong>Cảm ơn, bạn đã hoàn thành thử thách.</strong>
-                  </span>
-                </div>
+                <span>Hoàn thành</span>
+                <p>Cảm ơn, bạn đã hoàn thành thử thách.</p>
               `;
               optionsEl.innerHTML = '';
-              optionsEl.classList.remove('hidden');
+              optionsEl.classList.add('hidden');
               feedbackEl.textContent = '';
               feedbackEl.classList.remove('show');
               controlsEl.innerHTML = `<button id="restartBtn" type="button">Chơi lại</button>`;
@@ -224,10 +204,10 @@
       
       // Nếu đã chọn thẻ, hiển thị câu hỏi lớn
       if (selectedPos !== null && selectedQuestion) {
-        promptEl.className = 'quiz-card-shell';
+        promptEl.className = 'quiz-scenario-card';
         promptEl.innerHTML = `
-          <span>Câu hỏi</span>
-          <strong>${selectedQuestion.prompt}</strong>
+          <span>Câu hỏi ${selectedPos + 1}/${order.length}</span>
+          <p>${selectedQuestion.prompt}</p>
         `;
       } else {
         // Nếu chưa chọn, hiển thị bộ sưu tập thẻ
