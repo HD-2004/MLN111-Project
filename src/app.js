@@ -82,6 +82,7 @@
   function renderHero() {
     return `
       <section class="section hero-section" id="portal" data-chapter="portal">
+        <canvas class="hero-three-canvas" data-hero-three aria-hidden="true"></canvas>
         <div class="code-rain" aria-hidden="true">
           ${Array.from({ length: 18 })
             .map(

@@ -16,9 +16,10 @@ window.APP_DATA = {
     slogan:
       "LIỆU THUẬT TOÁN CÓ THỂ THAY THẾ LINH HỒN, HAY CHỈ LÀ SỰ NỐI DÀI CỦA THẾ GIỚI KHÁCH QUAN?",
     intro: [
-      "Chúng ta đang đứng ở tâm bão của Cuộc cách mạng công nghiệp lần thứ tư, nơi Trí tuệ nhân tạo không còn là viễn tưởng mà đã thẩm thấu vào cấu trúc vận hành của xã hội.",
-      "AI làm thơ, vẽ tranh, chẩn đoán bệnh tật, lập trình mã nguồn và thậm chí đưa ra các quyết định thay thế con người. Sự trỗi dậy này làm bùng nổ câu hỏi triết học: máy móc đang tiến tới ý thức, hay chỉ là biểu hiện tối tân của vật chất?",
-      "Để không rơi vào sợ hãi hoang đường hoặc ngây thơ thần thánh hóa máy móc, chúng ta dùng lăng kính duy vật biện chứng của Triết học Mác - Lênin để phẫu thuật bản chất của AI.",
+      "Chúng ta đang đứng ở tâm bão của Cuộc cách mạng công nghiệp lần thứ tư, nơi Trí tuệ nhân tạo (AI) không còn là viễn tưởng mà đã thẩm thấu vào cấu trúc vận hành của xã hội.",
+      "AI làm thơ, vẽ tranh, chẩn đoán bệnh tật, lập trình mã nguồn và thậm chí đưa ra các quyết định thay thế con người. Sự trỗi dậy mạnh mẽ này làm bùng nổ một cuộc đại tranh luận mang tính thời đại về mặt triết học: Phải chăng máy móc đang tự tiến hóa để chạm đến ngưỡng cửa của \"Ý thức\"? Hay suy cho cùng, nó chỉ là một hình thái biểu hiện tối tân, phức tạp của thế giới \"Vật chất\"?",
+      "Để không bị lạc lối giữa hai cực đoan - hoặc sợ hãi hoang đường trước sự thống trị của máy móc, hoặc ngây thơ coi máy móc có tâm hồn y hệt con người - chúng ta cần một điểm tựa thế giới quan vững chắc.",
+      "Hãy cùng lật lại những trang bản nguyên của lịch sử triết học, sử dụng lăng kính duy vật biện chứng của Triết học Mác - Lênin để phẫu thuật bản chất của AI. Từ tọa độ của thế kỷ XIX - XX, chúng ta sẽ giải mã bài toán của thế kỷ XXI.",
     ],
   },
 
