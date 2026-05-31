@@ -1,0 +1,7 @@
+
+> mln-philosophy-ai-learning-web@0.1.0 dev
+> node scripts/dev-server.mjs
+
+Port 4173 is already in use. Trying 4174...
+Preview server running at http://127.0.0.1:4174/
+Serving static files from C:\MLN111

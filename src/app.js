@@ -44,8 +44,13 @@
   function renderGameShortcut() {
     return `
       <a class="game-shortcut" href="game.html" aria-label="Mở trang trò chơi">
-        <span>Game</span>
-        <strong>Trò chơi</strong>
+        <span class="game-shortcut__label">INTERACTIVE QUEST</span>
+        <strong class="game-shortcut__title">Trò Chơi Tư Duy</strong>
+        <p class="game-shortcut__description">Khám phá các câu hỏi về AI, ý thức và thế giới khách quan.</p>
+        <span class="game-shortcut__cta">
+          <span>Bắt đầu</span>
+          <span class="game-shortcut__cta-arrow" aria-hidden="true">→</span>
+        </span>
       </a>
     `;
   }
@@ -88,26 +93,40 @@
             <div class="intro-essay">${renderParagraphs(data.portal.intro)}</div>
             <a class="scroll-cta" href="#theory">Bước vào bản đồ lý thuyết</a>
           </div>
-          <div class="hero-artifact" aria-label="Tượng triết gia dạng hiện vật số">
+          <div class="hero-artifact">
             <p class="artifact-label">Future Philosophy Archive</p>
-            <div class="statue-orbit">
-              <svg class="statue-svg" viewBox="0 0 420 520" role="img" aria-label="Tượng triết gia phát sáng">
-                <defs>
-                  <linearGradient id="statueGlow" x1="0" x2="1" y1="0" y2="1">
-                    <stop offset="0%" stop-color="#f4e7c0" />
-                    <stop offset="48%" stop-color="#8a6a35" />
-                    <stop offset="100%" stop-color="#51d6ff" />
-                  </linearGradient>
-                </defs>
-                <path d="M211 39c52 0 96 37 99 92 3 49-25 88-59 104v31h61c31 0 58 20 68 49l42 126H0l42-126c10-29 37-49 68-49h60v-31c-35-17-61-56-59-104 3-55 47-92 100-92Z" fill="rgba(244,231,192,.08)" stroke="url(#statueGlow)" stroke-width="2" />
-                <path d="M116 145c30-30 70-43 126-35m-93 54c46 15 85 14 116-5m-128 54c32 25 79 27 118 1m-105 61c40 27 82 27 123 0M72 438h276M97 371h226" fill="none" stroke="#f4e7c0" stroke-opacity=".55" stroke-width="2" />
-                <path d="M141 115c16-34 48-55 85-54 43 2 74 29 83 70M178 235c19 12 45 12 66 0" fill="none" stroke="#51d6ff" stroke-opacity=".4" stroke-width="2" />
-                <circle cx="144" cy="152" r="8" fill="#f0c86b" />
-                <circle cx="268" cy="152" r="8" fill="#f0c86b" />
-                <path d="M196 173l-19 37 43-7-22 39 54-57-39 7 14-31Z" fill="#f59d2a" opacity=".9" />
-              </svg>
+            <div class="hero-image-frame">
+              <img
+                class="hero-image"
+                src="img/01.jpg"
+                alt="Minh họa chương mở đầu"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+              />
             </div>
           </div>
+        </div>
+      </section>
+    `;
+  }
+
+  function renderTransitionVisual() {
+    return `
+      <section class="transition-section" aria-label="Minh họa chuyển cảnh">
+        <div class="transition-layout reveal">
+          ${renderGameShortcut()}
+          <figure class="transition-card">
+            <div class="transition-image-frame">
+              <img
+                class="transition-image"
+                src="img/04.jpg"
+                alt="Minh họa chuyển cảnh"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </figure>
         </div>
       </section>
     `;
@@ -121,21 +140,36 @@
           <h2>${data.theory.title}</h2>
           <p>${data.theory.lead}</p>
         </div>
-        <div class="timeline">
-          ${data.theory.timeline
-            .map(
-              (item) => `
-                <article class="timeline-item reveal">
-                  <span class="timeline-number">${item.number}</span>
-                  <div>
-                    <small>${item.label}</small>
-                    <h3>${item.title}</h3>
-                    <p>${item.text}</p>
-                  </div>
-                </article>
-              `
-            )
-            .join("")}
+        <div class="theory-layout">
+          <aside class="theory-side-visual reveal" aria-hidden="true">
+            <div class="theory-visual-frame">
+              <img
+                class="theory-visual-image"
+                src="img/05.png"
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </aside>
+          <div class="theory-main">
+            <div class="timeline">
+              ${data.theory.timeline
+                .map(
+                  (item) => `
+                    <article class="timeline-item reveal">
+                      <span class="timeline-number">${item.number}</span>
+                      <div>
+                        <small>${item.label}</small>
+                        <h3>${item.title}</h3>
+                        <p>${item.text}</p>
+                      </div>
+                    </article>
+                  `
+                )
+                .join("")}
+            </div>
+          </div>
         </div>
         <div class="accordion-stack">
           ${data.theory.sections
@@ -304,9 +338,9 @@
   function renderApp() {
     app.innerHTML = `
       ${renderNav()}
-      ${renderGameShortcut()}
       <main>
         ${renderHero()}
+        ${renderTransitionVisual()}
         ${renderTheory()}
         ${renderAI()}
         ${renderDialogue()}

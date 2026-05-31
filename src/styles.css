@@ -48,6 +48,85 @@ body::before {
   z-index: -1;
 }
 
+html.page-transition-enabled body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    linear-gradient(180deg, rgba(3, 5, 10, 0.08), rgba(3, 5, 10, 0.9)),
+    linear-gradient(90deg, transparent 0%, rgba(99, 215, 255, 0.24) 34%, rgba(212, 168, 79, 0.16) 52%, rgba(99, 215, 255, 0.08) 68%, transparent 100%),
+    radial-gradient(circle at 50% 50%, rgba(99, 215, 255, 0.08), transparent 48%);
+  transform: translateX(-16%) scaleX(1.08);
+}
+
+html.page-transition-enabled #app > main,
+html.page-transition-enabled #app > .doc-shortcut {
+  transition: opacity 0.48s ease, transform 0.48s ease;
+  will-change: opacity, transform;
+}
+
+html.page-transition-exiting body {
+  overflow: hidden;
+}
+
+html.page-transition-exiting body::after {
+  animation: pageTransitionExit 0.48s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+html.page-transition-entering body::after {
+  animation: pageTransitionEnter 0.56s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+html.page-transition-exiting #app > main,
+html.page-transition-exiting #app > .doc-shortcut {
+  opacity: 0.22;
+  transform: translateY(14px) scale(0.996);
+}
+
+html.page-transition-entering #app > main,
+html.page-transition-entering #app > .doc-shortcut {
+  animation: pageContentEnter 0.56s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes pageTransitionExit {
+  0% {
+    opacity: 0;
+    transform: translateX(-16%) scaleX(1.08);
+  }
+  38% {
+    opacity: 0.46;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scaleX(1);
+  }
+}
+
+@keyframes pageTransitionEnter {
+  0% {
+    opacity: 1;
+    transform: translateX(0) scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(18%) scaleX(1.04);
+  }
+}
+
+@keyframes pageContentEnter {
+  0% {
+    opacity: 0.38;
+    transform: translateY(12px) scale(0.996);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 a {
   color: inherit;
 }
@@ -426,48 +505,95 @@ p {
 }
 
 .game-shortcut {
-  position: fixed;
-  top: 50%;
-  right: 28px;
-  z-index: 30;
+  position: relative;
   display: grid;
-  gap: 6px;
-  min-width: 112px;
-  padding: 14px 16px;
-  border: 1px solid rgba(99, 215, 255, 0.72);
-  border-radius: 10px;
-  background: rgba(5, 7, 12, 0.74);
+  gap: 12px;
+  align-self: center;
+  width: min(100%, 280px);
+  padding: 18px 20px 18px 21px;
+  border: 1px solid rgba(99, 215, 255, 0.48);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(8, 14, 22, 0.9), rgba(4, 8, 14, 0.78)),
+    rgba(5, 7, 12, 0.76);
   box-shadow:
-    0 0 18px rgba(99, 215, 255, 0.36),
+    0 18px 34px rgba(0, 0, 0, 0.34),
+    0 0 22px rgba(99, 215, 255, 0.18),
     inset 0 0 18px rgba(99, 215, 255, 0.08);
-  color: var(--cyan);
-  text-align: center;
+  color: var(--ivory);
   text-decoration: none;
-  text-transform: uppercase;
-  transform: translateY(-50%);
-  backdrop-filter: blur(12px);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  backdrop-filter: blur(14px);
+  transition:
+    transform 0.42s ease,
+    box-shadow 0.42s ease,
+    border-color 0.42s ease,
+    background 0.42s ease;
 }
 
-.game-shortcut span {
-  font-size: 0.72rem;
+.game-shortcut::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border: 1px solid rgba(99, 215, 255, 0.08);
+  border-radius: 17px;
+  pointer-events: none;
+}
+
+.game-shortcut__label {
+  display: block;
+  color: var(--cyan);
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 
-.game-shortcut strong {
+.game-shortcut__title {
+  display: block;
+  color: var(--ivory);
+  font-family: var(--serif);
+  font-size: 1.26rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.game-shortcut__description {
+  margin: 0;
+  color: rgba(243, 234, 216, 0.78);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.game-shortcut__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   color: var(--ivory);
   font-size: 0.86rem;
-  letter-spacing: 0.12em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.game-shortcut__cta-arrow {
+  display: inline-block;
+  color: var(--cyan);
+  transition: transform 0.42s ease;
 }
 
 .game-shortcut:hover {
-  border-color: rgba(99, 215, 255, 1);
+  border-color: rgba(99, 215, 255, 0.78);
   box-shadow:
-    0 0 28px rgba(99, 215, 255, 0.58),
-    0 0 54px rgba(99, 215, 255, 0.24),
-    inset 0 0 22px rgba(99, 215, 255, 0.16);
-  transform: translateY(-50%) scale(1.04);
+    0 20px 40px rgba(0, 0, 0, 0.38),
+    0 0 30px rgba(99, 215, 255, 0.22),
+    inset 0 0 22px rgba(99, 215, 255, 0.12);
+  background:
+    linear-gradient(180deg, rgba(10, 17, 28, 0.92), rgba(5, 9, 16, 0.82)),
+    rgba(5, 7, 12, 0.82);
+  transform: translateY(-4px);
+}
+
+.game-shortcut:hover .game-shortcut__cta-arrow {
+  transform: translateX(4px);
 }
 
 .doc-shortcut {
@@ -631,59 +757,211 @@ p {
 
 .hero-artifact {
   position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-content: center;
+  gap: 22px;
   min-height: 560px;
+  padding: 28px 0 28px 28px;
   border-left: 1px solid var(--line);
 }
 
 .artifact-label {
-  position: absolute;
-  top: 0;
-  right: 0;
+  margin: 0;
+  justify-self: start;
   color: var(--gold);
   font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  writing-mode: vertical-rl;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: none;
 }
 
-.statue-orbit {
-  position: absolute;
-  inset: 34px 8px 28px;
-  display: grid;
-  place-items: center;
+.hero-image-frame {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(243, 234, 216, 0.1);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(4, 7, 12, 0.08), rgba(4, 7, 12, 0.4)),
+    rgba(5, 7, 12, 0.74);
+  box-shadow:
+    0 28px 52px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(243, 234, 216, 0.08);
 }
 
-.statue-orbit::before,
-.statue-orbit::after {
+.hero-image-frame::before,
+.hero-image-frame::after {
   content: "";
   position: absolute;
-  border: 1px solid rgba(243, 234, 216, 0.13);
-  border-radius: 50%;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
 }
 
-.statue-orbit::before {
-  width: min(92%, 420px);
-  aspect-ratio: 1;
+.hero-image-frame::before {
+  background:
+    linear-gradient(180deg, rgba(4, 7, 12, 0.08) 0%, rgba(4, 7, 12, 0.16) 26%, rgba(4, 7, 12, 0.46) 100%),
+    radial-gradient(circle at 18% 18%, rgba(212, 168, 79, 0.18), transparent 28%),
+    radial-gradient(circle at 82% 68%, rgba(99, 215, 255, 0.12), transparent 24%);
 }
 
-.statue-orbit::after {
-  width: min(70%, 320px);
-  aspect-ratio: 1;
-  border-color: rgba(99, 215, 255, 0.16);
-  transform: rotate(18deg);
+.hero-image-frame::after {
+  inset: 16px;
+  border: 1px solid rgba(243, 234, 216, 0.1);
+  border-radius: 6px;
+  opacity: 0.55;
 }
 
-@keyframes rotate {
-  to {
-    transform: rotate(360deg);
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 52% center;
+  filter: saturate(0.88) contrast(1.04) brightness(0.84);
+  transform: scale(1.035);
+  animation: heroImageDrift 14s ease-in-out infinite;
+}
+
+@keyframes heroImageDrift {
+  50% {
+    transform: translate3d(0, -8px, 0) scale(1.055);
   }
 }
 
-.statue-svg {
+.theory-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+}
+
+.theory-main {
+  min-width: 0;
+}
+
+.theory-side-visual {
+  position: sticky;
+  top: 112px;
+  align-self: start;
+  padding-top: 84px;
+  opacity: 0.92;
+}
+
+.theory-visual-frame {
   position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border-radius: 10px;
+  border: 1px solid rgba(243, 234, 216, 0.1);
+  background:
+    linear-gradient(180deg, rgba(4, 7, 12, 0.14), rgba(4, 7, 12, 0.5)),
+    rgba(5, 7, 12, 0.72);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(243, 234, 216, 0.05);
+}
+
+.theory-visual-frame::before,
+.theory-visual-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.theory-visual-frame::before {
   z-index: 2;
-  width: min(92%, 420px);
-  filter: drop-shadow(0 0 28px rgba(99, 215, 255, 0.22));
+  background:
+    linear-gradient(180deg, rgba(4, 7, 12, 0.14) 0%, rgba(4, 7, 12, 0.4) 64%, rgba(4, 7, 12, 0.68) 100%),
+    radial-gradient(circle at 18% 18%, rgba(212, 168, 79, 0.06), transparent 28%);
+}
+
+.theory-visual-frame::after {
+  z-index: 3;
+  inset: 16px;
+  border: 1px solid rgba(243, 234, 216, 0.08);
+  border-radius: 7px;
+}
+
+.theory-visual-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  filter: saturate(0.72) brightness(0.72) contrast(1.02);
+  opacity: 0.66;
+  transform: scale(1.02);
+}
+
+.transition-section {
+  padding: 8px 0 88px;
+}
+
+.transition-layout {
+  display: grid;
+  width: min(100%, 1048px);
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+  margin-left: auto;
+}
+
+.transition-card {
+  width: min(100%, 700px);
+  margin: 0 0 0 auto;
+}
+
+.transition-image-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 5 / 6;
+  border: 1px solid rgba(243, 234, 216, 0.12);
+  border-radius: 10px;
+  background:
+    linear-gradient(180deg, rgba(4, 7, 12, 0.12), rgba(4, 7, 12, 0.42)),
+    rgba(5, 7, 12, 0.76);
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(243, 234, 216, 0.07);
+}
+
+.transition-image-frame::before,
+.transition-image-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.transition-image-frame::before {
+  background:
+    linear-gradient(180deg, rgba(4, 7, 12, 0.04) 0%, rgba(4, 7, 12, 0.18) 36%, rgba(4, 7, 12, 0.52) 100%),
+    radial-gradient(circle at 18% 18%, rgba(212, 168, 79, 0.15), transparent 26%);
+}
+
+.transition-image-frame::after {
+  inset: 14px;
+  border: 1px solid rgba(243, 234, 216, 0.08);
+  border-radius: 7px;
+}
+
+.transition-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 24%;
+  filter: saturate(0.86) contrast(1.03) brightness(0.82);
+  transform: scale(1.025);
 }
 
 .timeline {
@@ -1689,6 +1967,16 @@ p {
   transform: translateY(0);
 }
 
+@media (max-width: 1100px) {
+  .game-shortcut {
+    width: min(100%, 256px);
+  }
+
+  .game-shortcut:hover {
+    transform: translateY(-4px);
+  }
+}
+
 @media (max-width: 980px) {
   main {
     width: min(100% - 28px, 760px);
@@ -1719,16 +2007,63 @@ p {
     padding: 28px;
   }
 
+  .transition-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .game-shortcut {
+    order: 2;
+    justify-self: center;
+    width: min(100%, 420px);
+    margin-top: 0;
+  }
+
+  .game-shortcut:hover {
+    transform: translateY(-3px);
+  }
+
+  .theory-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .theory-side-visual {
+    position: relative;
+    top: auto;
+    width: min(100%, 320px);
+    margin: 0 auto;
+    padding-top: 0;
+  }
+
+  .theory-visual-frame {
+    aspect-ratio: 16 / 10;
+  }
+
+  .transition-section {
+    padding: 4px 0 72px;
+  }
+
+  .transition-card {
+    width: min(100%, 640px);
+    margin: 0 auto;
+  }
+
+  .transition-image-frame {
+    aspect-ratio: 4 / 5;
+  }
+
   .hero-artifact {
     min-height: 430px;
+    padding: 20px 0 0;
+    gap: 18px;
     border-left: 0;
     border-top: 1px solid var(--line);
   }
 
   .artifact-label {
-    writing-mode: horizontal-tb;
-    right: auto;
-    left: 0;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
   }
 
   .origin-diagram {
@@ -1825,6 +2160,73 @@ p {
 
   .typewriter-wrap {
     min-height: 170px;
+  }
+
+  .game-shortcut {
+    width: 100%;
+    padding: 17px 18px;
+    border-radius: 16px;
+  }
+
+  .game-shortcut::before {
+    border-radius: 15px;
+  }
+
+  .game-shortcut__label {
+    font-size: 0.64rem;
+    letter-spacing: 0.18em;
+  }
+
+  .game-shortcut__title {
+    font-size: 1.1rem;
+  }
+
+  .game-shortcut__description {
+    font-size: 0.86rem;
+  }
+
+  .game-shortcut__cta {
+    font-size: 0.82rem;
+  }
+
+  .theory-side-visual {
+    display: none;
+  }
+
+  .transition-section {
+    padding: 0 0 56px;
+  }
+
+  .transition-card {
+    width: 100%;
+  }
+
+  .transition-image-frame {
+    aspect-ratio: 4 / 5;
+    border-radius: 8px;
+  }
+
+  .transition-image-frame::after {
+    inset: 10px;
+  }
+
+  .transition-image {
+    object-position: center 18%;
+  }
+
+  .hero-artifact {
+    min-height: 360px;
+    gap: 16px;
+  }
+
+  .artifact-label {
+    max-width: 100%;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-image-frame::after {
+    inset: 12px;
   }
 
   .timeline::before {

@@ -12,6 +12,18 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2305070c'/%3E%3Cpath d='M32 8 50 56H14L32 8Z' fill='none' stroke='%23d4a84f' stroke-width='4'/%3E%3Ccircle cx='32' cy='34' r='7' fill='%2363d7ff'/%3E%3C/svg%3E"
     />
+    <script data-page-transition-bootstrap>
+      (function () {
+        const root = document.documentElement;
+        root.classList.add("page-transition-enabled");
+        try {
+          if (sessionStorage.getItem("mln-page-transition") === "1") {
+            root.classList.add("page-transition-entering");
+            sessionStorage.removeItem("mln-page-transition");
+          }
+        } catch {}
+      })();
+    </script>
     <link rel="stylesheet" href="src/styles.css" />
   </head>
   <body>
@@ -20,5 +32,6 @@
     <script src="src/data.js" defer></script>
     <script src="src/game.js" defer></script>
     <script src="src/game-page.js" defer></script>
+    <script src="src/page-transition.js" defer></script>
   </body>
 </html>
