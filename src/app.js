@@ -276,14 +276,14 @@
           </header>
           <div class="video-section__frame reveal">
             <div class="video-section__frame-inner">
-              <video
+              <iframe
                 class="video-section__player"
-                src="video/Giai_ma_AI.mp4"
-                controls
-                preload="metadata"
-                playsinline
-                aria-label="Video: Đối Thoại Với Tương Lai — Giải mã AI"
-              ></video>
+                src="https://www.youtube.com/embed/Ao5rYxLdP8w"
+                title="Đối Thoại Với Tương Lai — Giải mã AI"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
             </div>
           </div>
         </div>
