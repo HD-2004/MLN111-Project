@@ -221,34 +221,45 @@
 
     function renderDeck(selectedPos = null) {
       const selectedQuestion = selectedPos === null ? null : data.game.questions[order[selectedPos]];
-      promptEl.className = 'quiz-deck-panel';
-      promptEl.innerHTML = `
-        <div class="quiz-deck-status">
-          <span>Chọn 1 trong ${order.length} lá bài</span>
-          <strong>${completed.size}/${order.length} đã trả lời</strong>
-        </div>
-        <div class="quiz-deck">
-          ${order
-            .map((questionIndex, pos) => {
-              const question = data.game.questions[questionIndex];
-              const isSelected = selectedPos === pos;
-              const isDone = completed.has(pos);
-              return `
-                <button class="quiz-mini-card${isSelected ? ' selected' : ''}${isDone ? ' answered' : ''}" type="button" data-card="${pos}" ${isDone ? 'disabled' : ''}>
-                  <span class="quiz-card-face quiz-card-front">
-                    <small>Lá ${pos + 1}</small>
-                    <strong>${isDone ? 'Đã trả lời' : 'Chọn thẻ'}</strong>
-                  </span>
-                  <span class="quiz-card-face quiz-card-back">
-                    <small>Lá ${pos + 1}</small>
-                    <strong>${question.prompt}</strong>
-                  </span>
-                </button>
-              `;
-            })
-            .join('')}
-        </div>
-      `;
+      
+      // Nếu đã chọn thẻ, hiển thị câu hỏi lớn
+      if (selectedPos !== null && selectedQuestion) {
+        promptEl.className = 'quiz-card-shell';
+        promptEl.innerHTML = `
+          <span>Câu hỏi</span>
+          <strong>${selectedQuestion.prompt}</strong>
+        `;
+      } else {
+        // Nếu chưa chọn, hiển thị bộ sưu tập thẻ
+        promptEl.className = 'quiz-deck-panel';
+        promptEl.innerHTML = `
+          <div class="quiz-deck-status">
+            <span>Chọn 1 trong ${order.length} lá bài</span>
+            <strong>${completed.size}/${order.length} đã trả lời</strong>
+          </div>
+          <div class="quiz-deck">
+            ${order
+              .map((questionIndex, pos) => {
+                const question = data.game.questions[questionIndex];
+                const isSelected = selectedPos === pos;
+                const isDone = completed.has(pos);
+                return `
+                  <button class="quiz-mini-card${isSelected ? ' selected' : ''}${isDone ? ' answered' : ''}" type="button" data-card="${pos}" ${isDone ? 'disabled' : ''}>
+                    <span class="quiz-card-face quiz-card-front">
+                      <small>Lá ${pos + 1}</small>
+                      <strong>${isDone ? 'Đã trả lời' : 'Chọn thẻ'}</strong>
+                    </span>
+                    <span class="quiz-card-face quiz-card-back">
+                      <small>Lá ${pos + 1}</small>
+                      <strong>${question.prompt}</strong>
+                    </span>
+                  </button>
+                `;
+              })
+              .join('')}
+          </div>
+        `;
+      }
 
       optionsEl.innerHTML = '';
       optionsEl.classList.add('hidden');
@@ -264,26 +275,23 @@
         return;
       }
 
-      promptEl.querySelectorAll('.quiz-mini-card:not(.answered)').forEach((card) => {
-        card.addEventListener('click', (e) => {
-          if (completed.has(Number(card.dataset.card))) return;
-          card.classList.toggle('flipped');
-          if (card.classList.contains('flipped')) {
-            setTimeout(() => renderQuestion(Number(card.dataset.card)), 300);
-          }
+      if (selectedPos === null) {
+        promptEl.querySelectorAll('.quiz-mini-card:not(.answered)').forEach((card) => {
+          card.addEventListener('click', (e) => {
+            if (completed.has(Number(card.dataset.card))) return;
+            card.classList.toggle('flipped');
+            if (card.classList.contains('flipped')) {
+              setTimeout(() => renderQuestion(Number(card.dataset.card)), 300);
+            }
+          });
         });
-      });
+      }
     }
 
     function renderQuestion(pos) {
       const q = data.game.questions[order[pos]];
       if (!q || completed.has(pos)) return;
 
-      // Reset flip state
-      promptEl.querySelectorAll('.quiz-mini-card').forEach(card => {
-        card.classList.remove('flipped');
-      });
-      
       renderDeck(pos);
       const opts = shuffle(q.options.map((opt, i) => ({ ...opt, __orig: i })));
       optionsEl.classList.remove('hidden');
@@ -454,34 +462,41 @@
       progressEl.textContent = `Chọn 1 trong ${order.length} lá bài`;
       scoreEl.textContent = `Điểm ${score}/${order.length}`;
       
-      promptEl.className = 'quiz-deck-panel';
-      promptEl.innerHTML = `
-        <div class="quiz-deck-status">
-          <span>Chọn 1 trong ${order.length} lá bài</span>
-          <strong>${completed.size}/${order.length} đã trả lời</strong>
-        </div>
-        <div class="quiz-deck">
-          ${order
-            .map((scenarioIndex, pos) => {
-              const scenario = config.scenarios[scenarioIndex];
-              const isDone = completed.has(pos);
-              const isSelected = selectedPos === pos;
-              return `
-                <button class="quiz-mini-card${isSelected ? ' selected' : ''}${isDone ? ' answered' : ''}" type="button" data-card="${pos}" ${isDone ? 'disabled' : ''}>
-                  <span class="quiz-card-face quiz-card-front">
-                    <small>Lá ${pos + 1}</small>
-                    <strong>${isDone ? 'Đã trả lời' : 'Chọn thẻ'}</strong>
-                  </span>
-                  <span class="quiz-card-face quiz-card-back">
-                    <small>Lá ${pos + 1}</small>
-                    <strong>${scenario.prompt}</strong>
-                  </span>
-                </button>
-              `;
-            })
-            .join('')}
-        </div>
-      `;
+      // If selected: show large scenario
+      if (selectedPos !== null && selectedScenario) {
+        promptEl.className = 'ai-scenario-card';
+        promptEl.innerHTML = `<span>Quan sát hành vi AI</span><p>${selectedScenario.prompt}</p>`;
+      } else {
+        // If not selected: show card collection
+        promptEl.className = 'quiz-deck-panel';
+        promptEl.innerHTML = `
+          <div class="quiz-deck-status">
+            <span>Chọn 1 trong ${order.length} lá bài</span>
+            <strong>${completed.size}/${order.length} đã trả lời</strong>
+          </div>
+          <div class="quiz-deck">
+            ${order
+              .map((scenarioIndex, pos) => {
+                const scenario = config.scenarios[scenarioIndex];
+                const isDone = completed.has(pos);
+                const isSelected = selectedPos === pos;
+                return `
+                  <button class="quiz-mini-card${isSelected ? ' selected' : ''}${isDone ? ' answered' : ''}" type="button" data-card="${pos}" ${isDone ? 'disabled' : ''}>
+                    <span class="quiz-card-face quiz-card-front">
+                      <small>Lá ${pos + 1}</small>
+                      <strong>${isDone ? 'Đã trả lời' : 'Chọn thẻ'}</strong>
+                    </span>
+                    <span class="quiz-card-face quiz-card-back">
+                      <small>Lá ${pos + 1}</small>
+                      <strong>${scenario.prompt}</strong>
+                    </span>
+                  </button>
+                `;
+              })
+              .join('')}
+          </div>
+        `;
+      }
 
       optionsEl.innerHTML = '';
       optionsEl.classList.add('hidden');
@@ -499,26 +514,24 @@
         return;
       }
 
-      promptEl.querySelectorAll('.quiz-mini-card:not(.answered)').forEach((card) => {
-        card.addEventListener('click', (e) => {
-          if (completed.has(Number(card.dataset.card))) return;
-          card.classList.toggle('flipped');
-          if (card.classList.contains('flipped')) {
-            setTimeout(() => renderScenario(Number(card.dataset.card)), 300);
-          }
+      // Only attach listeners when showing collection (selectedPos === null)
+      if (selectedPos === null) {
+        promptEl.querySelectorAll('.quiz-mini-card:not(.answered)').forEach((card) => {
+          card.addEventListener('click', (e) => {
+            if (completed.has(Number(card.dataset.card))) return;
+            card.classList.toggle('flipped');
+            if (card.classList.contains('flipped')) {
+              setTimeout(() => renderScenario(Number(card.dataset.card)), 300);
+            }
+          });
         });
-      });
+      }
     }
 
     function renderScenario(pos) {
       const scenario = config.scenarios[order[pos]];
       if (!scenario || completed.has(pos)) return;
 
-      // Reset flip state
-      promptEl.querySelectorAll('.quiz-mini-card').forEach(card => {
-        card.classList.remove('flipped');
-      });
-      
       renderDeck(pos);
       const shuffledOptions = shuffle(scenario.options.map((opt, i) => ({ ...opt, __orig: i })));
       optionsEl.classList.remove('hidden');
