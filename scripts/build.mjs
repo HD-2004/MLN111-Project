@@ -16,5 +16,6 @@ async function writeProductionHtml(fileName) {
 await writeProductionHtml("index.html");
 await writeProductionHtml("game.html");
 await cp(resolve(root, "src"), resolve(output, "assets"), { recursive: true });
+await cp(resolve(root, "video"), resolve(output, "video"), { recursive: true });
 
 console.log("Static site built to public/");

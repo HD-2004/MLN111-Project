@@ -278,7 +278,7 @@
             <div class="video-section__frame-inner">
               <video
                 class="video-section__player"
-                src="../video/Giai_ma_AI.mp4"
+                src="video/Giai_ma_AI.mp4"
                 controls
                 preload="metadata"
                 playsinline
