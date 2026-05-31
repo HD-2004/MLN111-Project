@@ -58,13 +58,7 @@
   function renderGameShortcut() {
     return `
       <a class="game-shortcut" href="game.html" aria-label="Mở trang trò chơi">
-        <span class="game-shortcut__label">INTERACTIVE QUEST</span>
-        <strong class="game-shortcut__title">Trò Chơi Tư Duy</strong>
-        <p class="game-shortcut__description">Khám phá các câu hỏi về AI, ý thức và thế giới khách quan.</p>
-        <span class="game-shortcut__cta">
-          <span>Bắt đầu</span>
-          <span class="game-shortcut__cta-arrow" aria-hidden="true">→</span>
-        </span>
+        <span class="game-shortcut__title">Start game</span>
       </a>
     `;
   }
@@ -128,7 +122,6 @@
     return `
       <section class="transition-section" aria-label="Minh họa chuyển cảnh">
         <div class="transition-layout reveal">
-          ${renderGameShortcut()}
           <figure class="transition-card">
             <div class="transition-image-frame">
               <img
@@ -349,6 +342,7 @@
         ${renderVision()}
         ${renderManifesto()}
       </main>
+      ${renderGameShortcut()}
     `;
   }
 

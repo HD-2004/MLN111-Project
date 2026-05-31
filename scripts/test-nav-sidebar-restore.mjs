@@ -20,7 +20,7 @@ assert.match(
 
 assert.match(
   styleSource,
-  /\.progress-link\s*\{[\s\S]*grid-template-columns:\s*32px 1fr;[\s\S]*gap:\s*8px;[\s\S]*font-size:\s*0\.7rem;[\s\S]*text-transform:\s*uppercase;/,
+  /\.progress-link\s*\{[\s\S]*grid-template-columns:\s*32px 1fr;[\s\S]*gap:\s*10px;[\s\S]*font-size:\s*0\.65rem;[\s\S]*text-transform:\s*uppercase;/,
   "Expected .progress-link to preserve its original number/text layout."
 );
 
@@ -32,8 +32,8 @@ assert.match(
 
 assert.match(
   styleSource,
-  /\.transition-layout\s*\{[\s\S]*width:\s*min\(100%,\s*1048px\);[\s\S]*margin-left:\s*auto;/,
-  "Expected the transition layout to stay clear of the left nav lane."
+  /\.transition-layout\s*\{[\s\S]*width:\s*min\(100%,\s*700px\);[\s\S]*grid-template-columns:\s*minmax\(0,\s*1fr\);[\s\S]*margin:\s*0 auto;/,
+  "Expected the transition layout to stay centered after the floating CTA leaves the content flow."
 );
 
 assert.match(

@@ -538,98 +538,87 @@ p {
 }
 
 .game-shortcut {
-  position: relative;
-  display: grid;
-  gap: 12px;
-  align-self: center;
-  width: min(100%, 280px);
-  padding: 18px 20px 18px 21px;
-  border: 1px solid rgba(99, 215, 255, 0.48);
-  border-radius: 18px;
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  max-width: calc(100vw - 64px);
+  min-height: 44px;
+  padding: 13px 22px;
+  border: 1px solid rgba(212, 168, 79, 0.42);
+  border-radius: 999px;
   background:
-    linear-gradient(180deg, rgba(8, 14, 22, 0.9), rgba(4, 8, 14, 0.78)),
-    rgba(5, 7, 12, 0.76);
+    linear-gradient(180deg, rgba(28, 20, 10, 0.88), rgba(8, 10, 14, 0.94)),
+    rgba(5, 7, 12, 0.86);
   box-shadow:
-    0 18px 34px rgba(0, 0, 0, 0.34),
-    0 0 22px rgba(99, 215, 255, 0.18),
-    inset 0 0 18px rgba(99, 215, 255, 0.08);
+    0 18px 34px rgba(0, 0, 0, 0.36),
+    0 0 0 1px rgba(212, 168, 79, 0.08),
+    0 0 24px rgba(212, 168, 79, 0.12),
+    inset 0 0 18px rgba(212, 168, 79, 0.06);
   color: var(--ivory);
   text-decoration: none;
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(18px);
   transition:
-    transform 0.42s ease,
-    box-shadow 0.42s ease,
-    border-color 0.42s ease,
-    background 0.42s ease;
+    transform 0.24s ease,
+    box-shadow 0.24s ease,
+    border-color 0.24s ease,
+    background 0.24s ease,
+    color 0.24s ease;
 }
 
 .game-shortcut::before {
   content: "";
   position: absolute;
   inset: 1px;
-  border: 1px solid rgba(99, 215, 255, 0.08);
-  border-radius: 17px;
+  border: 1px solid rgba(243, 234, 216, 0.06);
+  border-radius: 999px;
   pointer-events: none;
 }
 
 .game-shortcut__label {
   display: block;
-  color: var(--cyan);
-  font-size: 0.64rem;
+  color: rgba(212, 168, 79, 0.88);
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   font-family: var(--body);
 }
 
 .game-shortcut__title {
   display: block;
-  color: var(--ivory);
-  font-family: var(--serif);
-  font-size: 1.3rem;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-}
-
-.game-shortcut__description {
-  margin: 0;
-  color: rgba(243, 234, 216, 0.78);
-  font-size: 0.88rem;
-  line-height: 1.65;
-}
-
-.game-shortcut__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--ivory);
+  color: var(--gold);
+  font-family: var(--body);
   font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  font-family: var(--body);
-}
-
-.game-shortcut__cta-arrow {
-  display: inline-block;
-  color: var(--cyan);
-  transition: transform 0.42s ease;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .game-shortcut:hover {
-  border-color: rgba(99, 215, 255, 0.78);
+  border-color: rgba(212, 168, 79, 0.72);
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.38),
-    0 0 30px rgba(99, 215, 255, 0.22),
-    inset 0 0 22px rgba(99, 215, 255, 0.12);
+    0 22px 40px rgba(0, 0, 0, 0.4),
+    0 0 30px rgba(212, 168, 79, 0.16),
+    inset 0 0 22px rgba(212, 168, 79, 0.08);
   background:
-    linear-gradient(180deg, rgba(10, 17, 28, 0.92), rgba(5, 9, 16, 0.82)),
-    rgba(5, 7, 12, 0.82);
-  transform: translateY(-4px);
+    linear-gradient(180deg, rgba(34, 24, 11, 0.92), rgba(11, 12, 16, 0.96)),
+    rgba(8, 10, 14, 0.9);
+  transform: translateY(-2px);
 }
 
-.game-shortcut:hover .game-shortcut__cta-arrow {
-  transform: translateX(4px);
+.game-shortcut:focus-visible {
+  outline: none;
+  border-color: rgba(243, 234, 216, 0.82);
+  box-shadow:
+    0 0 0 2px rgba(243, 234, 216, 0.12),
+    0 18px 34px rgba(0, 0, 0, 0.38),
+    0 0 24px rgba(212, 168, 79, 0.16);
 }
 
 .doc-shortcut {
@@ -949,16 +938,16 @@ p {
 
 .transition-layout {
   display: grid;
-  width: min(100%, 1048px);
-  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
-  gap: clamp(28px, 5vw, 72px);
+  width: min(100%, 700px);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
   align-items: center;
-  margin-left: auto;
+  margin: 0 auto;
 }
 
 .transition-card {
-  width: min(100%, 700px);
-  margin: 0 0 0 auto;
+  width: 100%;
+  margin: 0;
 }
 
 .transition-image-frame {
@@ -2208,11 +2197,11 @@ p {
 
 @media (max-width: 1100px) {
   .game-shortcut {
-    width: min(100%, 256px);
+    max-width: calc(100vw - 56px);
   }
 
   .game-shortcut:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
   }
 }
 
@@ -2294,14 +2283,14 @@ p {
   }
 
   .game-shortcut {
-    order: 2;
-    justify-self: center;
-    width: min(100%, 420px);
-    margin-top: 0;
+    right: 24px;
+    bottom: 24px;
+    max-width: calc(100vw - 48px);
+    padding: 12px 20px;
   }
 
   .game-shortcut:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
   }
 
   .theory-layout {
@@ -2488,30 +2477,16 @@ p {
   }
 
   .game-shortcut {
-    width: 100%;
-    padding: 17px 18px;
-    border-radius: 16px;
-  }
-
-  .game-shortcut::before {
-    border-radius: 15px;
-  }
-
-  .game-shortcut__label {
-    font-size: 0.62rem;
-    letter-spacing: 0.16em;
+    right: 16px;
+    bottom: 16px;
+    max-width: calc(100vw - 32px);
+    min-height: 44px;
+    padding: 11px 18px;
   }
 
   .game-shortcut__title {
-    font-size: 1.1rem;
-  }
-
-  .game-shortcut__description {
-    font-size: 0.86rem;
-  }
-
-  .game-shortcut__cta {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
   }
 
   .theory-side-visual {
