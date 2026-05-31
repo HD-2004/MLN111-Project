@@ -91,7 +91,6 @@
               <p id="typewriter" aria-label="${data.portal.slogan}"></p>
             </div>
             <div class="intro-essay">${renderParagraphs(data.portal.intro)}</div>
-            <a class="scroll-cta" href="#theory">Bước vào bản đồ lý thuyết</a>
           </div>
           <div class="hero-artifact">
             <p class="artifact-label">Future Philosophy Archive</p>
@@ -266,36 +265,26 @@
     `;
   }
 
-  function renderDialogue() {
+  function renderVision() {
     return `
-      <section class="section chatbot-section" id="dialogue" data-chapter="dialogue">
-        <div class="section-heading">
-          <p class="eyebrow">${data.dialogue.eyebrow}</p>
-          <h2>${data.dialogue.title}</h2>
-          <p>${data.dialogue.lead}</p>
-        </div>
-        <div class="chat-layout reveal">
-          <div class="chat-panel">
-            <div class="chat-header">
-              <span class="bot-avatar">Σ</span>
-              <div>
-                <strong>Triết gia máy</strong>
-                <small>Dialectical script mode</small>
-              </div>
+      <section class="section video-section" id="vision" data-chapter="vision">
+        <div class="video-section__inner">
+          <header class="video-section__header reveal">
+            <p class="eyebrow">${data.vision.eyebrow}</p>
+            <h2 class="video-section__title">${data.vision.title}</h2>
+            <p class="video-section__lead">${data.vision.lead}</p>
+          </header>
+          <div class="video-section__frame reveal">
+            <div class="video-section__frame-inner">
+              <video
+                class="video-section__player"
+                src="../video/Giai_ma_AI.mp4"
+                controls
+                preload="metadata"
+                playsinline
+                aria-label="Video: Đối Thoại Với Tương Lai — Giải mã AI"
+              ></video>
             </div>
-            <div class="chat-log" id="chatLog">
-              <div class="message bot">${data.dialogue.initial}</div>
-            </div>
-            <form class="chat-form" id="chatForm">
-              <input id="chatInput" type="text" placeholder="Nhập câu hỏi..." autocomplete="off" />
-              <button type="submit">Gửi</button>
-            </form>
-          </div>
-          <div class="prompt-panel">
-            <p class="micro-label">Tình huống gợi ý</p>
-            ${data.dialogue.suggestions
-              .map((prompt) => `<button class="suggestion" type="button">${prompt}</button>`)
-              .join("")}
           </div>
         </div>
       </section>
@@ -343,7 +332,7 @@
         ${renderTransitionVisual()}
         ${renderTheory()}
         ${renderAI()}
-        ${renderDialogue()}
+        ${renderVision()}
         ${renderManifesto()}
       </main>
     `;
@@ -389,8 +378,14 @@
     }
 
     links.forEach((link) => {
-      link.addEventListener("click", () => {
-        setActiveChapter(link.dataset.target);
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        const targetId = link.dataset.target;
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        setActiveChapter(targetId);
         window.setTimeout(requestActiveUpdate, 450);
       });
     });
@@ -425,7 +420,7 @@
 
     function getAnswer(question) {
       const normalized = normalize(question);
-      const found = data.dialogue.responses.find((entry) =>
+      const found = data.vision.responses.find((entry) =>
         entry.match.some((keyword) => normalized.includes(normalize(keyword)))
       );
       return (

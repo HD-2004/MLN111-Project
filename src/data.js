@@ -5,7 +5,7 @@ window.APP_DATA = {
     { id: "portal", number: "01", label: "The Portal" },
     { id: "theory", number: "02", label: "Lý thuyết" },
     { id: "ai", number: "03", label: "Bản chất AI" },
-    { id: "dialogue", number: "04", label: "Dialogue" },
+    { id: "vision", number: "04", label: "Vision" },
     { id: "manifesto", number: "05", label: "Manifesto" },
     { id: "game", number: "06", label: "Trò chơi" },
   ],
@@ -235,11 +235,11 @@ window.APP_DATA = {
     ],
   },
 
-  dialogue: {
-    eyebrow: "Chương 4 / The Dialogue",
-    title: "Tranh Biện Với Triết Gia Máy",
+  vision: {
+    eyebrow: "Chương 4 / The Vision",
+    title: "Giải mã AI: mổ xẻ triết học",
     lead:
-      "Khung chatbot giúp người xem kiểm chứng trực quan bản chất phản ánh của AI. Các phản hồi được kịch bản hóa theo lý luận Mác - Lênin để giữ tính học thuật.",
+      "Một lát cắt thị giác về cuộc tranh biện giữa con người, trí tuệ nhân tạo và bản chất của ý thức.",
     initial:
       "Tôi là Triết gia máy. Hãy hỏi tôi về ý thức, vật chất, cảm xúc hoặc tương lai của AI.",
     suggestions: [

@@ -208,7 +208,7 @@ Vietnamese learning tone should be clear, student-friendly, and presentation-rea
   - Chapter 1: The Portal
   - Chapter 2: Bản đồ lý thuyết
   - Chapter 3: Bản chất của AI
-  - Chapter 4: The Dialogue
+  - Chapter 4: The Vision
   - Chapter 5: The Manifesto
 - Replaced the old 7-section render flow with a 5-section render flow.
 - Added native accordion/details blocks for long theory content so the page stays usable during presentation.
