@@ -240,6 +240,7 @@ window.APP_DATA = {
     title: "Giải mã AI: mổ xẻ triết học",
     lead:
       "Một lát cắt thị giác về cuộc tranh biện giữa con người, trí tuệ nhân tạo và bản chất của ý thức.",
+    videoUrl: "https://www.youtube.com/watch?v=Ao5rYxLdP8w",
     initial:
       "Tôi là Triết gia máy. Hãy hỏi tôi về ý thức, vật chất, cảm xúc hoặc tương lai của AI.",
     suggestions: [

@@ -41,6 +41,20 @@
     return paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("");
   }
 
+  function getYouTubeEmbedUrl(url) {
+    try {
+      const parsedUrl = new URL(url);
+      const videoId = parsedUrl.hostname.includes("youtu.be")
+        ? parsedUrl.pathname.replaceAll("/", "")
+        : parsedUrl.searchParams.get("v");
+
+      if (!videoId) return url;
+      return `https://www.youtube.com/embed/${videoId}`;
+    } catch {
+      return url;
+    }
+  }
+
   function renderGameShortcut() {
     return `
       <a class="game-shortcut" href="game.html" aria-label="Mở trang trò chơi">
@@ -278,7 +292,7 @@
             <div class="video-section__frame-inner">
               <iframe
                 class="video-section__player"
-                src="https://www.youtube.com/embed/Ao5rYxLdP8w"
+                src="${getYouTubeEmbedUrl(data.vision.videoUrl)}"
                 title="Đối Thoại Với Tương Lai — Giải mã AI"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
