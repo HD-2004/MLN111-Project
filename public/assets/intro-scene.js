@@ -35,6 +35,9 @@ function mountIntroScene() {
           role="button"
           tabindex="0"
         ></canvas>
+        <button class="intro-journey-button" type="button" data-intro-enter>
+          Khám phá hành trình
+        </button>
       </div>
     </div>
   `;
@@ -43,7 +46,8 @@ function mountIntroScene() {
   document.body.classList.add("intro-is-open");
 
   const canvas = overlay.querySelector("[data-future-core-canvas]");
-  if (!canvas) return;
+  const enterButton = overlay.querySelector("[data-intro-enter]");
+  if (!canvas || !enterButton) return;
 
   const introScene = initFutureCoreSphere(canvas, overlay);
   let hasEntered = false;
@@ -65,6 +69,7 @@ function mountIntroScene() {
   }
 
   canvas.addEventListener("click", enterWebsite);
+  enterButton.addEventListener("click", enterWebsite);
   canvas.addEventListener("keydown", (event) => {
     if (event.key !== "Enter" && event.key !== " ") return;
     event.preventDefault();

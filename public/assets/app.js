@@ -41,6 +41,48 @@
     return paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("");
   }
 
+  const manifestoHighlightPhrases = [
+    "AI là đỉnh cao của sự vận động vật chất",
+    "AI là sản phẩm kết tinh từ ý thức con người",
+    "Sự phản ánh của AI không thể thay thế bản chất người",
+    "Chủ nghĩa duy tâm thần bí",
+    "Chủ nghĩa duy vật tầm thường",
+    "bản lĩnh của một chủ thể có ý thức",
+    "AI không thay thế con người",
+    "biết làm chủ AI",
+    "tương lai công nghệ nhân văn và tiến bộ",
+  ];
+
+  function renderManifestoText(text = "") {
+    const pattern = new RegExp(
+      manifestoHighlightPhrases
+        .map((phrase) => phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+        .sort((a, b) => b.length - a.length)
+        .join("|"),
+      "g"
+    );
+
+    return text.replace(pattern, (match) => `<mark class="manifesto-highlight">${match}</mark>`);
+  }
+
+  function renderManifestoParagraphs(paragraphs = []) {
+    return paragraphs.map((paragraph) => `<p>${renderManifestoText(paragraph)}</p>`).join("");
+  }
+
+  function renderManifestoHeading(heading = "") {
+    const [chapter, title = ""] = heading.split(" – ");
+    const [titleMain, titleSubline = ""] = title.split(" VÀ ");
+
+    if (!chapter || !titleMain || !titleSubline) return heading;
+
+    return `
+      <span class="manifesto-title-kicker">${chapter}</span>
+      <span class="manifesto-title-rule">–</span>
+      <span class="manifesto-title-main">${titleMain}</span>
+      <span class="manifesto-title-subline">VÀ ${titleSubline}</span>
+    `;
+  }
+
   function getYouTubeEmbedUrl(url) {
     try {
       const parsedUrl = new URL(url);
@@ -329,64 +371,155 @@
     return renderSection2GearPhilosophy();
   }
 
+  const aiObjectiveTopics = ["physical", "mathematical", "limitation"];
+
+  function getAIObjectiveTopic(index) {
+    return aiObjectiveTopics[index] || aiObjectiveTopics[0];
+  }
+
+  function renderAIObjectiveCards(cards = []) {
+    return cards
+      .map(
+        (card, index) => {
+          const topic = getAIObjectiveTopic(index);
+          const cardId = `ai-analysis-card-${topic}`;
+
+          return `
+          <article class="artifact-card ai-objective-card ai-analysis-card" data-ai-card data-ai-topic="${topic}" tabindex="0">
+            <button class="ai-analysis-card-trigger" type="button" data-ai-card-trigger data-ai-topic="${topic}" aria-pressed="false">
+              <span>${String(index + 1).padStart(2, "0")}</span>
+              <h3>${card.title}</h3>
+            </button>
+            <div class="ai-analysis-card-body" id="${cardId}" data-ai-card-body hidden>
+              <p>${card.text}</p>
+            </div>
+            <button class="ai-analysis-toggle" type="button" data-ai-expand data-ai-topic="${topic}" aria-expanded="false" aria-controls="${cardId}">
+              Xem luận điểm
+            </button>
+          </article>
+        `;
+        }
+      )
+      .join("");
+  }
+
+  function renderAIRobotAnalysisVisual(cards = []) {
+    return `
+      <div class="ai-robot-visual" data-ai-robot aria-label="Giải phẫu bản chất AI">
+        <div class="ai-robot-grid" aria-hidden="true"></div>
+        <div class="ai-robot-atmosphere" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="ai-robot-stage" data-ai-robot-stage>
+          <div class="ai-robot-figure" aria-hidden="true">
+            <div class="ai-robot-aura"></div>
+            <img
+              class="ai-robot-image"
+              src="img/robot.png"
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="ai-robot-image-shade"></div>
+            <div class="ai-robot-head" data-ai-robot-part="mathematical">
+              <span></span>
+            </div>
+            <div class="ai-robot-body" data-ai-robot-part="physical">
+              <span></span>
+              <span></span>
+            </div>
+            <div class="ai-robot-core" data-ai-robot-part="limitation"></div>
+          </div>
+          <div class="ai-robot-base" aria-hidden="true"></div>
+          <div class="ai-robot-connector" data-ai-connector aria-hidden="true"></div>
+        </div>
+        ${cards
+          .map((card, index) => {
+            const topic = getAIObjectiveTopic(index);
+            return `
+              <button
+                class="ai-robot-hotspot ai-robot-hotspot-${topic}"
+                type="button"
+                data-ai-hotspot
+                data-ai-topic="${topic}"
+                aria-pressed="false"
+                aria-label="${card.title}"
+              >
+                <span>${String(index + 1).padStart(2, "0")}</span>
+              </button>
+            `;
+          })
+          .join("")}
+      </div>
+    `;
+  }
+
+  function renderAIContrastItems(items = []) {
+    return items
+      .map(
+        (item, index) => {
+          const fallbackParagraphs = index === 0 ? [item.ai, item.human] : [item.human, item.ai];
+          const paragraphs = item.paragraphs || fallbackParagraphs.filter(Boolean);
+
+          return `
+            <article class="contrast-card reveal">
+              <div class="contrast-index">${String(index + 1).padStart(2, "0")}</div>
+              <h3>${item.title}</h3>
+              <div class="contrast-paragraphs">
+                ${renderParagraphs(paragraphs)}
+              </div>
+            </article>
+          `;
+        }
+      )
+      .join("");
+  }
+
   function renderAI() {
     return `
       <section class="section ai-section" id="ai" data-chapter="ai">
         <div class="neural-bg" aria-hidden="true"></div>
-        <div class="section-heading">
-          <p class="eyebrow">${data.ai.eyebrow}</p>
-          <h2>${data.ai.title}</h2>
+        <div class="section-heading ai-section-heading">
+          <h2>${data.ai.eyebrow}</h2>
           <p>${data.ai.lead}</p>
         </div>
-        <div class="artifact-grid reveal">
-          ${data.ai.ontologyCards
-            .map(
-              (card, index) => `
-                <article class="artifact-card">
-                  <span>0${index + 1}</span>
-                  <h3>${card.title}</h3>
-                  <p>${card.text}</p>
-                </article>
-              `
-            )
-            .join("")}
-        </div>
-        <div class="verdict-panel reveal">
-          <span>Kết luận biện chứng 1</span>
-          <strong>${data.ai.verdict}</strong>
-        </div>
-        <div class="contrast-stack">
-          ${data.ai.contrasts
-            .map(
-              (item, index) => `
-                <article class="contrast-card reveal">
-                  <div class="contrast-index">${String(index + 1).padStart(2, "0")}</div>
-                  <h3>${item.title}</h3>
-                  <div class="contrast-columns">
-                    <div>
-                      <small>AI</small>
-                      <p>${item.ai}</p>
-                    </div>
-                    <div>
-                      <small>Con người</small>
-                      <p>${item.human}</p>
-                    </div>
-                  </div>
-                </article>
-              `
-            )
-            .join("")}
-        </div>
-        <div class="future-panel reveal">
-          <p class="eyebrow">${data.ai.future.title}</p>
-          <div class="future-map">
-            ${data.ai.future.map.map((item) => `<span>${item}</span>`).join("")}
+        <section class="ai-content-section ai-analysis-section reveal" data-ai-analysis-root>
+          <div class="ai-analysis-layout">
+            <div class="ai-analysis-copy">
+              <div class="section-heading ai-subsection-heading">
+                <h3>${data.ai.objective.heading}</h3>
+                <p>${data.ai.objective.lead}</p>
+              </div>
+              <p class="ai-analysis-instruction">Chạm vào các điểm phân tích trên AI hoặc chọn luận điểm bên dưới.</p>
+              <div class="artifact-grid ai-analysis-card-grid">
+                ${renderAIObjectiveCards(data.ai.objective.cards)}
+              </div>
+            </div>
+            ${renderAIRobotAnalysisVisual(data.ai.objective.cards)}
           </div>
+          <div class="verdict-panel ai-analysis-conclusion">
+            <strong>${data.ai.objective.verdict}</strong>
+          </div>
+        </section>
+        <section class="ai-content-section">
+          <div class="section-heading ai-subsection-heading reveal">
+            <h3>${data.ai.contrast.heading}</h3>
+            <p>${data.ai.contrast.lead}</p>
+          </div>
+          <div class="contrast-stack">
+            ${renderAIContrastItems(data.ai.contrast.items)}
+          </div>
+        </section>
+        <div class="future-panel reveal">
+          <h3>${data.ai.future.heading}</h3>
+          <p>${data.ai.future.lead}</p>
           <div class="artifact-grid two">
             ${data.ai.future.perspectives
               .map(
                 (item) => `
-                  <article class="artifact-card">
+                  <article class="artifact-card ai-perspective-card">
                     <h3>${item.title}</h3>
                     <p>${item.text}</p>
                   </article>
@@ -396,8 +529,8 @@
           </div>
         </div>
         <div class="concept-lock reveal">
-          <p>Kết luận chương 3</p>
-          ${renderParagraphs(data.ai.conclusion)}
+          <h3>${data.ai.conclusion.heading}</h3>
+          ${renderParagraphs(data.ai.conclusion.paragraphs)}
         </div>
       </section>
     `;
@@ -433,30 +566,46 @@
 
   function renderManifesto() {
     return `
-      <section class="section" id="manifesto" data-chapter="manifesto">
-        <div class="section-heading">
-          <p class="eyebrow">${data.manifesto.eyebrow}</p>
-          <h2>${data.manifesto.title}</h2>
-        </div>
-        <div class="artifact-grid reveal">
-          ${data.manifesto.synthesis
-            .map(
-              (item, index) => `
-                <article class="artifact-card">
-                  <span>0${index + 1}</span>
-                  <h3>${item.title}</h3>
-                  <p>${item.text}</p>
-                </article>
-              `
-            )
-            .join("")}
-        </div>
-        <div class="final-statement reveal">
-          ${renderParagraphs(data.manifesto.manifestoText)}
-          <div class="final-callout">
-            <strong>${data.manifesto.finalStatement?.headline || ""}</strong>
-            <p>${data.manifesto.finalStatement?.body || ""}</p>
-          </div>
+      <section class="section manifesto-section" id="manifesto" data-chapter="manifesto">
+        <div class="manifesto-shell">
+          <header class="manifesto-hero reveal">
+            <h2 aria-label="${data.manifesto.chapterHeading}">${renderManifestoHeading(data.manifesto.chapterHeading)}</h2>
+            <p class="manifesto-interface-note">${data.manifesto.interfaceNote}</p>
+          </header>
+
+          <section class="manifesto-synthesis reveal" aria-labelledby="manifesto-synthesis-heading">
+            <div class="manifesto-subhead">
+              <span>01</span>
+              <h3 id="manifesto-synthesis-heading">${data.manifesto.synthesisHeading}</h3>
+              <p>${data.manifesto.synthesisIntro}</p>
+            </div>
+            <div class="manifesto-synthesis-grid">
+              ${data.manifesto.synthesis
+                .map(
+                  (item, index) => `
+                    <article class="manifesto-card">
+                      <span class="manifesto-card-number">${String(index + 1).padStart(2, "0")}</span>
+                      <h4>${renderManifestoText(item.title)}</h4>
+                      <p>${renderManifestoText(item.text)}</p>
+                    </article>
+                  `
+                )
+                .join("")}
+            </div>
+          </section>
+
+          <section class="manifesto-box reveal" aria-labelledby="manifesto-message-heading">
+            <div class="manifesto-subhead manifesto-subhead-centered">
+              <span>02</span>
+              <h3 id="manifesto-message-heading">${data.manifesto.manifestoHeading}</h3>
+            </div>
+            <div class="manifesto-copy">
+              ${renderManifestoParagraphs(data.manifesto.manifestoText)}
+            </div>
+            <blockquote class="manifesto-quote">
+              ${renderManifestoText(data.manifesto.finalStatement)}
+            </blockquote>
+          </section>
         </div>
       </section>
     `;
@@ -646,6 +795,140 @@
     });
   }
 
+  function setupAIAnalysisInteraction() {
+    const root = document.querySelector("[data-ai-analysis-root]");
+    if (!root) return;
+
+    const cards = Array.from(root.querySelectorAll("[data-ai-card]"));
+    const hotspots = Array.from(root.querySelectorAll("[data-ai-hotspot]"));
+    const robotParts = Array.from(root.querySelectorAll("[data-ai-robot-part]"));
+    const robotVisual = root.querySelector("[data-ai-robot]");
+    let activeTopic = null;
+    let hoverTopic = null;
+
+    function getCurrentTopic() {
+      return hoverTopic || activeTopic;
+    }
+
+    function syncState() {
+      const currentTopic = getCurrentTopic();
+
+      cards.forEach((card) => {
+        const isActive = card.dataset.aiTopic === activeTopic;
+        const isHighlighted = card.dataset.aiTopic === currentTopic;
+        card.classList.toggle("is-active", isActive);
+        card.classList.toggle("is-highlighted", isHighlighted);
+        card.querySelector("[data-ai-card-trigger]")?.setAttribute("aria-pressed", String(isActive));
+      });
+
+      hotspots.forEach((hotspot) => {
+        const isActive = hotspot.dataset.aiTopic === activeTopic;
+        const isHighlighted = hotspot.dataset.aiTopic === currentTopic;
+        hotspot.classList.toggle("is-active", isActive);
+        hotspot.classList.toggle("is-highlighted", isHighlighted);
+        hotspot.setAttribute("aria-pressed", String(isActive));
+      });
+
+      robotParts.forEach((part) => {
+        part.classList.toggle("is-active", part.dataset.aiRobotPart === currentTopic);
+      });
+
+      root.dataset.activeTopic = currentTopic || "";
+    }
+
+    function selectTopic(topic) {
+      activeTopic = topic;
+
+      cards.forEach((card) => {
+        const isActive = card.dataset.aiTopic === topic;
+        const body = card.querySelector("[data-ai-card-body]");
+        const toggle = card.querySelector("[data-ai-expand]");
+        if (!body || !toggle) return;
+        body.hidden = !isActive;
+        toggle.setAttribute("aria-expanded", String(isActive));
+        toggle.textContent = isActive ? "Thu gọn" : "Xem luận điểm";
+      });
+
+      syncState();
+    }
+
+    function setHoverTopic(topic) {
+      hoverTopic = topic;
+      syncState();
+    }
+
+    function clearHoverTopic() {
+      hoverTopic = null;
+      syncState();
+    }
+
+    function toggleCardBody(button) {
+      const card = button.closest("[data-ai-card]");
+      const body = card?.querySelector("[data-ai-card-body]");
+      if (!card || !body) return;
+      const nextExpanded = button.getAttribute("aria-expanded") !== "true";
+      if (nextExpanded) {
+        selectTopic(card.dataset.aiTopic);
+        return;
+      }
+      body.hidden = true;
+      button.setAttribute("aria-expanded", "false");
+      button.textContent = "Xem luận điểm";
+      if (activeTopic === card.dataset.aiTopic) activeTopic = null;
+      syncState();
+    }
+
+    [...cards, ...hotspots].forEach((element) => {
+      element.addEventListener("pointerenter", () => setHoverTopic(element.dataset.aiTopic));
+      element.addEventListener("pointerleave", clearHoverTopic);
+    });
+
+    hotspots.forEach((hotspot) => {
+      hotspot.addEventListener("click", () => selectTopic(hotspot.dataset.aiTopic));
+    });
+
+    cards.forEach((card) => {
+      card.addEventListener("click", (event) => {
+        if (event.target instanceof Element && event.target.closest("[data-ai-expand]")) return;
+        selectTopic(card.dataset.aiTopic);
+      });
+      card.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        selectTopic(card.dataset.aiTopic);
+      });
+    });
+
+    root.querySelectorAll("[data-ai-card-trigger]").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();
+        selectTopic(button.dataset.aiTopic);
+      });
+    });
+
+    root.querySelectorAll("[data-ai-expand]").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();
+        toggleCardBody(button);
+      });
+    });
+
+    robotVisual?.addEventListener("pointermove", (event) => {
+      const rect = robotVisual.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      robotVisual.style.setProperty("--robot-look-x", x.toFixed(3));
+      robotVisual.style.setProperty("--robot-look-y", y.toFixed(3));
+    });
+
+    robotVisual?.addEventListener("pointerleave", () => {
+      robotVisual.style.setProperty("--robot-look-x", "0");
+      robotVisual.style.setProperty("--robot-look-y", "0");
+    });
+
+    syncState();
+  }
+
   function setupChatbot() {
     const form = document.querySelector("#chatForm");
     const input = document.querySelector("#chatInput");
@@ -709,5 +992,6 @@
   runTypewriter();
   setupScrollState();
   setupSection2GearPhilosophy();
+  setupAIAnalysisInteraction();
   setupChatbot();
 })();

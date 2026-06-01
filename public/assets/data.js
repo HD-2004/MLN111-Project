@@ -217,77 +217,90 @@ window.APP_DATA = {
   },
 
   ai: {
-    eyebrow: "Chương 3 / Bản chất của AI",
-    title: "Đỉnh Cao Vật Chất Hay Khởi Đầu Ý Thức?",
+    eyebrow: "CHƯƠNG 3: BẢN CHẤT CỦA AI – ĐỈNH CAO VẬT CHẤT HAY KHỞI ĐẦU Ý THỨC?",
+    title: "ĐỈNH CAO VẬT CHẤT HAY KHỞI ĐẦU Ý THỨC?",
     lead:
-      "Triết học Mác - Lênin không phủ nhận cũng không thần thánh hóa máy móc. Ta cần đặt AI vào đúng tọa độ biện chứng: bản thể của AI thuộc về đâu, và phản ánh của AI có đồng nhất với ý thức con người không?",
-    ontologyCards: [
-      {
-        title: "Hạ tầng vật lý và kỹ thuật",
-        text:
-          "AI không tồn tại như tinh thần thuần túy. Bản thể của nó là chip silicon, bóng bán dẫn, xung điện nhị phân, kiến trúc máy tính và trung tâm dữ liệu tiêu thụ năng lượng.",
-      },
-      {
-        title: "Vận động toán học - cơ học cao cấp",
-        text:
-          "Mạng neural và Transformer vận hành bằng phép toán ma trận, tối ưu hóa và xác suất thống kê. Câu trả lời của AI là kết quả tính toán token, chưa phải tự ý thức nội tại.",
-      },
-      {
-        title: "Phụ thuộc vào giới hạn vật chất",
-        text:
-          "AI phụ thuộc vào điện năng và dữ liệu đầu vào. Thiếu dòng điện, AI biến mất; thiếu dữ liệu, AI chỉ còn là thuật toán rỗng.",
-      },
-    ],
-    verdict:
-      "Xét về bản thể luận, AI là đỉnh cao của sự vận động vật chất do con người định hướng. Nó kéo dài một phần năng lực tư duy của con người, tương tự máy hơi nước từng kéo dài sức mạnh cơ bắp.",
-    contrasts: [
-      {
-        title: "Phản ánh mô phỏng thống kê vs. phản ánh năng động sáng tạo",
-        ai:
-          "AI tìm tương quan thống kê trong dữ liệu quá khứ và tái tổ hợp chúng để tạo câu trả lời. Khi viết về cô đơn, nó không trải nghiệm cô đơn.",
-        human:
-          "Con người phản ánh thế giới qua cảm xúc, thế giới quan và lý tưởng sống, có thể khái quát bản chất và sáng tạo tri thức mới từ dữ liệu rất ít.",
-      },
-      {
-        title: "Thiếu hụt nguồn gốc xã hội",
-        ai:
-          "AI tồn tại trong môi trường số và phòng máy chủ, không lao động để sinh tồn, không có gia đình, giai cấp, đạo đức hay xung đột xã hội thật.",
-        human:
-          "Ý thức người hình thành trong lao động, quan hệ sản xuất, gia đình, lịch sử và toàn bộ đời sống xã hội.",
-      },
-      {
-        title: "Ngôn ngữ: cái vỏ tách khỏi cái ruột",
-        ai:
-          "AI sở hữu cái vỏ vật chất của ngôn ngữ rất tinh vi nhưng trống rỗng về phần ruột tư duy chủ quan. Chữ tự do với AI chỉ là chuỗi token.",
-        human:
-          "Ở con người, ngôn ngữ và tư duy thống nhất biện chứng: nhận thức sự vật, thấu hiểu nghĩa chủ quan rồi biểu đạt bằng ngôn ngữ.",
-      },
-    ],
-    future: {
-      title: "Góc nhìn khách quan, đa chiều về tương lai",
-      map: [
-        "Máy tính silicon hiện tại: vật chất cơ học -> phản ánh mô phỏng thống kê",
-        "Nếu bản thể vật chất thay đổi",
-        "AI sinh học hoặc lượng tử: vật chất sống/tổ chức cao -> có thể tiệm cận phản ánh ý thức",
-      ],
-      perspectives: [
+      "Để giải quyết bài toán này một cách khách quan, Triết học Mác - Lênin không đứng ngoài dòng chảy công nghệ để phủ nhận hay thần thánh hóa máy móc. Chúng ta cần đặt AI vào đúng tọa độ biện chứng để phân tích: Bản thể của AI thuộc về đâu? và Hình thức phản ánh của AI có đồng nhất hay tiệm cận được với Ý thức con người không?",
+    objective: {
+      heading: "Phân tích khách quan: Bản chất thực tại của AI là gì?",
+      lead:
+        "Dựa trên nguyên lý duy vật biện chứng, mọi sự vật, hiện tượng tồn tại thực tế và độc lập với ý thức con người đều thuộc về phạm trù Vật chất. Khi giải phẫu cấu trúc của AI, ta thấy rõ:",
+      cards: [
         {
-          title: "Hoài nghi khoa học",
+          title: "Hạ tầng vật lý và kỹ thuật (Bản thể vật chất)",
           text:
-            "Chừng nào AI còn vận hành trên silicon và logic nhị phân, nó vẫn là hệ thống mô phỏng thông tin. Bộ não người gắn với sinh học, hormone, hệ thần kinh và cơ thể sống.",
+            "AI không tồn tại ở dạng tinh thần thuần túy. Bản thể của AI là các con chip Silicon, hệ thống bóng bán dẫn (transistors) điều khiển các xung điện nhị phân (0 và 1), kiến trúc máy tính tiên tiến, và mạng lưới trung tâm dữ liệu (Data Centers) tiêu thụ lượng điện năng khổng lồ. Đây hoàn toàn là một dạng thức vật chất cụ thể do con người cải tạo và tổ chức lại.",
         },
         {
-          title: "Biện chứng mở rộng",
+          title: "Hình thức vận động toán học - cơ học cao cấp",
           text:
-            "Triết học Mác không giới hạn hình thức vật chất. Nếu tương lai xuất hiện AI sinh học có tế bào thần kinh sống, hoạt động thực tiễn, tương tác xã hội và tự tiến hóa, một dạng ý thức mới có thể được đặt lại như vấn đề triết học mở.",
+            "Trái tim của các mô hình AI lớn hiện nay (như mạng Neural Network hay cơ chế Transformer) vận hành dựa trên các phép toán ma trận, giải thuật tối ưu và các mô hình xác suất thống kê. Khi AI đưa ra một câu trả lời, bản chất là nó đang tính toán tổ hợp các token (ký tự/từ ngữ) có xác suất xuất hiện tiếp theo cao nhất dựa trên bộ dữ liệu được huấn luyện. Đây là một dạng vận động vật lý - toán học ở trình độ cao, chưa phải là quá trình tự ý thức nội tại.",
+        },
+        {
+          title: "Sự phụ thuộc vào giới hạn vật chất",
+          text:
+            "AI minh chứng một cách hoàn hảo cho nguyên lý Vật chất quyết định ý thức. AI không có năng lực tự sinh tư tưởng. Sự tồn tại của nó phụ thuộc tuyệt đối vào hai yếu tố vật chất: Năng lượng (điện năng) và Dữ liệu đầu vào (Data - vốn là tri thức đã được vật chất hóa thành các bit thông tin). Thiếu dòng điện, AI biến mất; thiếu dữ liệu, AI trở thành một thuật toán rỗng.",
+        },
+      ],
+      verdict:
+        "Kết luận biện chứng: Xét về mặt bản thể luận, AI là Đỉnh cao của sự vận động vật chất do con người định hướng. Nó đóng vai trò là một công cụ kỹ thuật cao cấp giúp kéo dài và nhân bản một phần năng lực tư duy của con người, tương tự như máy hơi nước đã kéo dài sức mạnh cơ bắp của nhân loại ở thế kỷ XVIII.",
+    },
+    contrast: {
+      heading:
+        "Phân tích đối lập biện chứng: Khác biệt bản chất giữa Phản ánh của AI và Ý thức con người",
+      lead:
+        "Sự tranh cãi về việc \"AI có ý thức hay không\" nảy sinh do AI có năng lực Phản ánh hiện thực quá xuất sắc, tạo ra cảm giác máy biết suy nghĩ. Tuy nhiên, nếu đối chiếu với các thuộc tính cốt lõi của Ý thức, ta thấy có những khoảng cách bản chất:",
+      items: [
+        {
+          title: "Phản ánh mô phỏng thống kê (AI) vs. Phản ánh năng động sáng tạo (Con người)",
+          ai:
+            "Cơ chế phản ánh của AI: Là sự mô phỏng lại kết quả của ý thức con người. AI xử lý thông tin bằng cách tìm các mối tương quan thống kê trong quá khứ và tái tổ hợp (Recombination) chúng để tạo ra câu trả lời mới. AI không thực sự thấu hiểu ý nghĩa chủ quan của biểu tượng. Khi AI viết một bài thơ về sự cô đơn, nó không có trải nghiệm tâm lý về sự cô đơn; đó chỉ là sự sắp đặt từ ngữ tối ưu theo thuật toán.",
+          human:
+            "Cơ chế phản ánh của Con người: Mang tính năng động và vượt ngưỡng. Con người phản ánh thế giới thông qua lăng kính cảm xúc, thế giới quan và lý tưởng sống. Con người có năng lực khái quát hóa bản chất và tạo ra những tri thức hoàn toàn mới từ lượng dữ liệu vô cùng nghèo nàn (Ví dụ: Từ hiện tượng quả táo rơi, Newton khái quát hóa ra lực hấp dẫn vũ trụ - điều mà không thuật toán thống kê dữ liệu cũ nào có thể tự suy diễn ra).",
+        },
+        {
+          title: "Sự thiếu hụt Nguồn gốc Xã hội – Điểm giới hạn của AI hiện tại",
+          human:
+            "Triết học Mác khẳng định: \"Ý thức mang bản chất xã hội, là tổng hòa các quan hệ xã hội\". Ý thức con người chỉ hình thành khi chủ thể dấn thân vào hoạt động thực tiễn, lao động sản xuất để sinh tồn và thiết lập các quan hệ phức tạp (quan hệ sản xuất, gia đình, giai cấp, đạo đức).",
+          ai:
+            "AI hoàn toàn cô lập về mặt xã hội: AI tồn tại trong môi trường số hóa của các phòng máy chủ. Nó không chịu áp lực sinh tồn, không lao động để tạo ra giá trị vật chất tự thân, không trải nghiệm các xung đột hay liên kết xã hội thực tế đời sống. Vì thiếu trải nghiệm xã hội thực tế (Social Experience), AI chỉ dừng lại ở mức xử lý các ký hiệu logic, không thể có tâm lý xã hội hay ý thức xã hội đúng nghĩa.",
+        },
+        {
+          title: "Khủng hoảng bản chất Ngôn ngữ: Cái \"Vỏ\" tách rời cái \"Ruột\"",
+          human:
+            "Engels định nghĩa: \"Ngôn ngữ là vỏ vật chất của tư duy\". Ở con người, ngôn ngữ và ý thức là một thể thống nhất biện chứng. Con người nhận thức sự vật → thấu hiểu nghĩa chủ quan → dùng ngôn ngữ để \"đóng gói\" và biểu đạt tư duy.",
+          ai:
+            "Đối với AI, nó sở hữu một cái \"vỏ vật chất\" cực kỳ tinh vi (các chuỗi văn bản, mã code, hình ảnh hiển thị trên màn hình) nhưng lại trống rỗng về phần \"ruột\" tư duy chủ quan. Khi AI gõ ra chữ \"Tự do\", nó hoàn toàn không có cảm thức hay khái niệm tâm lý về sự tự do; nó chỉ vận hành các token theo đúng cấu trúc ngữ pháp và xác suất đã học.",
         },
       ],
     },
-    conclusion: [
-      "AI là sản phẩm vĩ đại của ý thức con người tác động trở lại thế giới vật chất.",
-      "Khẳng định AI hiện nay đã có ý thức độc lập là biểu hiện của chủ nghĩa duy tâm thần bí. Ngược lại, coi tư duy con người chỉ là thuật toán xử lý dữ liệu là sự thụt lùi về chủ nghĩa duy vật tầm thường.",
-      "Bản lĩnh của con người kỷ nguyên số không phải là sợ AI thay thế, mà là dùng ý thức năng động, đúng đắn để định hướng, quản trị và làm chủ AI phục vụ tiến bộ nhân loại.",
-    ],
+    future: {
+      heading: "Góc nhìn khách quan, đa chiều: Khả năng tự tiến hóa của AI trong tương lai",
+      lead:
+        "Để tránh rơi vào tư duy siêu hình, đóng băng bản chất của AI ở thời điểm hiện tại, chúng ta cần phân tích vấn đề này dưới góc độ vận động và phát triển mở:",
+      perspectives: [
+        {
+          title: "Góc nhìn Hoài nghi Khoa học (Chủ nghĩa duy vật biện chứng nghiêm ngặt)",
+          text:
+            "Lập luận rằng, chừng nào AI vẫn vận hành trên nền tảng kiến trúc Silicon và logic nhị phân cố định, nó sẽ mãi là một hệ thống mô phỏng thông tin. Bộ não người vận hành dựa trên cơ chế sinh học - hóa học, có sự tham gia của các hormone cảm xúc (Dopamine, Serotonin) và hệ thần kinh trung ương gắn liền với cơ thể sống vật lý. Máy móc bằng kim loại không có các thuộc tính sinh học sống này, do đó không thể tự sinh ra tâm lý chủ quan.",
+        },
+        {
+          title: "Góc nhìn Biện chứng mở rộng (Tư duy phát triển tương lai)",
+          text:
+            "Triết học Mác không giới hạn các hình thức của vật chất. Nếu trong tương lai, khoa học tạo ra AI sinh học (Biological AI) bằng cách nuôi cấy các tế bào thần kinh sống, hoặc AI lượng tử có khả năng tự vận động phi tuyến tính, tự tham gia vào hoạt động thực tiễn để tương tác xã hội và tự tiến hóa. Khi đó, bản thể vật chất của AI đã dịch chuyển từ vật chất vô cơ sang vật chất sống có tổ chức cao. Lúc này, theo đúng nguyên lý duy vật biểu chứng, một dạng thức \"ý thức mới\" hoàn toàn có khả năng hình thành. Sự xuất hiện này không hề bác bỏ triết học Mác, mà ngược lại, càng chứng minh một cách hùng hồn rằng: Khi cấu trúc vật chất tiến hóa đến trình độ cao cấp và có hoạt động thực tiễn, ý thức sẽ nảy sinh.",
+        },
+      ],
+    },
+    conclusion: {
+      heading: "KẾT LUẬN CHO CHƯƠNG 3",
+      paragraphs: [
+        "Trí tuệ nhân tạo (AI) xét cho cùng chính là sản phẩm vĩ đại nhất của Ý thức con người tác động trở lại thế giới Vật chất. Ý thức con người (chủ thể) đã sử dụng tri thức khoa học để nhào nặn, tổ chức lại các nguyên tố vật chất vô cơ (Silicon, điện, thuật toán) để tạo ra AI (công cụ) nhằm nối dài năng lực của chính mình.",
+        "Do đó dưới góc nhìn khách quan của Triết học Mác - Lênin:",
+        "Việc khẳng định AI hiện nay đã có ý thức độc lập và sắp nổi loạn tiêu diệt con người là biểu hiện của Chủ nghĩa duy tâm thần bí, tuyệt đối hóa vai trò của công cụ, tách rời nó khỏi chủ thể tạo ra nó.",
+        "Ngược lại, việc coi tư duy của con người chẳng qua cũng chỉ là một thuật toán xử lý dữ liệu giống như máy móc là sự thụt lùi về Chủ nghĩa duy vật tầm thường, cơ giới, cào bằng giữa máy móc vô tri và thế giới tinh thần sống động của con người.",
+        "Bản lĩnh của con người kỷ nguyên số không phải là sợ hãi bị AI thay thế, mà là dùng Ý thức năng động, đúng đắn của mình để định hướng, quản trị và làm chủ sự phát triển của Vật chất - AI phục vụ cho sự tiến bộ của nhân loại.",
+      ],
+    },
   },
 
   vision: {
@@ -992,33 +1005,35 @@ window.APP_DATA = {
   },
 
   manifesto: {
-    eyebrow: "Chương 5 / The Manifesto",
-    title: "Bản Lĩnh Ý Thức Và Khái Quát Chung",
+    chapterHeading: "CHƯƠNG 5: THE MANIFESTO – BẢN LĨNH Ý THỨC VÀ KHÁI QUÁT CHUNG",
+    interfaceNote:
+      "(Giao diện: Khối hộp kết luận lớn, chữ phát sáng, mang tính tổng kết và kêu gọi hành động)",
+    synthesisHeading: "Khái quát luận điểm học thuật (Synthesis)",
+    synthesisIntro:
+      "Trải qua hành trình bóc tách từ lịch sử tư tưởng đến thực tại công nghệ, Triết học Mác - Lênin cho phép chúng ta đưa ra một kết luận toàn diện và khách quan:",
     synthesis: [
       {
         title: "AI là đỉnh cao của sự vận động vật chất",
         text:
-          "Mạng neural, mô hình ngôn ngữ lớn và hệ thống AI đều là các dạng vật chất được tổ chức ở trình độ cao, chịu giới hạn bởi phần cứng, năng lượng và dữ liệu.",
+          "Mọi mô hình ngôn ngữ lớn, mạng neural nhân tạo suy cho cùng đều là các dạng biểu hiện cụ thể của vật chất được tổ chức ở trình độ cao. Nó chịu sự quyết định tuyệt đối của giới hạn phần cứng, năng lượng và dữ liệu.",
       },
       {
         title: "AI là sản phẩm kết tinh từ ý thức con người",
         text:
-          "AI không phủ nhận chủ nghĩa duy vật. Nó chứng minh ý thức con người có tính độc lập tương đối và có thể tác động trở lại vật chất thông qua khoa học, kỹ thuật và thực tiễn.",
+          "Sự tồn tại của AI không hề phủ nhận chủ nghĩa duy vật, ngược lại, nó là minh chứng hùng hồn cho tính độc lập tương đối và sức mạnh tác động trở lại của ý thức. Ý thức của con người (chủ thể) đã nhận thức đúng quy luật vật lý, toán học để nhào nặn thế giới khách quan, tạo ra AI nhằm mục đích nối dài năng lực tư duy của chính mình.",
       },
       {
-        title: "Sự phản ánh của AI không thay thế bản chất người",
+        title: "Sự phản ánh của AI không thể thay thế bản chất người",
         text:
-          "Máy móc xử lý ký hiệu nhưng không thấu hiểu ý nghĩa; học dữ liệu nhưng không lao động, không có quan hệ xã hội và không có đời sống tinh thần chủ quan.",
+          "Máy móc xử lý ký hiệu nhưng không thấu hiểu ý nghĩa; máy móc học dữ liệu nhưng không tham gia lao động sản xuất thực tế và không có các quan hệ xã hội. Vì vậy, AI vẫn nằm ở ranh giới của sự mô phỏng cơ học, chưa thể chạm tới bản chất lịch sử - xã hội của ý thức con người.",
       },
     ],
+    manifestoHeading: "Thông điệp hành động kỷ nguyên số (Manifesto)",
     manifestoText: [
-      "Hiểu đúng Triết học Mác - Lênin giúp chúng ta thoát khỏi hai cái bẫy: chủ nghĩa duy tâm thần bí khi sợ hãi và thần thánh hóa máy móc, và chủ nghĩa duy vật tầm thường khi coi con người chỉ là một cỗ máy thuật toán.",
-      "Bản lĩnh của con người trong kỷ nguyên số là bản lĩnh của một chủ thể có ý thức. Máy móc có thể xử lý hàng tỷ phép tính mỗi giây, nhưng con người có trái tim biết rung động, ý chí hướng tới giá trị nhân văn và năng lực cải tạo xã hội thông qua thực tiễn.",
+      "Hiểu đúng bản chất của Triết học Mác - Lênin giải phóng chúng ta khỏi hai cái bẫy tư duy nguy hiểm: Chủ nghĩa duy tâm thần bí (sợ hãi, thần thánh hóa máy móc vô căn cứ) và Chủ nghĩa duy vật tầm thường (coi con người sinh học cũng chỉ là một cỗ máy chạy thuật toán).",
+      "Bản lĩnh của con người trong kỷ nguyên số là bản lĩnh của một chủ thể có ý thức. Máy móc có thể sở hữu tốc độ xử lý hàng tỷ phép tính mỗi giây, nhưng con người sở hữu trái tim biết rung động, ý chí hướng tới các giá trị nhân văn và năng lực cải tạo xã hội thông qua hoạt động thực tiễn.",
     ],
-    finalStatement: {
-      headline: "AI không thay thế con người",
-      body:
-        "Con người biết làm chủ AI sẽ vượt lên trong kỷ nguyên số. Hãy dùng ý thức đúng đắn để làm chủ thế giới vật chất số hóa, định hình một tương lai công nghệ nhân văn và tiến bộ.",
-    },
+    finalStatement:
+      "\"AI không thay thế con người. Chỉ có những con người biết làm chủ AI sẽ thay thế những con người tụt hậu. Hãy dùng ý thức đúng đắn để làm chủ thế giới vật chất số hóa, định hình một tương lai công nghệ nhân văn và tiến bộ!\"",
   },
 };

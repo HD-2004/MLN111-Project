@@ -51,7 +51,26 @@ assert.match(
 
 assert.match(
   introSource,
-  "Expected the intro to show the requested sphere-click hint text."
+  /role="button"[\s\S]*tabindex="0"/,
+  "Expected the 3D sphere canvas to expose keyboard-accessible click affordance."
+);
+
+assert.match(
+  introSource,
+  /data-intro-enter[\s\S]*Khám phá hành trình/,
+  "Expected an overlaid journey button inside the 3D sphere stage."
+);
+
+assert.match(
+  introSource,
+  /enterButton\.addEventListener\("click", enterWebsite\)/,
+  "Expected the journey button to enter the website."
+);
+
+assert.match(
+  styleSource,
+  /\.intro-journey-button\s*\{[\s\S]*position:\s*absolute;[\s\S]*z-index:\s*3;/,
+  "Expected the journey button to sit above the 3D sphere canvas."
 );
 
 assert.match(
