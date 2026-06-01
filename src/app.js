@@ -68,6 +68,43 @@
     return `<ul>${bullets.map((item) => `<li>${item}</li>`).join("")}</ul>`;
   }
 
+  function renderTheorySectionIntro(section) {
+    if (!section.intro) return "";
+
+    const { eyebrow, lead, paragraphs = [], stages = [], note } = section.intro;
+
+    return `
+      <section class="theory-concept-panel">
+        <div class="theory-concept-copy">
+          ${eyebrow ? `<p class="micro-label">${eyebrow}</p>` : ""}
+          ${lead ? `<p class="theory-concept-lead">${lead}</p>` : ""}
+          ${renderParagraphs(paragraphs)}
+        </div>
+        ${
+          stages.length
+            ? `
+              <div class="theory-stage-grid">
+                ${stages
+                  .map(
+                    (stage, index) => `
+                      <article class="theory-stage-card">
+                        <span class="theory-stage-number">${String(index + 1).padStart(2, "0")}</span>
+                        <p class="theory-stage-period">${stage.period}</p>
+                        <h4>${stage.title}</h4>
+                        <p>${stage.text}</p>
+                      </article>
+                    `
+                  )
+                  .join("")}
+              </div>
+            `
+            : ""
+        }
+        ${note ? `<p class="theory-concept-note">${note}</p>` : ""}
+      </section>
+    `;
+  }
+
   function renderContentBlock(block) {
     return `
       <article class="content-block">
@@ -76,6 +113,155 @@
         ${renderParagraphs(block.paragraphs)}
         ${renderBullets(block.bullets)}
       </article>
+    `;
+  }
+
+  function renderSection2CustomContent(content) {
+    if (!content) return "";
+    if (typeof content === "string") return `<article class="content-block"><p>${content}</p></article>`;
+    if (Array.isArray(content.paragraphs) || Array.isArray(content.bullets) || content.quote) {
+      return renderContentBlock(content);
+    }
+    if (Array.isArray(content.blocks)) {
+      return `
+        ${renderTheorySectionIntro(content)}
+        ${content.blocks.map(renderContentBlock).join("")}
+      `;
+    }
+    return "";
+  }
+
+  function renderPhilosophySubNodeButton(childNode, index, isActive) {
+    return `
+      <button
+        class="section2-subnode-button"
+        type="button"
+        data-section2-subnode-button
+        data-subnode-id="${childNode.id}"
+        aria-pressed="${isActive ? "true" : "false"}"
+      >
+        <span>${childNode.icon}</span>
+        <strong>${childNode.title}</strong>
+      </button>
+    `;
+  }
+
+  function renderPhilosophySubPanel(childNode, index, isActive) {
+    return `
+      <div
+        class="section2-subpanel"
+        data-section2-subpanel="${childNode.id}"
+        ${isActive ? "" : "hidden"}
+      >
+        ${childNode.subtitle ? `<p class="section2-subpanel-label">${childNode.subtitle}</p>` : ""}
+        <p class="section2-panel-short">${childNode.shortDescription}</p>
+        ${renderSection2CustomContent(childNode.fullContent)}
+      </div>
+    `;
+  }
+
+  function renderPhilosophyNodePanel(node, index, isActive) {
+    const section = node.fullContent;
+    const childNodes = Array.isArray(node.childNodes) ? node.childNodes : [];
+
+    return `
+      <article
+        class="section2-node-panel"
+        data-section2-panel="${node.id}"
+        ${isActive ? "" : "hidden"}
+      >
+        <div class="section2-panel-kicker">
+          <span>${String(index + 1).padStart(2, "0")}</span>
+          <small>${node.subtitle}</small>
+        </div>
+        <h3>${node.title}</h3>
+        <p class="section2-panel-short">${node.shortDescription}</p>
+        ${
+          childNodes.length
+            ? `
+              <div class="section2-subnode-list" aria-label="Các node nhỏ trong ${node.title}">
+                ${childNodes
+                  .map((childNode, childIndex) =>
+                    renderPhilosophySubNodeButton(childNode, childIndex, childIndex === 0)
+                  )
+                  .join("")}
+              </div>
+            `
+            : ""
+        }
+        <button class="section2-expand-button" type="button" data-section2-expand aria-expanded="false">
+          <span>Khám phá</span>
+        </button>
+        <div class="section2-panel-full" data-section2-full hidden>
+          ${
+            childNodes.length
+              ? childNodes
+                  .map((childNode, childIndex) =>
+                    renderPhilosophySubPanel(childNode, childIndex, childIndex === 0)
+                  )
+                  .join("")
+              : renderSection2CustomContent(section)
+          }
+        </div>
+      </article>
+    `;
+  }
+
+  function renderPhilosophyNodeButton(node, index, isActive) {
+    return `
+      <button
+        class="section2-node-button"
+        type="button"
+        data-section2-node-button
+        data-node-id="${node.id}"
+        data-node-index="${index}"
+        data-node-color="${node.color}"
+        style="--node-color: ${node.color}; --node-angle: ${(360 / Math.max(section2Nodes.length, 1)) * index}deg;"
+        aria-pressed="${isActive ? "true" : "false"}"
+      >
+        <span class="section2-node-orb">${node.icon}</span>
+        <span>${node.title}</span>
+      </button>
+    `;
+  }
+
+  function renderGearSphere3D(nodes) {
+    return `
+      <div class="section2-gear-stage" data-section2-stage>
+        <canvas class="section2-gear-canvas" data-section2-gear aria-label="Quả cầu bánh răng 3D"></canvas>
+        <div class="section2-node-orbit" aria-label="Các điểm tư tưởng quanh quả cầu">
+          ${nodes.map((node, index) => renderPhilosophyNodeButton(node, index, index === 0)).join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  const section2Nodes = window.Section2ContentData?.createNodesFromTheory(data.theory) || [];
+
+  function renderSection2GearPhilosophy() {
+    const nodes = section2Nodes;
+    const firstNode = nodes[0];
+
+    return `
+      <section class="section section2-gear-philosophy" id="theory" data-chapter="theory" data-section2-root>
+        <div class="section2-atmosphere" aria-hidden="true"></div>
+        <div class="section2-heading reveal">
+          <p class="eyebrow">${data.theory.eyebrow}</p>
+          <h2>Khám phá tư tưởng qua Quả Cầu Bánh Răng</h2>
+          <p>${data.theory.lead}</p>
+        </div>
+        <div
+          class="section2-gear-layout reveal"
+          style="--active-node-color: ${firstNode?.color || "var(--cyan)"};"
+        >
+          <div class="section2-panel-shell">
+            <div class="section2-panel-stack" data-section2-panels>
+              ${nodes.map((node, index) => renderPhilosophyNodePanel(node, index, index === 0)).join("")}
+            </div>
+          </div>
+          ${renderGearSphere3D(nodes)}
+        </div>
+      </section>
     `;
   }
 
@@ -140,63 +326,7 @@
   }
 
   function renderTheory() {
-    return `
-      <section class="section" id="theory" data-chapter="theory">
-        <div class="section-heading">
-          <p class="eyebrow">${data.theory.eyebrow}</p>
-          <h2>${data.theory.title}</h2>
-          <p>${data.theory.lead}</p>
-        </div>
-        <div class="theory-layout">
-          <aside class="theory-side-visual reveal" aria-hidden="true">
-            <div class="theory-visual-frame">
-              <img
-                class="theory-visual-image"
-                src="img/05.png"
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </aside>
-          <div class="theory-main">
-            <div class="timeline">
-              ${data.theory.timeline
-                .map(
-                  (item) => `
-                    <article class="timeline-item reveal">
-                      <span class="timeline-number">${item.number}</span>
-                      <div>
-                        <small>${item.label}</small>
-                        <h3>${item.title}</h3>
-                        <p>${item.text}</p>
-                      </div>
-                    </article>
-                  `
-                )
-                .join("")}
-            </div>
-          </div>
-        </div>
-        <div class="accordion-stack">
-          ${data.theory.sections
-            .map(
-              (section, index) => `
-                <details class="theory-detail reveal" ${index === 0 ? "open" : ""}>
-                  <summary>
-                    <span>${String(index + 1).padStart(2, "0")}</span>
-                    <strong>${section.title}</strong>
-                  </summary>
-                  <div class="detail-body">
-                    ${section.blocks.map(renderContentBlock).join("")}
-                  </div>
-                </details>
-              `
-            )
-            .join("")}
-        </div>
-      </section>
-    `;
+    return renderSection2GearPhilosophy();
   }
 
   function renderAI() {
@@ -414,6 +544,108 @@
     document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(item));
   }
 
+  function setupSection2GearPhilosophy() {
+    const root = document.querySelector("[data-section2-root]");
+    if (!root) return;
+
+    const layout = root.querySelector(".section2-gear-layout");
+    const panelShell = root.querySelector(".section2-panel-shell");
+    const nodeButtons = Array.from(root.querySelectorAll("[data-section2-node-button]"));
+    const panels = Array.from(root.querySelectorAll("[data-section2-panel]"));
+
+    function restartClass(element, className) {
+      if (!element) return;
+      element.classList.remove(className);
+      void element.offsetWidth;
+      element.classList.add(className);
+    }
+
+    function collapsePanel(panel) {
+      const fullContent = panel.querySelector("[data-section2-full]");
+      const button = panel.querySelector("[data-section2-expand]");
+      if (!fullContent || !button) return;
+      fullContent.hidden = true;
+      button.setAttribute("aria-expanded", "false");
+      button.querySelector("span").textContent = "Khám phá";
+    }
+
+    function selectSubNode(panel, subNodeId) {
+      const subButtons = Array.from(panel.querySelectorAll("[data-section2-subnode-button]"));
+      const subPanels = Array.from(panel.querySelectorAll("[data-section2-subpanel]"));
+
+      subButtons.forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.subnodeId === subNodeId));
+      });
+
+      subPanels.forEach((subPanel) => {
+        const isActive = subPanel.dataset.section2Subpanel === subNodeId;
+        subPanel.hidden = !isActive;
+        if (isActive) restartClass(subPanel, "is-sub-switching");
+      });
+    }
+
+    function resetSubNodes(panel) {
+      const firstSubButton = panel.querySelector("[data-section2-subnode-button]");
+      if (firstSubButton) selectSubNode(panel, firstSubButton.dataset.subnodeId);
+    }
+
+    function selectNode(nodeId) {
+      const activeButton = nodeButtons.find((button) => button.dataset.nodeId === nodeId);
+      if (!activeButton) return;
+
+      nodeButtons.forEach((button) => {
+        button.setAttribute("aria-pressed", String(button === activeButton));
+      });
+
+      panels.forEach((panel) => {
+        const isActive = panel.dataset.section2Panel === nodeId;
+        panel.hidden = !isActive;
+        if (isActive) restartClass(panel, "section2-panel-enter");
+        if (isActive) resetSubNodes(panel);
+        if (!isActive) collapsePanel(panel);
+      });
+
+      const color = activeButton.dataset.nodeColor || "var(--cyan)";
+      layout?.style.setProperty("--active-node-color", color);
+      restartClass(panelShell, "is-switching");
+      root.dispatchEvent(
+        new CustomEvent("section2-node-change", {
+          detail: {
+            id: nodeId,
+            index: Number.parseInt(activeButton.dataset.nodeIndex || "0", 10),
+            color,
+          },
+        })
+      );
+    }
+
+    nodeButtons.forEach((button) => {
+      button.addEventListener("click", () => selectNode(button.dataset.nodeId));
+    });
+
+    root.addEventListener("click", (event) => {
+      const subNodeButton =
+        event.target instanceof Element ? event.target.closest("[data-section2-subnode-button]") : null;
+      if (subNodeButton) {
+        const panel = subNodeButton.closest("[data-section2-panel]");
+        if (panel) selectSubNode(panel, subNodeButton.dataset.subnodeId);
+        return;
+      }
+
+      const button = event.target instanceof Element ? event.target.closest("[data-section2-expand]") : null;
+      if (!button) return;
+      const panel = button.closest("[data-section2-panel]");
+      const fullContent = panel?.querySelector("[data-section2-full]");
+      if (!fullContent) return;
+
+      const nextExpanded = button.getAttribute("aria-expanded") !== "true";
+      fullContent.hidden = !nextExpanded;
+      panel.classList.toggle("is-expanded", nextExpanded);
+      button.setAttribute("aria-expanded", String(nextExpanded));
+      button.querySelector("span").textContent = nextExpanded ? "Thu gọn" : "Khám phá";
+    });
+  }
+
   function setupChatbot() {
     const form = document.querySelector("#chatForm");
     const input = document.querySelector("#chatInput");
@@ -476,5 +708,6 @@
   renderApp();
   runTypewriter();
   setupScrollState();
+  setupSection2GearPhilosophy();
   setupChatbot();
 })();

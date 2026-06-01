@@ -28,6 +28,30 @@ window.APP_DATA = {
     title: "Tọa Độ Vật Chất Và Ý Thức",
     lead:
       "Lịch sử triết học là lịch sử cuộc đấu tranh giữa chủ nghĩa duy vật và chủ nghĩa duy tâm nhằm trả lời vấn đề cơ bản: vật chất và ý thức, cái nào có trước, cái nào quyết định cái nào?",
+    gearNodes: [
+      // Bạn có thể tự thêm node lớn và node nhỏ cho Section 2 tại đây.
+      // Nếu để mảng này trống, website sẽ tự dùng nội dung trong theory.sections bên dưới.
+      //
+      // {
+      //   id: "node-lon-1",
+      //   title: "",
+      //   subtitle: "",
+      //   shortDescription: "",
+      //   fullContent: "",
+      //   icon: "",
+      //   color: "#63d7ff",
+      //   childNodes: [
+      //     {
+      //       id: "node-nho-1",
+      //       title: "",
+      //       subtitle: "",
+      //       shortDescription: "",
+      //       fullContent: "",
+      //       icon: "01",
+      //     },
+      //   ],
+      // },
+    ],
     timeline: [
       {
         number: "01",
@@ -68,9 +92,39 @@ window.APP_DATA = {
     sections: [
       {
         title: "1. Phạm trù Vật chất và lịch sử phát triển",
+        intro: {
+          eyebrow: "PHẠM TRÙ VẬT CHẤT VÀ LỊCH SỬ PHÁT TRIỂN",
+          lead:
+            "Khái niệm vật chất không định hình ngay lập tức mà là một hệ thống mở, không ngừng tự hoàn thiện song hành cùng tiến trình nhận thức và sự phát triển của khoa học thực nghiệm qua 3 giai đoạn lớn:",
+          paragraphs: [
+            "Mỗi giai đoạn đều phản ánh trình độ phát triển của khoa học tự nhiên và cách con người lý giải thế giới khách quan ở từng thời đại. Vì vậy, lịch sử hình thành phạm trù vật chất cũng là lịch sử con người đi từ cái nhìn trực quan cảm tính đến tư duy khái quát ngày càng trừu tượng và khoa học hơn.",
+          ],
+          stages: [
+            {
+              period: "Cổ đại",
+              title: "Đồng nhất vật chất với vật thể cảm tính",
+              text:
+                "Các nhà duy vật chất phác tìm bản nguyên của thế giới trong những thực thể quen thuộc như nước, lửa, không khí hay nguyên tử sơ khai. Đây là bước mở đầu quan trọng vì khẳng định thế giới có cơ sở vật chất, không do lực lượng siêu nhiên tạo ra.",
+            },
+            {
+              period: "Cận đại",
+              title: "Cơ giới hóa khái niệm vật chất",
+              text:
+                "Dưới ảnh hưởng của cơ học cổ điển, vật chất thường bị quy về nguyên tử, khối lượng, quán tính và chuyển động cơ học. Cách hiểu này giúp khoa học tiến nhanh nhưng vẫn còn nhìn sự vật theo lối tĩnh tại, máy móc và chưa bao quát hết những hình thức tồn tại phong phú của vật chất.",
+            },
+            {
+              period: "Hiện đại",
+              title: "Khái quát triết học từ khủng hoảng vật lý",
+              text:
+                "Những phát hiện như electron, tia X và hiện tượng phóng xạ cho thấy vật chất không thể bị đồng nhất với một hạt cụ thể nào. Trên nền tảng đó, Lênin xác lập định nghĩa vật chất như một phạm trù triết học chỉ thực tại khách quan tồn tại độc lập với ý thức con người.",
+            },
+          ],
+          note:
+            "Điểm phát triển quyết định ở đây là từ chỗ đồng nhất vật chất với một dạng tồn tại riêng lẻ, triết học duy vật đã vươn tới chỗ hiểu vật chất như toàn bộ thực tại khách quan. Nhờ vậy, phạm trù vật chất giữ được giá trị khoa học ngay cả khi các mô hình cụ thể của khoa học tự nhiên tiếp tục thay đổi.",
+        },
         blocks: [
           {
-            heading: "a. Giai đoạn cổ đại: chủ nghĩa duy vật chất phác",
+            heading: "Giai đoạn cổ đại: chủ nghĩa duy vật chất phác",
             paragraphs: [
               "Ở Hy Lạp, Ấn Độ, Trung Hoa cổ đại, khoa học tự nhiên chưa phân ngành nên nhận thức triết học chủ yếu dựa trên quan sát trực quan sinh động và phỏng đoán thiên tài.",
               "Các nhà tư tưởng đồng nhất vật chất với một hoặc một vài vật thể cụ thể: Thales coi bản nguyên là nước, Anaximenes coi là không khí, Heraclitus coi là lửa, Democritus phát triển thuyết nguyên tử.",
@@ -79,7 +133,7 @@ window.APP_DATA = {
             ],
           },
           {
-            heading: "b. Giai đoạn cận đại: chủ nghĩa duy vật siêu hình, cơ giới",
+            heading: "Giai đoạn cận đại: chủ nghĩa duy vật siêu hình, cơ giới",
             paragraphs: [
               "Thế kỷ XVII - XVIII chứng kiến sự thống trị của cơ học cổ điển Newton. Nhiều nhà triết học tiếp tục thừa kế thuyết nguyên tử nhưng chịu ảnh hưởng nặng bởi tư duy cơ học.",
               "Họ đồng nhất vật chất với nguyên tử hoặc các thuộc tính cơ học như khối lượng, quán tính, vị trí không gian, từ đó nhìn thế giới như một cỗ máy khổng lồ.",
@@ -87,7 +141,7 @@ window.APP_DATA = {
             ],
           },
           {
-            heading: "c. Bước ngoặt vĩ đại: định nghĩa vật chất của V.I. Lênin",
+            heading: "Bước ngoặt vĩ đại: định nghĩa vật chất của V.I. Lênin",
             quote:
               "Vật chất là một phạm trù triết học dùng để chỉ thực tại khách quan được đem lại cho con người trong cảm giác, được cảm giác của chúng ta chép lại, chụp lại, phản ánh, và tồn tại không lệ thuộc vào cảm giác.",
             bullets: [
@@ -102,7 +156,7 @@ window.APP_DATA = {
         title: "2. Phạm trù Ý thức: nguồn gốc và bản chất",
         blocks: [
           {
-            heading: "a. Các quan điểm trước Mác",
+            heading: "Các quan điểm trước Mác",
             bullets: [
               "Chủ nghĩa duy tâm tuyệt đối hóa vai trò tinh thần, coi ý thức có trước và chi phối vật chất.",
               "Duy tâm khách quan như Plato, Hegel coi ý thức là Ý niệm tuyệt đối hoặc Tinh thần thế giới.",
@@ -111,7 +165,7 @@ window.APP_DATA = {
             ],
           },
           {
-            heading: "b. Nguồn gốc tự nhiên của ý thức",
+            heading: "Nguồn gốc tự nhiên của ý thức",
             bullets: [
               "Bộ óc người là cơ quan vật chất có cấu trúc tinh vi, là chất nền vật chất không thể thiếu của ý thức.",
               "Phản ánh cơ - lý - hóa ở thế giới vô cơ mang tính thụ động.",
@@ -121,7 +175,7 @@ window.APP_DATA = {
             ],
           },
           {
-            heading: "c. Nguồn gốc xã hội của ý thức",
+            heading: "Nguồn gốc xã hội của ý thức",
             bullets: [
               "Lao động là hoạt động thực tiễn có mục đích nhằm cải tạo tự nhiên, thúc đẩy bộ não phát triển và buộc thế giới bộc lộ thuộc tính, quy luật.",
               "Ngôn ngữ xuất hiện từ nhu cầu trao đổi thông tin và hiệp lực trong lao động tập thể.",
@@ -129,7 +183,7 @@ window.APP_DATA = {
             ],
           },
           {
-            heading: "d. Bản chất của ý thức",
+            heading: "Bản chất của ý thức",
             bullets: [
               "Ý thức là hình ảnh chủ quan của thế giới khách quan.",
               "Ý thức mang tính năng động, sáng tạo: biết lọc thông tin, đi vào bản chất, dự báo và sáng tạo mô hình ý niệm mới.",
