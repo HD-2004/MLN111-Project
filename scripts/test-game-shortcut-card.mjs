@@ -20,20 +20,20 @@ assert.doesNotMatch(
 
 assert.match(
   appSource,
-  /function renderApp\(\)\s*\{[\s\S]*\$\{renderNav\(\)\}[\s\S]*<main>[\s\S]*<\/main>[\s\S]*\$\{renderGameShortcut\(\)\}[\s\S]*`;/,
-  "Expected renderApp() to render the game shortcut outside the main content flow."
+  /function renderManifesto\(\)\s*\{[\s\S]*<section class="section manifesto-section"[\s\S]*manifesto-game-card[\s\S]*img\/hinhthebai\.jpg[\s\S]*\$\{renderGameShortcut\(\)\}[\s\S]*<\/section>[\s\S]*`;\s*\}/,
+  "Expected renderManifesto() to render a visual game CTA panel inside the section 5 manifesto flow."
 );
 
 assert.match(
   appSource,
-  /function renderTransitionVisual\(\)\s*\{(?:(?!\$\{renderGameShortcut\(\)\})[\s\S])*`;\s*\}/,
-  "Expected renderTransitionVisual() to stop rendering the game shortcut inside the transition layout."
+  /function renderApp\(\)\s*\{(?:(?!\$\{renderGameShortcut\(\)\})[\s\S])*`;\s*\}/,
+  "Expected renderApp() to stop rendering the game shortcut as a page-level floating CTA."
 );
 
 assert.match(
   styleSource,
-  /\.game-shortcut\s*\{[\s\S]*position:\s*fixed;[\s\S]*right:\s*32px;[\s\S]*bottom:\s*32px;[\s\S]*z-index:\s*(50|100);[\s\S]*min-height:\s*44px;[\s\S]*border-radius:\s*999px;/,
-  "Expected desktop styles to anchor the game shortcut as a floating fixed pill."
+  /\.game-shortcut\s*\{(?:(?!position:\s*fixed)[\s\S])*display:\s*inline-flex;[\s\S]*min-height:\s*44px;[\s\S]*border-radius:\s*999px;/,
+  "Expected desktop styles to keep the section 5 game shortcut as an inline pill, not a fixed control."
 );
 
 assert.match(
@@ -51,19 +51,19 @@ assert.match(
 assert.match(
   styleSource,
   /\.game-shortcut:hover\s*\{[\s\S]*transform:\s*translateY\(-2px\)/,
-  "Expected hover styles to lift the floating shortcut subtly."
+  "Expected hover styles to lift the section CTA subtly."
 );
 
 assert.match(
   styleSource,
-  /@media \(max-width: 980px\)[\s\S]*\.game-shortcut\s*\{[\s\S]*right:\s*24px;[\s\S]*bottom:\s*24px;/,
-  "Expected tablet styles to move the floating shortcut inward."
+  /\.manifesto-game-card\s*\{[\s\S]*display:\s*grid;[\s\S]*grid-template-columns:[\s\S]*\.manifesto-game-visual\s*\{[\s\S]*\.\.\/img\/hinhthebai/u,
+  "Expected the manifesto CTA to include a composed visual panel with the game image."
 );
 
 assert.match(
   styleSource,
-  /@media \(max-width: 640px\)[\s\S]*\.game-shortcut\s*\{[\s\S]*right:\s*16px;[\s\S]*bottom:\s*16px;[\s\S]*min-height:\s*44px;/,
-  "Expected mobile styles to keep the floating shortcut reachable with a 44px touch target."
+  /@media \(max-width: 640px\)[\s\S]*\.game-shortcut\s*\{[\s\S]*width:\s*100%;[\s\S]*min-height:\s*44px;/,
+  "Expected mobile styles to make the section CTA full-width with a 44px touch target."
 );
 
-console.log("game-shortcut-card: floating structure checks passed");
+console.log("game-shortcut-card: section 5 structure checks passed");

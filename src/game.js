@@ -223,11 +223,12 @@
                 const question = data.game.questions[questionIndex];
                 const isSelected = selectedPos === pos;
                 const isDone = completed.has(pos);
+                if (isDone) return '';
                 return `
-                  <button class="quiz-mini-card${isSelected ? ' selected' : ''}${isDone ? ' answered' : ''}" type="button" data-card="${pos}" ${isDone ? 'disabled' : ''}>
+                  <button class="quiz-mini-card${isSelected ? ' selected' : ''}" type="button" data-card="${pos}">
                     <span class="quiz-card-face quiz-card-front">
                       <small>Lá ${pos + 1}</small>
-                      <strong>${isDone ? 'Đã trả lời' : 'Chọn thẻ'}</strong>
+                      <strong>Chọn thẻ</strong>
                     </span>
                     <span class="quiz-card-face quiz-card-back">
                       <small>Lá ${pos + 1}</small>
@@ -460,11 +461,12 @@
                 const scenario = config.scenarios[scenarioIndex];
                 const isDone = completed.has(pos);
                 const isSelected = selectedPos === pos;
+                if (isDone) return '';
                 return `
-                  <button class="quiz-mini-card${isSelected ? ' selected' : ''}${isDone ? ' answered' : ''}" type="button" data-card="${pos}" ${isDone ? 'disabled' : ''}>
+                  <button class="quiz-mini-card${isSelected ? ' selected' : ''}" type="button" data-card="${pos}">
                     <span class="quiz-card-face quiz-card-front">
                       <small>Lá ${pos + 1}</small>
-                      <strong>${isDone ? 'Đã trả lời' : 'Chọn thẻ'}</strong>
+                      <strong>Chọn thẻ</strong>
                     </span>
                     <span class="quiz-card-face quiz-card-back">
                       <small>Lá ${pos + 1}</small>

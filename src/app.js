@@ -41,28 +41,8 @@
     return paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("");
   }
 
-  const manifestoHighlightPhrases = [
-    "AI là đỉnh cao của sự vận động vật chất",
-    "AI là sản phẩm kết tinh từ ý thức con người",
-    "Sự phản ánh của AI không thể thay thế bản chất người",
-    "Chủ nghĩa duy tâm thần bí",
-    "Chủ nghĩa duy vật tầm thường",
-    "bản lĩnh của một chủ thể có ý thức",
-    "AI không thay thế con người",
-    "biết làm chủ AI",
-    "tương lai công nghệ nhân văn và tiến bộ",
-  ];
-
   function renderManifestoText(text = "") {
-    const pattern = new RegExp(
-      manifestoHighlightPhrases
-        .map((phrase) => phrase.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
-        .sort((a, b) => b.length - a.length)
-        .join("|"),
-      "g"
-    );
-
-    return text.replace(pattern, (match) => `<mark class="manifesto-highlight">${match}</mark>`);
+    return text;
   }
 
   function renderManifestoParagraphs(paragraphs = []) {
@@ -606,6 +586,32 @@
               ${renderManifestoText(data.manifesto.finalStatement)}
             </blockquote>
           </section>
+          <div class="manifesto-game-cta reveal">
+            <section class="manifesto-game-card" aria-label="Lối vào trò chơi tư duy">
+              <figure class="manifesto-game-visual">
+                <img
+                  src="img/hinhthebai.jpg"
+                  alt="Hai bàn tay số hóa chạm vào nhau"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <div class="manifesto-game-copy">
+                <p class="manifesto-game-kicker">Interactive quest</p>
+                <h3>Thử thách bản lĩnh nhận thức</h3>
+                <p>
+                  Bước vào một vòng câu hỏi ngắn để kiểm tra cách bạn phân biệt vật chất,
+                  ý thức và vai trò của AI trong thế giới số.
+                </p>
+                <div class="manifesto-game-tags" aria-label="Chủ đề trong trò chơi">
+                  <span>Ý thức</span>
+                  <span>AI</span>
+                  <span>Vật chất</span>
+                </div>
+                ${renderGameShortcut()}
+              </div>
+            </section>
+          </div>
         </div>
       </section>
     `;
@@ -622,7 +628,6 @@
         ${renderVision()}
         ${renderManifesto()}
       </main>
-      ${renderGameShortcut()}
     `;
   }
 

@@ -72,6 +72,11 @@ assert.match(appSource, /manifesto-title-subline/);
 assert.match(appSource, /manifesto-synthesis-grid/);
 assert.match(appSource, /manifesto-box/);
 assert.match(appSource, /manifesto-quote/);
+assert.doesNotMatch(
+  appSource,
+  /<mark class="manifesto-highlight">/,
+  "Expected manifesto copy to render without inline highlight mark elements."
+);
 assert.doesNotMatch(appSource, /data\.manifesto\.eyebrow/);
 assert.doesNotMatch(appSource, /data\.manifesto\.title/);
 assert.doesNotMatch(appSource, /artifact-grid reveal/);
@@ -81,5 +86,10 @@ assert.match(styleSource, /\.manifesto-title-main/);
 assert.match(styleSource, /\.manifesto-title-subline/);
 assert.match(styleSource, /\.manifesto-synthesis-grid/);
 assert.match(styleSource, /\.manifesto-quote/);
+assert.doesNotMatch(
+  styleSource,
+  /\.manifesto-highlight/,
+  "Expected highlight-specific manifesto styles to be removed."
+);
 
 console.log("manifesto-section: exact content and layout checks passed");
