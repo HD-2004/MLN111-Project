@@ -20,11 +20,10 @@ function initHeroScene(canvas) {
     canvas,
     alpha: true,
     antialias: true,
-    preserveDrawingBuffer: true,
     powerPreference: "high-performance",
   });
   renderer.setClearColor(0x000000, 0);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.8));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.45));
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
@@ -55,7 +54,7 @@ function initHeroScene(canvas) {
   system.add(core, shell, orbit);
 
   const particleGeometry = new THREE.BufferGeometry();
-  const particleCount = 760;
+  const particleCount = 360;
   const positions = new Float32Array(particleCount * 3);
   const colors = new Float32Array(particleCount * 3);
   const cyan = new THREE.Color(0x63d7ff);
@@ -126,11 +125,15 @@ function initHeroScene(canvas) {
 
   const clock = new THREE.Clock();
 
+  function isIntroBlocking() {
+    return document.body.classList.contains("intro-is-open");
+  }
+
   function render() {
     const elapsed = clock.getElapsedTime();
     const drift = reducedMotion ? 0 : elapsed;
 
-    if (active || reducedMotion) {
+    if ((active && !isIntroBlocking()) || reducedMotion) {
       core.rotation.set(drift * 0.16 + pointer.y * 0.08, drift * 0.22 + pointer.x * 0.14, 0);
       shell.rotation.set(drift * -0.08, drift * 0.18, drift * 0.05);
       orbit.rotation.z = 0.36 + drift * 0.1;

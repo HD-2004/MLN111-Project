@@ -32,11 +32,10 @@ function initSection2GearPhilosophy(canvas, root) {
     canvas,
     alpha: true,
     antialias: true,
-    preserveDrawingBuffer: true,
     powerPreference: "high-performance",
   });
   renderer.setClearColor(0x000000, 0);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.7));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.4));
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
@@ -95,7 +94,7 @@ function initSection2GearPhilosophy(canvas, root) {
   });
 
   const particleGeometry = new THREE.BufferGeometry();
-  const particleCount = 420;
+  const particleCount = 240;
   const positions = new Float32Array(particleCount * 3);
   const colors = new Float32Array(particleCount * 3);
 
@@ -174,11 +173,15 @@ function initSection2GearPhilosophy(canvas, root) {
 
   const clock = new THREE.Clock();
 
+  function isIntroBlocking() {
+    return document.body.classList.contains("intro-is-open");
+  }
+
   function render() {
     const elapsed = clock.getElapsedTime();
     const drift = reducedMotion ? 0 : elapsed;
 
-    if (active || reducedMotion) {
+    if ((active && !isIntroBlocking()) || reducedMotion) {
       system.rotation.y = drift * 0.12 + pointer.x * 0.16;
       system.rotation.x = pointer.y * 0.08;
       core.rotation.y = drift * 0.26;
