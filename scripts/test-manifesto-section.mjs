@@ -59,7 +59,7 @@ assert.equal(JSON.stringify(manifesto.manifestoText), JSON.stringify([
 ]));
 assert.equal(
   manifesto.finalStatement,
-  "\"AI không thay thế con người. Chỉ có những con người biết làm chủ AI sẽ thay thế những con người tụt hậu. Hãy dùng ý thức đúng đắn để làm chủ thế giới vật chất số hóa, định hình một tương lai công nghệ nhân văn và tiến bộ!\""
+  "\"Trong kỷ nguyên số, AI có thể trở thành đôi cánh đưa nhân loại tiến xa hơn. Nhưng hướng bay của đôi cánh ấy vẫn được quyết định bởi ý thức, giá trị và trách nhiệm của con người. Khi công nghệ đồng hành cùng nhân văn, tương lai sẽ không chỉ thông minh hơn mà còn tốt đẹp hơn.\""
 );
 
 assert.match(appSource, /manifesto-section/);
@@ -90,6 +90,11 @@ assert.match(styleSource, /\.manifesto-title-main/);
 assert.match(styleSource, /\.manifesto-title-subline/);
 assert.match(styleSource, /\.manifesto-synthesis-grid/);
 assert.match(styleSource, /\.manifesto-quote/);
+assert.match(
+  styleSource,
+  /\.manifesto-quote\s*\{[\s\S]*text-align:\s*center;/,
+  "Expected the manifesto final quote text to be centered."
+);
 assert.doesNotMatch(
   styleSource,
   /\.manifesto-highlight/,

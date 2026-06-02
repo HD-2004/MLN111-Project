@@ -4042,6 +4042,7 @@ p {
   font-weight: 800;
   line-height: 1.28;
   letter-spacing: 0;
+  text-align: center;
   text-wrap: balance;
   text-shadow: 0 0 36px rgba(212, 168, 79, 0.13);
 }

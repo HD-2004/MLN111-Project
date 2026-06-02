@@ -1032,6 +1032,6 @@ window.APP_DATA = {
       "Bản lĩnh của con người trong kỷ nguyên số là bản lĩnh của một chủ thể có ý thức. Máy móc có thể sở hữu tốc độ xử lý hàng tỷ phép tính mỗi giây, nhưng con người sở hữu trái tim biết rung động, ý chí hướng tới các giá trị nhân văn và năng lực cải tạo xã hội thông qua hoạt động thực tiễn.",
     ],
     finalStatement:
-      "\"AI không thay thế con người. Chỉ có những con người biết làm chủ AI sẽ thay thế những con người tụt hậu. Hãy dùng ý thức đúng đắn để làm chủ thế giới vật chất số hóa, định hình một tương lai công nghệ nhân văn và tiến bộ!\"",
+      "\"Trong kỷ nguyên số, AI có thể trở thành đôi cánh đưa nhân loại tiến xa hơn. Nhưng hướng bay của đôi cánh ấy vẫn được quyết định bởi ý thức, giá trị và trách nhiệm của con người. Khi công nghệ đồng hành cùng nhân văn, tương lai sẽ không chỉ thông minh hơn mà còn tốt đẹp hơn.\"",
   },
 };
