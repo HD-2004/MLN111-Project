@@ -19,9 +19,9 @@ assert.equal(
   "Expected the full Chapter 5 heading from the prompt to be preserved."
 );
 assert.equal(
-  manifesto.interfaceNote,
-  "(Giao diện: Khối hộp kết luận lớn, chữ phát sáng, mang tính tổng kết và kêu gọi hành động)",
-  "Expected the interface note from the prompt to be visible content."
+  Object.hasOwn(manifesto, "interfaceNote"),
+  false,
+  "Expected the removed interface note to stay absent from the Manifesto data."
 );
 assert.equal(manifesto.synthesisHeading, "Khái quát luận điểm học thuật (Synthesis)");
 assert.equal(
@@ -64,7 +64,11 @@ assert.equal(
 
 assert.match(appSource, /manifesto-section/);
 assert.match(appSource, /data\.manifesto\.chapterHeading/);
-assert.match(appSource, /data\.manifesto\.interfaceNote/);
+assert.doesNotMatch(
+  appSource,
+  /data\.manifesto\.interfaceNote|manifesto-interface-note/,
+  "Expected the removed interface note to not render an undefined placeholder."
+);
 assert.match(appSource, /renderManifestoHeading\(data\.manifesto\.chapterHeading\)/);
 assert.match(appSource, /manifesto-title-kicker/);
 assert.match(appSource, /manifesto-title-main/);

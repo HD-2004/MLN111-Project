@@ -519,12 +519,19 @@ main {
 h1,
 h2,
 h3,
+h4,
+h5,
+h6,
 p {
   margin-top: 0;
 }
 
 h1,
-h2 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--serif);
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -1504,7 +1511,7 @@ p {
 .game-shortcut__title {
   display: block;
   color: var(--gold);
-  font-family: var(--body);
+  font-family: var(--serif);
   font-size: 0.82rem;
   font-weight: 700;
   line-height: 1;
@@ -2897,7 +2904,7 @@ p {
 
 .comparison-row h3 {
   color: var(--cyan);
-  font-family: var(--body);
+  font-family: var(--serif);
   font-size: clamp(0.88rem, 1.1vw, 1rem);
   font-weight: 600;
   letter-spacing: 0.01em;
@@ -3828,14 +3835,14 @@ p {
   gap: clamp(8px, 1vw, 14px);
   max-width: 1040px;
   margin: 0 auto;
-  font-family: var(--body);
+  font-family: var(--serif);
   font-weight: 800;
   text-wrap: balance;
 }
 
 .manifesto-title-kicker {
   color: var(--gold);
-  font-family: var(--body);
+  font-family: var(--serif);
   font-size: clamp(0.78rem, 1.1vw, 0.98rem);
   font-weight: 800;
   letter-spacing: 0.22em;
@@ -3909,7 +3916,7 @@ p {
 .manifesto-subhead h3 {
   max-width: 820px;
   margin: 18px auto 0;
-  font-family: var(--body);
+  font-family: var(--serif);
   font-size: clamp(1.65rem, 3.2vw, 2.85rem);
   font-weight: 800;
   line-height: 1.18;
@@ -3973,7 +3980,7 @@ p {
 
 .manifesto-card h4 {
   margin: 0;
-  font-family: var(--body);
+  font-family: var(--serif);
   font-size: clamp(1.25rem, 1.8vw, 1.7rem);
   font-weight: 800;
   line-height: 1.28;
@@ -4119,7 +4126,7 @@ p {
 .manifesto-game-copy h3 {
   max-width: 620px;
   margin: 0;
-  font-family: var(--body);
+  font-family: var(--serif);
   font-size: clamp(1.55rem, 3vw, 2.75rem);
   font-weight: 800;
   line-height: 1.14;

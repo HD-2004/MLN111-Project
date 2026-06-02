@@ -550,7 +550,6 @@
         <div class="manifesto-shell">
           <header class="manifesto-hero reveal">
             <h2 aria-label="${data.manifesto.chapterHeading}">${renderManifestoHeading(data.manifesto.chapterHeading)}</h2>
-            <p class="manifesto-interface-note">${data.manifesto.interfaceNote}</p>
           </header>
 
           <section class="manifesto-synthesis reveal" aria-labelledby="manifesto-synthesis-heading">

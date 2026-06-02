@@ -1006,8 +1006,6 @@ window.APP_DATA = {
 
   manifesto: {
     chapterHeading: "CHƯƠNG 5: THE MANIFESTO – BẢN LĨNH Ý THỨC VÀ KHÁI QUÁT CHUNG",
-    interfaceNote:
-      "(Giao diện: Khối hộp kết luận lớn, chữ phát sáng, mang tính tổng kết và kêu gọi hành động)",
     synthesisHeading: "Khái quát luận điểm học thuật (Synthesis)",
     synthesisIntro:
       "Trải qua hành trình bóc tách từ lịch sử tư tưởng đến thực tại công nghệ, Triết học Mác - Lênin cho phép chúng ta đưa ra một kết luận toàn diện và khách quan:",
