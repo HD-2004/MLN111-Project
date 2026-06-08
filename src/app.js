@@ -616,6 +616,38 @@
     `;
   }
 
+  function renderFooter() {
+    const members = [
+      { name: "Đỗ Hoàng Hiếu", studentId: "SE184340" },
+      { name: "Lê Tấn Lực", studentId: "SE184288" },
+      { name: "Nguyễn Thị Anh Thư", studentId: "SE184907" },
+      { name: "Nguyễn Duy Khang", studentId: "SE184145" },
+    ];
+
+    return `
+      <footer class="site-footer" aria-labelledby="site-footer-heading">
+        <div class="site-footer__inner">
+          <div class="site-footer__heading">
+            <p class="eyebrow">Project team</p>
+            <h2 id="site-footer-heading">Thành viên nhóm</h2>
+          </div>
+          <ul class="site-footer__members">
+            ${members
+              .map(
+                (member) => `
+                  <li class="site-footer__member">
+                    <strong>${member.name}</strong>
+                    <span>Mã số sinh viên: ${member.studentId}</span>
+                  </li>
+                `
+              )
+              .join("")}
+          </ul>
+        </div>
+      </footer>
+    `;
+  }
+
   function renderApp() {
     app.innerHTML = `
       ${renderNav()}
@@ -627,6 +659,7 @@
         ${renderVision()}
         ${renderManifesto()}
       </main>
+      ${renderFooter()}
     `;
   }
 
